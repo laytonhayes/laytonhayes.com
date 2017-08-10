@@ -1,0 +1,80 @@
+extends layout
+
+block content
+  #page.home(data-theme='#fdb813')
+    section#home.home
+      #homeCopy.copy
+        h1.themeColor.margin
+          span#time Good Day.
+        p
+          | This is the Portfolio of Layton Hayes, an interactive 
+          br
+          | designer, developer, and producer based in Seattle, Cascadia.
+      ul#downArrows.downArrows
+        li
+        li
+        li
+    canvas#particles
+    a.portBlock.nav.washingMachineMicro(href='/washing-machine-microsite')
+      .copy
+        h2 Washing Machine Microsite
+        ul.workList
+          li CSS_Animation
+          li FrontEnd_Coding
+          li Motion_Design
+      .poster
+    a.portBlock.nav.urbanInfluence(href='/urban-influence')
+      .copy
+        h2 Urban Influence
+        ul.workList
+          li Art_Direction
+          li FrontEnd_Architecture
+          li UX_Design
+      .poster
+    a.portBlock.nav.washingMachine(href='/washing-machine')
+      .copy
+        h2 Washing Machine App
+        ul.workList
+          li Art_Direction
+          li Motion_Design
+          li UX_Design
+      .poster
+    a.portBlock.nav.avalara(href='/avalara')
+      .copy
+        h2 Avalara Tax Calculator
+        ul.workList
+          li Art_Direction
+          li FrontEnd_Coding
+          li UX_Design
+      .poster
+    a.portBlock.nav.seattleMet(href='/seattle-met')
+      .copy
+        h2 Seattle Met
+        ul.workList
+          li FrontEnd_Architecture
+      .poster
+    a.portBlock.nav.holidayHarold(href='/holiday-harold')
+      .copy
+        h2 Holiday Harold
+        ul.workList
+          li Drink_Recipes
+          li FrontEnd_Coding
+          li Photo_Styling
+      .poster
+    a.portBlock.nav.bitsAndPieces(href='/bits-and-pieces')
+      .copy
+        h2 Bits + Pieces
+        ul.workList
+          li A_collection_of_other_projects_and_doodlings
+      .poster
+    footer
+      h1.margin Howdy. I'm Layton.
+      p
+        | Designing beautiful interactions with ones and zeros. A singer of sentimental ballads, a raconteur, record collector, musician, and maker of wearable electronics, I thrive on melding technology and art.
+      ul
+        li.linkedin
+          a(href='http://www.linkedin.com/in/laytonhayes', target='_blank')
+        li.instagram
+          a(href='http://instagram.com/laytonhayes', target='_blank')
+        li.github
+          a(href='http://github.com/laytonhayes', target='_blank')

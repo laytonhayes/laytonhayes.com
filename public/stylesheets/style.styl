@@ -1,0 +1,391 @@
+$blue = #82d2e5
+$darkBlue = #0082c8
+$orange = #fdb813
+$green = #c1d72e
+$gray = #bebdbd
+$lightGray = #dedede
+$darkGray = #5c5c5c
+$border = 6px
+
+/*  GLOBAL RESETS  */
+body,p,table,tr,td,ul,ol,li,dl,dd,dt,div,span,a,h1,h2,h3,h4,h5,h6,fieldset
+  margin: 0
+  padding: 0
+  background-repeat: no-repeat
+a img
+  border: none
+a
+  text-decoration: none
+fieldset
+  border: none
+:focus
+  outline: 0 none
+input::-moz-focus-inner,button::-moz-focus-inner
+  border: none
+ul li
+  list-style: none
+/*  FONTS  */
+@font-face
+  font-family: 'Brandon'
+  src: url("/fonts/brandon.eot")
+  src: url("/fonts/brandon.eot?#iefix") format("embedded-opentype"), url("/fonts/brandon.woff") format("woff"), url("/fonts/brandon.ttf") format("truetype"), url("/fonts/brandon.svg#brandon") format("svg")
+  font-weight: normal
+  font-style: normal
+/* GLOBAL */
+html
+  font-size: 100%
+  height: 100%
+body
+  font: 1.2rem/1.5rem 'Bitter', sans-serif
+  color: $darkGray
+  min-width: 768px
+  min-height: 500px
+  position: relative
+  padding-bottom: $border
+  -webkit-font-smoothing: antialiased
+  .borderLR
+    position: fixed
+    width: $border
+    top: 0
+    bottom: 0
+    &.left
+      left: 0
+    &.right
+      right: 0
+  .borderTB
+    position: fixed
+    height: $border
+    left: 0
+    right: 0
+    &.top
+      top: 0
+    &.bottom
+      bottom: 0
+header
+  margin-top: 4rem
+section
+  padding: 3rem 0
+p
+  max-width: 1240px
+  margin-bottom: 1.2rem
+a
+  color: $darkGray
+  background-image: url("/images/linkArrow.png")
+  background-position: right center
+  background-size: 15px 10px
+  background-color: $lightGray
+  padding: 0 1.2rem 0 .5rem
+  transition: background .2s
+  -webkit-transition: background .2s
+  &:hover
+    background-color: $gray
+h1
+  font: 3.4rem/3.6rem 'Brandon', sans-serif
+  font-weight: normal
+  &.margin
+    margin-bottom: .5rem
+  &.fixed
+    position: fixed
+    top: 0
+    left: 60px
+h2
+  font: 2.4rem/2.6rem 'Brandon', sans-serif
+  font-weight: normal
+  margin: 0 0 2rem -.8rem
+  padding: 0 .5rem
+  line-height: 60px
+  color: #fff
+  display: inline-block
+  z-index: 100
+h2#heading
+  position: fixed
+  top: 0
+hr
+  margin-top: 6rem
+  border: none
+  background: $gray
+  height: 1px
+ul.workList
+  margin-bottom: 1.2rem
+  li
+    display: inline
+    margin-right: 1.2rem
+    &:before
+      content: '+'
+div#page
+  padding: 1% 4.5rem
+nav
+  position: fixed
+  top: 0
+  left: 0
+  z-index: 100
+  a
+    display: block
+    height: 60px
+    width: 60px
+    background-image: url("/images/logo.png")
+    background-size: 40px 44px
+    background-position: 12px 10px
+    padding: 0
+    transition: none
+    -webkit-transition: none
+a.sideNav
+  position: fixed
+  width: 3.5rem
+  height: 5rem
+  top: 40%
+  transition: all .15s
+  -webkit-transition: all .15s
+  background-repeat: no-repeat
+  background-size: 25px 20px !important
+  line-height: 5rem
+  opacity: .5
+  color: white
+  font-family: 'Brandon', sans-serif
+  font-weight: bold
+  text-transform: uppercase
+  &:hover
+    opacity: 1
+  &.prev
+    left: -5.5rem
+    width: 4.5rem
+    background-image: url("/images/linkArrowBigPrev.png")
+    background-position: right center
+    background-size: contain
+    border-radius: 0 4px 4px 0
+    padding-right: 3rem
+    text-align: right
+    &:hover
+      -webkit-transform: translate3d(5.5rem, 0, 0)
+      transform: translate3d(5.5rem, 0, 0)
+  &.next
+    right: -5.5rem
+    padding-left: 3rem
+    background-image: url("/images/linkArrowBigNext.png")
+    background-position: left center
+    background-size: contain
+    border-radius: 4px 0 0 4px
+    &:hover
+      -webkit-transform: translate3d(-5.5rem, 0, 0)
+      transform: translate3d(-5.5rem, 0, 0)
+    &.base
+      -webkit-transform: translate3d(-5.5rem, 0, 0)
+      transform: translate3d(-5.5rem, 0, 0)
+      opacity: 1
+.themeBackground
+  transition: background 1s
+
+
+/*  MAIN PAGE  */
+div#page.home
+  padding: 0
+  &.about
+    canvas
+      position: absolute
+section.home
+  margin: 0
+  padding: 0
+  position: absolute
+  width: 100%
+  div.copy
+    position: absolute
+    left: 6%
+    top: 260px
+    p
+      max-width: 44rem
+    &.about
+      text-align: center
+      position: relative
+      left: auto
+      p
+        max-width: 48rem
+        margin: auto
+  ul.downArrows
+    position: fixed
+    width: 100%
+    bottom: 2rem
+    opacity: 1
+    transition: opacity 1s
+    -webkit-transition: opacity 1s
+    li
+      background-image: url("/images/downArrow.png")
+      background-size: contain
+      width: 60px
+      height: 24px
+      margin: -2px auto
+      opacity: 0
+      &:nth-child(1)
+        -webkit-animation: arrows1 3s .5s infinite ease-in
+        animation: arrows1 3s .5s infinite ease-in
+      &:nth-child(2)
+        -webkit-animation: arrows2 3s .8s infinite ease-in
+        animation: arrows2 3s .8s infinite ease-in
+      &:nth-child(3)
+        -webkit-animation: arrows3 3s 1.1s infinite ease-in
+        animation: arrows3 3s 1.1s infinite ease-in
+    &.hide
+      opacity: 0
+a.portBlock
+  width: 100%
+  overflow: hidden
+  color: #fff
+  position: relative
+  display: table
+  padding: 0
+  background-image: none
+  h2
+    margin-bottom: .4rem
+  div.copy
+    vertical-align: middle
+    display: table-cell
+    padding-left: 6%
+  div.poster
+    width: 550px
+    height: 360px
+    margin-right: -150px
+    float: right
+    background-size: contain
+    transition: margin .2s
+    -webkit-transition: margin .2s
+  &:hover
+    div.poster
+      margin-right: $border
+  &.washingMachineMicro
+    background: $blue
+    div.poster
+      background-image: url("/images/portfolio/list/washingMachineMicro.jpg")
+  &.urbanInfluence
+    background: #f87f0a
+    div.poster
+      background-image: url("/images/portfolio/list/urbanInfluence.jpg")
+  &.washingMachine
+    background: #71af07
+    div.poster
+      background-image: url("/images/portfolio/list/washingMachine.jpg")
+  &.holidayHarold
+    background: #a0914b
+    div.poster
+      background-image: url("/images/portfolio/list/holidayHarold.jpg")
+  &.seattleMet
+    background: #ef4d27
+    div.poster
+      background-image: url("/images/portfolio/list/seattleMet.jpg")
+  &.avalara
+    background: #0099c8
+    div.poster
+      background-image: url("/images/portfolio/list/avalara.jpg")
+  &.bitsAndPieces
+    background: #92bfd3
+    div.poster
+      background-image: url("/images/portfolio/list/bitsAndPieces.jpg")
+div.web
+  border: 2px solid $gray
+  border-radius: 4px
+  max-width: 1200px
+  position: relative
+  margin-top: 2rem
+  div.head
+    background: $gray
+    padding: 8px 20px 10px 20px
+    div.nav
+      height: 20px
+      width: 60px
+      background-image: url("/images/webArrows")
+      background-size: contain
+      float: left
+      margin-top: 4px
+    div.url
+      font-family: 'Lucida Grande', sans-serif
+      font-size: 14px
+      color: $gray
+      background: #fff
+      margin-left: 80px
+      line-height: 16px
+      padding: 5px 5px 5px 10px
+      border-radius: 3px
+  img
+    max-width: 100%
+    &.overlay
+      position: absolute
+      top: 0
+      left: 0
+  video
+    max-width: 100%
+    position: absolute
+    top: 0
+    left: 0
+    &.washHeading
+      width: 72%
+      margin: 44px 0 0 15.4%
+  div.wrapper
+    position: relative
+  div.reveal
+    position: absolute
+    overflow: hidden
+    border-right: solid 1px $lightGray
+  &.clear
+    overflow: hidden
+    img
+      float: left
+  &.small
+    max-width: 950px
+  &.app
+    border: none
+    div.reveal
+      border: none
+footer
+  padding: 5rem 10% 4rem 10%
+  text-align: center
+  p
+    width: 48rem
+    margin: auto
+  ul
+    margin-top: 4rem
+    li
+      display: inline-block
+      width: 30%
+      a
+        height: 100px
+        width: 100px
+        display: inline-block
+        background-image: url("/images/footerLogos.png")
+        background-size: 340px 100px
+        background-color: transparent
+        background-position: 0 0
+        padding: 0 !important
+        opacity: .5
+        transition: opacity .2s
+        -webkit-transition: opacity .2s
+        &:hover
+          background-color: transparent
+          opacity: 1
+      &.github
+        text-align: right
+      &.instagram
+        a
+          background-position: -120px 0
+      &.linkedin
+        text-align: left
+        a
+          background-position: -240px 0
+  &.about
+    padding: 0
+    width: 80%
+    position: fixed
+    bottom: 4rem
+    left: 10%
+    min-width: 768px
+@media (max-width: 960px)
+  html
+    font-size: 84%
+  nav a
+    width: 50px
+    height: 50px
+    background-position: 5px 3px
+  h2
+    line-height: 50px
+@media (min-width: 1400px)
+  html
+    font-size: 112%
+  div#page
+    padding: 1% 4rem

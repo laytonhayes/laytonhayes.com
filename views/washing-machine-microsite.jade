@@ -1,0 +1,74 @@
+extends layout
+
+block content
+  #page(data-theme='#82d2e5')
+    header
+      section
+        h1.themeColor Washing Machine Microsite
+        h2#heading.themeBackground
+        ul.workList.themeColor
+          li CSS_Animation
+          li FrontEnd_Coding
+          li Motion_Design
+        p
+          | To promote 
+          a.nav(href='/washing-machine') Washing Machine
+          | , a Mac App we designed at Urban Influence, this microsite was created to be linked from Intego's main sales site. This allowed us to be free of the visual and technical restraints posed by 
+          a(href='http://www.intego.com', target='_blank') intego.com
+          |  and focus on showing users how Washing Machine keeps your Mac tidy.
+        p
+          | The site needed to quickly convey how Washing Machine cleans and organizes a Mac, be localized in multiple languages, and look great on high resolution retina displays.
+        p
+          a(href='http://www.macwashingmachine.com', target='_blank') Visit the Site
+        hr
+    section
+      h2.themeBackground Making pixels dance
+      p
+        | From the get-go we knew static images would not be sufficient enough to show some of the more abstract concepts of organizing and deleting files. We wanted to show Washing Machine in action and use animation to illustrate its functions, but there were no pre-canned solutions.
+      p
+        | After a some proof-of-concept testing we decided to create the animations using CSS3 and very minimal JavaScript. By using 
+        a(href='http://www.w3schools.com/css/css3_3dtransforms.asp', target='_blank') CSS 3D Transforms
+        |  to render the animations via the GPU, animations were smooth and scalable across many devices.
+      .web
+        .head
+          .nav
+          .url
+            | www.macwashingmachine.com
+        img(src='/images/portfolio/washingMachineMicrosite/home.jpg')
+        video.washHeading
+          source(src='/images/portfolio/washingMachineMicrosite/heading.mp4', type='video/mp4')
+          source(src='/images/portfolio/washingMachineMicrosite/heading.ogv', type='video/ogg')
+    section
+      h2.themeBackground Beauty in any language
+      p
+        | Because Washing Machine is localized for five different languages, the Microsite needed to be too. Localization always provides a unique set of challenges when building a website. How to input different languages from multiple translators, how will the content grow or shrink depending on the displayed language, how to handle screenshots of the App?
+      p
+        | For this approach, all languages were loaded in their own 
+        a(href='http://en.wikipedia.org/wiki/YAML', target='_blank') YAML
+        |  file that was then rendered by Ruby on Rails. The App animations were recreated in HTML using live text. This allowed any content changes to be easily translated and updated in code rather than re-rendering images.
+      .web
+        .head
+          .nav
+          .url
+            | www.macwashingmachine.com
+        .reveal
+          img(src='/images/portfolio/washingMachineMicrosite/langJapanese.jpg')
+        img(src='/images/portfolio/washingMachineMicrosite/langGerman.jpg')
+    section
+      h2.themeBackground Standard or tiny pixels
+      p
+        | Precision crafted graphics need not be lost on the web. We had created resolution independent and retina sites before, but this was the first endeavor in creating a retina site with image rich content.
+      p
+        | To achieve pixel perfection on the web, every image on the page needs two files, a standard resolution and retina resolution that is twice the size. To automate this process a 
+        a(href='http://sass-lang.com', target='_blank') Sass
+        |  Mixin was used to detect screen resolution based on a CSS Media Query and load the appropriate image.
+      p The end result has screenshots looking as good on the web as the actual App.
+      .web
+        .head
+          .nav
+          .url
+            | www.macwashingmachine.com
+        .wrapper
+          img(src='/images/portfolio/washingMachineMicrosite/retina.jpg')
+          img.overlay(src='/images/portfolio/washingMachineMicrosite/retinaDetail.png')
+  a.nav.sideNav.next(style='background-color:#f87f0a;', href='/urban-influence') Next
