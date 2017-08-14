@@ -16,13 +16,13 @@ function navigation() {
     var link = $(this).attr('href');
     ajaxLoad(link);
     window.history.pushState('', '', link);
-    _gaq.push(['_trackPageview', link]);
+/*    _gaq.push(['_trackPageview', link]); */
   });
 }
 function ajaxLoad(url) {
   $('#content').fadeOut(200, function() {
     $.ajax({
-      type:    'POST',
+      type:    'GET',
       url:     url,
       timeout: 5000,
       success: function(d){

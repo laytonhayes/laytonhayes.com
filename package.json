@@ -10,10 +10,8 @@
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
     "express": "~4.15.2",
-    "express-jquery": "^1.8.3",
     "jade": "~1.11.0",
     "morgan": "~1.8.1",
-    "pug": "^2.0.0-rc.3",
     "serve-favicon": "~2.4.2",
     "stylus": "0.54.5"
   }

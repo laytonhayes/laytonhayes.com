@@ -1,4 +1,5 @@
-extends layout
+if(!isAjax)
+  extends layout
 
 block content
   #page(data-theme='#82d2e5')
@@ -18,8 +19,6 @@ block content
           |  and focus on showing users how Washing Machine keeps your Mac tidy.
         p
           | The site needed to quickly convey how Washing Machine cleans and organizes a Mac, be localized in multiple languages, and look great on high resolution retina displays.
-        p
-          a(href='http://www.macwashingmachine.com', target='_blank') Visit the Site
         hr
     section
       h2.themeBackground Making pixels dance

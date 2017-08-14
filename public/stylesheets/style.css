@@ -373,7 +373,7 @@ div.web div.head {
 div.web div.head div.nav {
   height: 20px;
   width: 60px;
-  background-image: url("/images/webArrows");
+  background-image: url("/images/webArrows.png");
   background-size: contain;
   float: left;
   margin-top: 4px;
