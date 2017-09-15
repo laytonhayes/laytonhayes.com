@@ -43,7 +43,6 @@ html
 body
   font: 1.8rem/2.4rem 'Bitter', sans-serif
   color: $darkGray
-  min-width: 768px
   min-height: 500px
   position: relative
   padding-bottom: $border
@@ -73,17 +72,6 @@ section
 p
   max-width: 1240px
   margin-bottom: 2rem
-a
-  color: $darkGray
-  background-image: url("/images/linkArrow.png")
-  background-position: right center
-  background-size: 15px 10px
-  background-color: $lightGray
-  padding: 0 1.2rem 0 .5rem
-  transition: background .2s
-  -webkit-transition: background .2s
-  &:hover
-    background-color: $gray
 h1
   font: 5.4rem/5.8rem 'Brandon', sans-serif
   font-weight: normal
@@ -250,13 +238,22 @@ section.home
 }
 
 section.portfolio
-  padding: 0 15px
+  padding: 0 6rem
   a.portBlock
     height: 42rem
     display: block
     position: relative
     overflow: hidden
     margin: 9px
+    padding: 0
+    background-size: cover
+    background-position: 50% 50%
+    video
+      position: absolute
+      top: 50%; left: 50%
+      transform: translate(-50%, -50%)
+      min-width: 100%;
+      min-height: 100%;
     h2
       position: absolute
       left: 2.4rem
@@ -274,7 +271,8 @@ section.portfolio
       bottom: 0
       transition: all .5s ease-in-out
     &.half
-      width: 46%
+      display: inline-block;
+      width: calc(50% - 18px);
     &:hover
       .border
         border-width: 2.4rem

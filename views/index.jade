@@ -9,7 +9,7 @@ block content
         p
           | This is the Portfolio of Layton Hayes, an interactive 
           br
-          | designer, developer, and producer based in Los Angeles.
+          | designer, developer, and fabricator based in Los Angeles.
       ul#downArrows.downArrows
         li
         li
@@ -17,16 +17,14 @@ block content
     canvas#particles
     section.portfolio
       a.portBlock(href='/washing-machine-microsite')
-        video(height='420px' loop)
-          source(src="video/nixieGrass.mp4" type="video/mp4")
+        video(height='auto' width='auto' loop)
+          source(src='images/portfolio/weatherTubes/cover.mp4' type='video/mp4')
         .border(style='border-color: #2143C3')
         h2(style='background: #2143C3') Weather Tubes
-      a.portBlock.half(href='/washing-machine-microsite')
-        img(src='images/portfolio/nike/cover.png')
+      a.portBlock.half(href='/washing-machine-microsite' style='background-image: url("images/portfolio/nike/cover.png")')
         .border(style='border-color: #F78E1F')
         h2(style='background: #F78E1F') Nike WD+C
-      a.portBlock.half(href='/washing-machine-microsite')
-        img(src='images/portfolio/tapeStacks/cover.png')
+      a.portBlock.half(href='/washing-machine-microsite' style='background-image: url("images/portfolio/tapeStacks/cover.png")')
         .border(style='border-color: #099AB9')
         h2(style='background: #099AB9') Tape Stacks
       
