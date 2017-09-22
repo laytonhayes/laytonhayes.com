@@ -15,6 +15,7 @@ function navigation() {
     event.preventDefault();
     var link = $(this).attr('href');
     ajaxLoad(link);
+    console.log('about to load the link');
     window.history.pushState('', '', link);
 /*    _gaq.push(['_trackPageview', link]); */
   });
@@ -29,9 +30,9 @@ function ajaxLoad(url) {
         $('#content').html(d).fadeIn(200);
         title = $('header h1').html();
         if (typeof title != 'undefined') {
-          title = 'Layton Hayes : '+title;
+          title = title+' : Layton Hayes';
         } else {
-          title = 'Layton Hayes : Portfolio';
+          title = 'Layton Hayes : Experiences + Product Design';
         }
         document.title = title;
         homeAnimate = false;
@@ -47,9 +48,9 @@ function ajaxLoad(url) {
 
 
 /*  HOME PAGE PARTICLES  */
-function danceParticles() {
+function danceParticles(backgroundC, dotC) {
   var wOffset = 0;
-  var hOffset = 4;
+  var hOffset = 6;
   var W = $(window).width() -  wOffset, H = $(window).height() - hOffset;
   window.requestAnimFrame = (function(){
     return  window.requestAnimationFrame   ||
@@ -87,10 +88,10 @@ function danceParticles() {
   
   var particleCount = 30,
     particles = [],
-    minDist = 60;
+    minDist = 80;
   
   function paintCanvas() {
-    ctx.fillStyle = 'white';
+    ctx.fillStyle = backgroundC;
     ctx.fillRect(0,0,W,H);
   }
   
@@ -101,12 +102,14 @@ function danceParticles() {
     this.vy = -1 + Math.random() * 2;
     this.radius = 3;
     this.draw = function() {
-      ctx.fillStyle = '#82d2e5';
+      ctx.fillStyle = '#'+dotC;
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
       ctx.fill();
     };
   }
+  
+
   for(var i = 0; i < particleCount; i++) {
     particles.push(new Particle());
   }
@@ -144,6 +147,14 @@ function danceParticles() {
     }
   }
   
+  function hexToRgb(hex) {
+    var bigint = parseInt(hex, 16);
+    var r = (bigint >> 16) & 255;
+    var g = (bigint >> 8) & 255;
+    var b = bigint & 255;
+    return r + ',' + g + ',' + b + ',';
+  }
+  
   function distance(p1, p2) {
     var dist;
     var dx = p1.x - p2.x;
@@ -151,7 +162,7 @@ function danceParticles() {
     dist = Math.sqrt(dx*dx + dy*dy);
     if(dist <= minDist) {
       ctx.beginPath();
-      ctx.strokeStyle = 'rgba(130,210,229,'+ (1.2-dist/minDist) +')';
+      ctx.strokeStyle = 'rgba(' + hexToRgb(dotC) + (1.2-dist/minDist) +')';
       ctx.lineWidth=2;
       ctx.moveTo(p1.x, p1.y);
       ctx.lineTo(p2.x, p2.y);
@@ -208,7 +219,7 @@ function homePage() {
         break;
     }
     $('#time').html(time);
-    danceParticles();
+    danceParticles('white', '32CCD6');
     hideArrows();
   }
 }

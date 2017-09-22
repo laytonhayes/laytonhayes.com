@@ -7,7 +7,6 @@
 var app = require('../app');
 var debug = require('debug')('Layton Hayes Portfolio');
 var http = require('http');
-var reload = require('reload');
 
 /**
  * Get port from environment and store in Express.
@@ -22,8 +21,7 @@ app.set('port', port);
 
 var server = http.createServer(app);
 
-reload(app);
- 
+/** TODO */
 server.listen(app.get('port'), function () {
   console.log('Web server listening on port ' + app.get('port'))
 })

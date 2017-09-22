@@ -16,14 +16,14 @@ router.get('/', function(req, res){
   });
 });
 
-router.get('/about', function(req, res){
-  if(req.xhr){
+router.get('/weather-tubes', function(req, res){
+    if(req.xhr){
     var isAJAX = true
   } else {
     isAJAX = false
   }
-  res.render('about', {
-    title: baseTitle+'About',
+  res.render('weather-tubes', {
+    title: baseTitle+'Weather Tubes',
     isAJAX : isAJAX
   });
 });
@@ -35,7 +35,7 @@ router.get('/washing-machine-microsite', function(req, res){
     isAJAX = false
   }
   res.render('washing-machine-microsite', {
-    title: baseTitle+'Washing machine-microsite',
+    title: baseTitle+'Washing Machine Microsite',
     isAJAX : isAJAX
   });
 });

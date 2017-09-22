@@ -1,0 +1,38 @@
+extends layout
+
+block content
+  #page(data-theme='#2143C3')
+    header
+      section
+        h1.themeColor Weather Tubes
+        h2#heading.themeBackground
+        ul.workList.themeColor
+          li Electronic_Design
+          li Fabrication
+          li Hardware_Programming
+        p With some <a href='#'>IN-12 Nixie Tubes</a> aquired from the Ukrain during their revolution, a quick way to get the daily forcast was born. Displays the forcated high and low temperatues, along with the current temperate delivered via Weather Underground. Vestibulum id ligula porta felis euismod semper donec sed odio dui. Maecenas risus sit amet non magna.
+    img.full(src='/images/portfolio/weatherTubes/fullGrass.jpg')
+    section.grid.noBottomPad
+      .half
+        h2.themeBackground Hardware Design + Build
+        p Weather Underground via WiFi and high voltage chips driven by and Arduino.
+        p Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula ut id elit. Vestibulum id ligula porta felis euismod semper. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
+      img.half(src='/images/portfolio/weatherTubes/temp.png')
+    section.grid.noPad
+      img.half(src='/images/portfolio/weatherTubes/temp2.png')
+      .half
+        h3.themeColor PCB Board Design
+        p To reduce cost of PCB board printing, then something about the high voltage chips and using multiplexing in order to reduce PCB board complexity.
+        p Donec sed odio dui. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit. Nulla vitae elit libero, a pharetra augue.
+        a.big(href='#')
+          .text Download the Eagle PCB Files
+          .arrow
+          .b.right
+          .b.top
+          .b.left
+    section
+      h2.themeBackground Case Design + Build
+      p Cras mattis consectetur purus sit amet fermentum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec ullamcorper nulla non metus auctor fringilla. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Nulla vitae elit libero, a pharetra augue. Curabitur blandit tempus porttitor. Nullam id dolor id nibh ultricies vehicula ut id elit.
+    img.full(src='/images/portfolio/weatherTubes/modelFadeTEMP.jpg')
+ 
+  a.nav.sideNav.next(style='background-color:#f87f0a;', href='/urban-influence') Next
