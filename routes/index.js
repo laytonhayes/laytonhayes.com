@@ -40,6 +40,18 @@ router.get('/nike', function(req, res){
   });
 });
 
+router.get('/tape-stacks', function(req, res){
+    if(req.xhr){
+    var isAJAX = true
+  } else {
+    isAJAX = false
+  }
+  res.render('tape-stacks', {
+    title: baseTitle+'Tape Stacks',
+    isAJAX : isAJAX
+  });
+});
+
 router.get('/washing-machine-microsite', function(req, res){
     if(req.xhr){
     var isAJAX = true
