@@ -1,7 +1,7 @@
 /* COLORS */
-$gray =       #bebdbd
-$lightGray =  #dedede
-$darkGray =   #5c5c5c
+$gray =       #B8B8B8
+$lightGray =  #E0E0E0
+$darkGray =   #5C5C5C
 $blue =       #32CCD6
 $pink =       #F170AB
 $border =     6px
@@ -41,8 +41,8 @@ ul li
 /*  FONTS  */
 @font-face
   font-family: 'Brandon'
-  src: url("/fonts/brandon.eot")
-  src: url("/fonts/brandon.eot?#iefix") format("embedded-opentype"), url("/fonts/brandon.woff") format("woff"), url("/fonts/brandon.ttf") format("truetype"), url("/fonts/brandon.svg#brandon") format("svg")
+  src: url('/fonts/brandon.eot')
+  src: url('/fonts/brandon.eot?#iefix') format('embedded-opentype'), url('/fonts/brandon.woff') format('woff'), url('/fonts/brandon.ttf') format('truetype'), url('/fonts/brandon.svg#brandon') format('svg')
   font-weight: normal
   font-style: normal
 
@@ -95,57 +95,73 @@ a.big
   margin-top: 4rem
   position: relative
   transition: color .5s
-  .text
-    display: inline
-    margin-right: 1.5rem
-  .arrow
-    background: url('/images/arrowLink.svg') no-repeat left center
-    width: 2.5rem
-    height: 3rem
-    display: inline-block
-    vertical-align: bottom
-  &:after
+  /* bottom border */
+  &:before
     content: ''
     height: 2px
     width: 100%
     background: $darkGray
-    display: block
-    float: right
-    transition: width linear .2s
-  .b
+    position: absolute
+    bottom: 0
+    right: 0
+    transition: all .2s linear .1s
+  /* right border */
+  &:after
+    content: ''
     position: absolute
     background: $darkGray
     bottom: 0
-    &.right
-      width: 2px
-      height: 0
-      right: 0
-      transition: all .1s linear
-    &.top
+    width: 2px
+    height: 0
+    right: 0
+    transition: all .1s linear .2s
+  .arrow
+    background: url('/images/arrowLink.svg') no-repeat left center
+    width: 2.5rem
+    height: 3rem
+    margin-left: 1.5rem
+    display: inline-block
+    vertical-align: sub
+    /* top border */
+    &:before
+      content: ''
+      position: absolute
+      background: $darkGray
       width: 0
       height: 2px
       right: 0
       top: 0
       transition: all .1s linear .1s
-    &.left
+    /* left border */
+    &:after
+      content: ''
+      position: absolute
+      background: $darkGray
       width: 2px
       height: 0
       top: 0
       right: calc(3rem - 2px)
-      transition: all .1s linear .2s
+      transition: all .1s linear
   &:hover
     color: $pink
+    &:before
+      background: $pink
+      width: 3rem
+      transition: width linear .2s
     &:after
+      height: 3rem
       background: $pink
-      width: calc(0% + 3rem)
-    .b
-      background: $pink
-      &.right
-        height: 3rem
-      &.top
+      transition: all .1s linear
+    .arrow
+      &:before
         width: 3rem
-      &.left
+        background: $pink
+        transition: all .1s linear .1s
+      &:after
         height: 3rem
+        background: $pink
+        transition: all .1s linear .2s
+      
 h1
   font: 5.4rem/5rem 'Brandon', sans-serif
   letter-spacing: -.05em
@@ -164,6 +180,7 @@ h2
   color: #fff
   display: inline-block
   z-index: $z-nav
+  white-space: nowrap
   &#heading
     position: fixed
     top: 0
@@ -189,10 +206,13 @@ section.grid
     padding: 0 $pageMargin
     display: inline-block
     vertical-align: top
+    &.center
+      text-align: center
     /* TODO */
     @media (max-width: $xs-max)
       width: 100%
-  img.half
+  img.half,
+  video.half
     width: 50%
     height: 100%
     padding: 0
@@ -241,7 +261,7 @@ a.sideNav
   box-shadow: 0 0px 4px rgba(0,0,0,0.16), 0 1px 6px rgba(0,0,0,0.23)
   &.prev
     left: -6.5rem
-    background-image: url("/images/arrowPrev.svg")
+    background-image: url('/images/arrowPrev.svg')
     background-position: right center
     padding-right: 3.5rem
     text-align: right
@@ -251,13 +271,98 @@ a.sideNav
   &.next
     right: -6.5rem
     padding-left: 3.5rem
-    background-image: url("/images/arrowNext.svg")
+    background-image: url('/images/arrowNext.svg')
     background-position: left center
     &:hover, &.base
       transform: translate3d(-6.5rem, 0, 0)
       opacity: 1
 .themeBackground
   transition: background 1s
+  
+div.web
+  background: $gray
+  border-radius: 6px
+  max-width: 1212px
+  position: relative
+  padding: 6px
+  div.head
+    padding: 2px 6px 8px 6px
+    div.nav
+      background: url('/images/webNav.svg')
+      width: 64px
+      height: 16px
+      display: inline-block
+      margin-right: 14px
+    div.url
+      font-family: 'Lucida Grande', sans-serif
+      font-size: 14px
+      color: $gray
+      background: $lightGray
+      line-height: 16px
+      padding: 0 10px
+      border-radius: 2px
+      height: 24px;
+      display: inline-block
+      width: calc(100% - 98px)
+      vertical-align: sub
+  img
+    max-width: 100%
+    display: block
+    border-radius: 0 0 5px 5px
+    &.overlay
+      position: absolute
+      top: 0
+      left: 0
+  video
+    max-width: 100%
+    position: absolute
+    top: 0
+    left: 0
+    &.washHeading
+      width: 72%
+      margin: 44px 0 0 15.4%
+  div.wrapper
+    position: relative
+  div.reveal
+    position: absolute
+    overflow: hidden
+    border-right: solid 1px $lightGray
+  &.clear
+    overflow: hidden
+    img
+      float: left
+  &.small
+    max-width: 950px
+  &.app
+    border: none
+    div.reveal
+      border: none
+
+div.mobile
+  background: $gray
+  border-radius: 28px
+  padding: 22px 10px 0 10px
+  display: inline-block
+  &:before
+    content: ''
+    width: 60px
+    height: 7px
+    background: $darkGray
+    border-radius: 4px
+    display: block
+    margin: 0 auto 18px auto
+  &:after
+    content: ''
+    width: 56px
+    height: 56px
+    background: $darkGray
+    border-radius: 50%
+    display: block
+    margin: 4px auto 12px auto  
+  img
+    height: 667px
+    width: 375px
+    border-radius: 4px
 
 /*  MAIN PAGE  */
 div#page.home
@@ -286,7 +391,7 @@ section.home
     cursor: pointer
     transition: opacity 1s
     li
-      background-image: url("/images/arrowDown.svg")
+      background-image: url('/images/arrowDown.svg')
       background-size: contain
       width: 60px
       height: 24px
@@ -366,61 +471,6 @@ section.portfolio
         border-width: 2.4rem
         background: rgba(0,0,0,.3)      
 
-div.web
-  border: 2px solid $gray
-  border-radius: 4px
-  max-width: 1200px
-  position: relative
-  margin-top: 2rem
-  div.head
-    background: $gray
-    padding: 8px 20px 10px 20px
-    div.nav
-      height: 20px
-      width: 60px
-      background-image: url("/images/webArrows.png")
-      background-size: contain
-      float: left
-      margin-top: 4px
-    div.url
-      font-family: 'Lucida Grande', sans-serif
-      font-size: 14px
-      color: $gray
-      background: #fff
-      margin-left: 80px
-      line-height: 16px
-      padding: 5px 5px 5px 10px
-      border-radius: 3px
-  img
-    max-width: 100%
-    &.overlay
-      position: absolute
-      top: 0
-      left: 0
-  video
-    max-width: 100%
-    position: absolute
-    top: 0
-    left: 0
-    &.washHeading
-      width: 72%
-      margin: 44px 0 0 15.4%
-  div.wrapper
-    position: relative
-  div.reveal
-    position: absolute
-    overflow: hidden
-    border-right: solid 1px $lightGray
-  &.clear
-    overflow: hidden
-    img
-      float: left
-  &.small
-    max-width: 950px
-  &.app
-    border: none
-    div.reveal
-      border: none
 footer
   padding: 5rem 10% 4rem 10%
   text-align: center
@@ -436,7 +486,7 @@ footer
         height: 100px
         width: 100px
         display: inline-block
-        background-image: url("/images/footerLogos.png")
+        background-image: url('/images/footerLogos.png')
         background-size: 340px 100px
         background-color: transparent
         background-position: 0 0

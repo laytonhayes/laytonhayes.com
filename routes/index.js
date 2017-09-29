@@ -28,6 +28,18 @@ router.get('/weather-tubes', function(req, res){
   });
 });
 
+router.get('/nike', function(req, res){
+    if(req.xhr){
+    var isAJAX = true
+  } else {
+    isAJAX = false
+  }
+  res.render('nike', {
+    title: baseTitle+'Nike WD+C',
+    isAJAX : isAJAX
+  });
+});
+
 router.get('/washing-machine-microsite', function(req, res){
     if(req.xhr){
     var isAJAX = true

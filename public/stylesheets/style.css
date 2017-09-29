@@ -51,7 +51,7 @@ ul li {
 @font-face {
   font-family: 'Brandon';
   src: url("/fonts/brandon.eot");
-  src: url("/fonts/brandon.eot?#iefix") format("embedded-opentype"), url("/fonts/brandon.woff") format("woff"), url("/fonts/brandon.ttf") format("truetype"), url("/fonts/brandon.svg#brandon") format("svg");
+  src: url("/fonts/brandon.eot?#iefix") format('embedded-opentype'), url("/fonts/brandon.woff") format('woff'), url("/fonts/brandon.ttf") format('truetype'), url("/fonts/brandon.svg#brandon") format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -115,70 +115,81 @@ a.big {
   margin-top: 4rem;
   position: relative;
   transition: color 0.5s;
+/* bottom border */
+/* right border */
 }
-a.big .text {
-  display: inline;
-  margin-right: 1.5rem;
+a.big:before {
+  content: '';
+  height: 2px;
+  width: 100%;
+  background: #5c5c5c;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transition: all 0.2s linear 0.1s;
+}
+a.big:after {
+  content: '';
+  position: absolute;
+  background: #5c5c5c;
+  bottom: 0;
+  width: 2px;
+  height: 0;
+  right: 0;
+  transition: all 0.1s linear 0.2s;
 }
 a.big .arrow {
   background: url("/images/arrowLink.svg") no-repeat left center;
   width: 2.5rem;
   height: 3rem;
+  margin-left: 1.5rem;
   display: inline-block;
-  vertical-align: bottom;
+  vertical-align: sub;
+/* top border */
+/* left border */
 }
-a.big:after {
+a.big .arrow:before {
   content: '';
-  height: 2px;
-  width: 100%;
-  background: #5c5c5c;
-  display: block;
-  float: right;
-  transition: width linear 0.2s;
-}
-a.big .b {
   position: absolute;
   background: #5c5c5c;
-  bottom: 0;
-}
-a.big .b.right {
-  width: 2px;
-  height: 0;
-  right: 0;
-  transition: all 0.1s linear;
-}
-a.big .b.top {
   width: 0;
   height: 2px;
   right: 0;
   top: 0;
   transition: all 0.1s linear 0.1s;
 }
-a.big .b.left {
+a.big .arrow:after {
+  content: '';
+  position: absolute;
+  background: #5c5c5c;
   width: 2px;
   height: 0;
   top: 0;
   right: calc(3rem - 2px);
-  transition: all 0.1s linear 0.2s;
+  transition: all 0.1s linear;
 }
 a.big:hover {
   color: #f170ab;
 }
-a.big:hover:after {
+a.big:hover:before {
   background: #f170ab;
-  width: calc(0% + 3rem);
-}
-a.big:hover .b {
-  background: #f170ab;
-}
-a.big:hover .b.right {
-  height: 3rem;
-}
-a.big:hover .b.top {
   width: 3rem;
+  transition: width linear 0.2s;
 }
-a.big:hover .b.left {
+a.big:hover:after {
   height: 3rem;
+  background: #f170ab;
+  transition: all 0.1s linear;
+}
+a.big:hover .arrow:before {
+  width: 3rem;
+  background: #f170ab;
+  transition: all 0.1s linear 0.1s;
+}
+a.big:hover .arrow:after {
+  height: 3rem;
+  background: #f170ab;
+  transition: all 0.1s linear 0.2s;
 }
 h1 {
   font: 5.4rem/5rem 'Brandon', sans-serif;
@@ -201,6 +212,7 @@ h2 {
   color: #fff;
   display: inline-block;
   z-index: 100;
+  white-space: nowrap;
 }
 h2#heading {
   position: fixed;
@@ -213,7 +225,7 @@ h3 {
 hr {
   margin-top: 6rem;
   border: none;
-  background: #bebdbd;
+  background: #b8b8b8;
   height: 1px;
 }
 /* GRID LAYOUT */
@@ -234,12 +246,16 @@ section.grid .half {
   vertical-align: top;
 /* TODO */
 }
+section.grid .half.center {
+  text-align: center;
+}
 @media (max-width: 767px) {
   section.grid .half {
     width: 100%;
   }
 }
-section.grid img.half {
+section.grid img.half,
+section.grid video.half {
   width: 50%;
   height: 100%;
   padding: 0;
@@ -321,6 +337,108 @@ a.sideNav.next.base {
 }
 .themeBackground {
   transition: background 1s;
+}
+div.web {
+  background: #b8b8b8;
+  border-radius: 6px;
+  max-width: 1212px;
+  position: relative;
+  padding: 6px;
+}
+div.web div.head {
+  padding: 2px 6px 8px 6px;
+}
+div.web div.head div.nav {
+  background: url("/images/webNav.svg");
+  width: 64px;
+  height: 16px;
+  display: inline-block;
+  margin-right: 14px;
+}
+div.web div.head div.url {
+  font-family: 'Lucida Grande', sans-serif;
+  font-size: 14px;
+  color: #b8b8b8;
+  background: #e0e0e0;
+  line-height: 16px;
+  padding: 0 10px;
+  border-radius: 2px;
+  height: 24px;
+  display: inline-block;
+  width: calc(100% - 98px);
+  vertical-align: sub;
+}
+div.web img {
+  max-width: 100%;
+  display: block;
+  border-radius: 0 0 5px 5px;
+}
+div.web img.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+div.web video {
+  max-width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+div.web video.washHeading {
+  width: 72%;
+  margin: 44px 0 0 15.4%;
+}
+div.web div.wrapper {
+  position: relative;
+}
+div.web div.reveal {
+  position: absolute;
+  overflow: hidden;
+  border-right: solid 1px #e0e0e0;
+}
+div.web.clear {
+  overflow: hidden;
+}
+div.web.clear img {
+  float: left;
+}
+div.web.small {
+  max-width: 950px;
+}
+div.web.app {
+  border: none;
+}
+div.web.app div.reveal {
+  border: none;
+}
+div.mobile {
+  background: #b8b8b8;
+  border-radius: 28px;
+  padding: 22px 10px 0 10px;
+  display: inline-block;
+}
+div.mobile:before {
+  content: '';
+  width: 60px;
+  height: 7px;
+  background: #5c5c5c;
+  border-radius: 4px;
+  display: block;
+  margin: 0 auto 18px auto;
+}
+div.mobile:after {
+  content: '';
+  width: 56px;
+  height: 56px;
+  background: #5c5c5c;
+  border-radius: 50%;
+  display: block;
+  margin: 4px auto 12px auto;
+}
+div.mobile img {
+  height: 667px;
+  width: 375px;
+  border-radius: 4px;
 }
 /*  MAIN PAGE  */
 div#page.home {
@@ -426,76 +544,6 @@ section.portfolio a.portBlock .border {
 section.portfolio a.portBlock:hover .border {
   border-width: 2.4rem;
   background: rgba(0,0,0,0.3);
-}
-div.web {
-  border: 2px solid #bebdbd;
-  border-radius: 4px;
-  max-width: 1200px;
-  position: relative;
-  margin-top: 2rem;
-}
-div.web div.head {
-  background: #bebdbd;
-  padding: 8px 20px 10px 20px;
-}
-div.web div.head div.nav {
-  height: 20px;
-  width: 60px;
-  background-image: url("/images/webArrows.png");
-  background-size: contain;
-  float: left;
-  margin-top: 4px;
-}
-div.web div.head div.url {
-  font-family: 'Lucida Grande', sans-serif;
-  font-size: 14px;
-  color: #bebdbd;
-  background: #fff;
-  margin-left: 80px;
-  line-height: 16px;
-  padding: 5px 5px 5px 10px;
-  border-radius: 3px;
-}
-div.web img {
-  max-width: 100%;
-}
-div.web img.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-div.web video {
-  max-width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-div.web video.washHeading {
-  width: 72%;
-  margin: 44px 0 0 15.4%;
-}
-div.web div.wrapper {
-  position: relative;
-}
-div.web div.reveal {
-  position: absolute;
-  overflow: hidden;
-  border-right: solid 1px #dedede;
-}
-div.web.clear {
-  overflow: hidden;
-}
-div.web.clear img {
-  float: left;
-}
-div.web.small {
-  max-width: 950px;
-}
-div.web.app {
-  border: none;
-}
-div.web.app div.reveal {
-  border: none;
 }
 footer {
   padding: 5rem 10% 4rem 10%;
