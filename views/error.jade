@@ -1,6 +1,10 @@
-extends layout
-
-block content
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+doctype
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/error.css')
+  body
+    h1= message
+    h2= error.status
+    a(href='/') Go to the home page
+    pre #{error.stack}

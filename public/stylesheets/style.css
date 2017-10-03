@@ -228,6 +228,7 @@ hr {
   background: #b8b8b8;
   height: 1px;
 }
+/* GLOBAL ANIMATIONS */
 /* GRID LAYOUT */
 header {
   margin-top: 6rem;
@@ -360,13 +361,12 @@ div.web div.head div.url {
   font-size: 14px;
   color: #b8b8b8;
   background: #e0e0e0;
-  line-height: 16px;
+  line-height: 24px;
   padding: 0 10px;
   border-radius: 2px;
   height: 24px;
   display: inline-block;
   width: calc(100% - 98px);
-  vertical-align: sub;
 }
 div.web img {
   max-width: 100%;
@@ -385,8 +385,8 @@ div.web video {
   left: 0;
 }
 div.web video.washHeading {
-  width: 72%;
-  margin: 44px 0 0 15.4%;
+  width: 71.4%;
+  margin: 42px 0 0 15.4%;
 }
 div.web div.wrapper {
   position: relative;
@@ -506,12 +506,33 @@ section.portfolio a.portBlock {
   background-size: cover;
   background-position: 50% 50%;
 }
+section.portfolio a.portBlock.contain {
+  background-size: contain;
+}
 section.portfolio a.portBlock.half {
   display: inline-block;
   width: calc(50% - 18px);
 }
 @media (max-width: 1024px) {
   section.portfolio a.portBlock.half {
+    width: 100%;
+  }
+}
+section.portfolio a.portBlock.oneThird {
+  display: inline-block;
+  width: calc(33.33% - 18px);
+}
+@media (max-width: 1024px) {
+  section.portfolio a.portBlock.oneThird {
+    width: 100%;
+  }
+}
+section.portfolio a.portBlock.twoThird {
+  display: inline-block;
+  width: calc(66.66% - 18px);
+}
+@media (max-width: 1024px) {
+  section.portfolio a.portBlock.twoThird {
     width: 100%;
   }
 }
@@ -546,47 +567,28 @@ section.portfolio a.portBlock:hover .border {
   background: rgba(0,0,0,0.3);
 }
 footer {
-  padding: 5rem 10% 4rem 10%;
-  text-align: center;
+  background: #000;
+  padding: 8rem 7rem;
+  display: flex;
+  justify-content: space-around;
 }
-footer p {
-  width: 48rem;
-  margin: auto;
+footer a {
+  height: 10rem;
+  width: 10rem;
+  background-image: url("/images/footerLogos.svg");
 }
-footer ul {
-  margin-top: 4rem;
+footer a.linkedin {
+  background-position: -100px 0;
 }
-footer ul li {
-  display: inline-block;
-  width: 30%;
+footer a.instagram {
+  background-position: -200px 0;
 }
-footer ul li a {
-  height: 100px;
-  width: 100px;
-  display: inline-block;
-  background-image: url("/images/footerLogos.png");
-  background-size: 340px 100px;
-  background-color: transparent;
-  background-position: 0 0;
-  padding: 0 !important;
-  opacity: 0.5;
-  transition: opacity 0.2s;
+footer a.spotify {
+  background-position: -300px 0;
 }
-footer ul li a:hover {
-  background-color: transparent;
-  opacity: 1;
-}
-footer ul li.github {
-  text-align: right;
-}
-footer ul li.instagram a {
-  background-position: -120px 0;
-}
-footer ul li.linkedin {
-  text-align: left;
-}
-footer ul li.linkedin a {
-  background-position: -240px 0;
+footer a:hover {
+  animation: bounce linear 0.4s;
+  animation-fill-mode: forwards;
 }
 footer.about {
   padding: 0;
@@ -595,6 +597,74 @@ footer.about {
   bottom: 4rem;
   left: 10%;
   min-width: 768px;
+}
+@-moz-keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(0.95);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  75% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+@-webkit-keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(0.95);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  75% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+@-o-keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(0.95);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  75% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(0.95);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  75% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
 }
 @-moz-keyframes arrows1 {
   0% {

@@ -2,6 +2,7 @@
 $gray =       #B8B8B8
 $lightGray =  #E0E0E0
 $darkGray =   #5C5C5C
+$black =      #000000
 $blue =       #32CCD6
 $pink =       #F170AB
 $border =     6px
@@ -192,6 +193,23 @@ hr
   border: none
   background: $gray
   height: 1px
+  
+/* GLOBAL ANIMATIONS */
+@keyframes bounce {
+  0% {transform: scale(1);}
+  25% {
+    transform: scale(0.95);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  75% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
 
 /* GRID LAYOUT */
 header
@@ -298,13 +316,12 @@ div.web
       font-size: 14px
       color: $gray
       background: $lightGray
-      line-height: 16px
+      line-height: 24px
       padding: 0 10px
       border-radius: 2px
       height: 24px;
       display: inline-block
       width: calc(100% - 98px)
-      vertical-align: sub
   img
     max-width: 100%
     display: block
@@ -319,8 +336,8 @@ div.web
     top: 0
     left: 0
     &.washHeading
-      width: 72%
-      margin: 44px 0 0 15.4%
+      width: 71.4%
+      margin: 42px 0 0 15.4%
   div.wrapper
     position: relative
   div.reveal
@@ -439,11 +456,23 @@ section.portfolio
     padding: 0
     background-size: cover
     background-position: 50% 50%
+    &.contain
+      background-size: contain
     &.half
       display: inline-block
       width: calc(50% - 18px)
       @media (max-width: $md-max)
         width: 100%
+    &.oneThird
+      display: inline-block
+      width: calc(33.33% - 18px)
+      @media (max-width: $md-max)
+        width: 100%
+    &.twoThird
+      display: inline-block
+      width: calc(66.66% - 18px)
+      @media (max-width: $md-max)
+        width: 100%    
     video
       position: absolute
       top: 50%; left: 50%
@@ -472,39 +501,24 @@ section.portfolio
         background: rgba(0,0,0,.3)      
 
 footer
-  padding: 5rem 10% 4rem 10%
-  text-align: center
-  p
-    width: 48rem
-    margin: auto
-  ul
-    margin-top: 4rem
-    li
-      display: inline-block
-      width: 30%
-      a
-        height: 100px
-        width: 100px
-        display: inline-block
-        background-image: url('/images/footerLogos.png')
-        background-size: 340px 100px
-        background-color: transparent
-        background-position: 0 0
-        padding: 0 !important
-        opacity: .5
-        transition: opacity .2s
-        &:hover
-          background-color: transparent
-          opacity: 1
-      &.github
-        text-align: right
-      &.instagram
-        a
-          background-position: -120px 0
-      &.linkedin
-        text-align: left
-        a
-          background-position: -240px 0
+  background: $black
+  padding: 8rem 7rem
+  display: flex;
+  justify-content: space-around;
+  a
+    height: 10rem
+    width: 10rem
+    background-image: url('/images/footerLogos.svg')
+    &.linkedin
+      background-position: -100px 0
+    &.instagram
+      background-position: -200px 0
+    &.spotify
+      background-position: -300px 0
+    &:hover {
+      animation: bounce linear .4s
+      animation-fill-mode: forwards
+    }
   &.about
     padding: 0
     width: 80%
