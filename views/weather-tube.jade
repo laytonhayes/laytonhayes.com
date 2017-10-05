@@ -1,0 +1,46 @@
+extends layout
+
+block content
+  #page(data-theme='#2143C3')
+    header
+      section
+        h1.themeColor Weather Tube
+        h2#heading.themeBackground
+        ul.workList.themeColor
+          li Electronic_Design
+          li Fabrication
+          li Hardware_Programming
+        p With some <a href='https://en.wikipedia.org/wiki/Nixie_tube' target='_blank'>IN-12 Nixie Tubes</a> acquired from the Ukraine, a quick way to get the daily forecast was born. The three pair of numbers display the forecasted high and low temperatures, along with the current temperature. All information is delivered from <a href='https://www.wunderground.com' target='_blank'>Weather Underground</a> via WiFi and displayed in a custom milled oak case.
+    img.full(src='/images/portfolio/weatherTube/fullGrass.jpg')
+    section.grid.noBottomPad
+      .half
+        h2.themeBackground Hardware Design + Build
+        p The first step was to generate the necessary 170 volts to power the Nixies from a 9 volt power source. Once the boost converter was working it was used to drive a high voltage transistor IC that took a 4 pin binary input from an Arduino and output to the ten Nixie Tube pins.
+      video.half(height='auto' width='auto' loop)
+          source(src='images/portfolio/weatherTube/hardware.mp4' type='video/mp4')
+    section.grid.noPad
+      img.half(src='/images/portfolio/weatherTube/boards.jpg')
+      .half
+        h3.themeColor PCB Board Design
+        p To provide flexibility in the spacing between digit pairs and reduce the cost of PCB board printing, the boards were designed to have a pair of tubes mounted to them, then chained via a 40-pin ribbon cable.
+        p Instead of driving all six tubes at once, they are multiplexed and driven by only two ICs. Bu firing only two tubes at a time in rapid succession, it gives the illusion of all six tubes being lit. 
+        a.big(href='https://github.com/laytonhayes/nixieWeather/tree/master/Nixie%20Multiplex%20PCB%20Mount' target='_blank') Download the Eagle PCB Files
+          .arrow
+    section
+      h2.themeBackground Case Design + Build
+      p Once the basic hardware design was completed it was time to design the enclosure. The Eagle PCB files were imported into SketchUp and overall design mocked up. A single piece of oak was hollowed out for the electronics. The openings for the Nixies were routed out using a laser-cut plexiglass guide.
+    img.full(src='/images/portfolio/weatherTube/modelFadeTEMP.jpg')
+    section
+      h2.themeBackground Hardware Programming
+      p Weather Tube's logic is controlled by an Arduino connected to a <a href='https://www.amazon.com/gp/product/B00O34AGSU/' target='_blank'>ESP8266 WiFi Serial Transceiver</a>. The code authenticates to a closed WiFi network and connects to Weather Underground's API using a serial connection to pull down weather information based on a location.
+      p The multiplexing system works by quickly grounding two of the three PCB boards at a time, allowing one number on the PBCs to light up. This is done in succession 200 times a second. The forecast and temperature values are then updated every 5 minutes.
+      a.big(href='https://github.com/laytonhayes/nixieWeather/blob/master/Arduino%20Code/Get_and_display_weather.ino' target='_blank') Check Out The Code
+        .arrow
+    section.grid.noBottomPad
+      img.half(src='/images/portfolio/weatherTube/collage1.jpg')
+      img.half(src='/images/portfolio/weatherTube/collage2.jpg')
+      img.half(src='/images/portfolio/weatherTube/collage3.jpg')
+      img.half(src='/images/portfolio/weatherTube/collage4.jpg')
+      img.half(src='/images/portfolio/weatherTube/collage5.jpg')
+      img.half(src='/images/portfolio/weatherTube/collage6.jpg')
+  a.nav.sideNav.next(style='background-color:#f87f0a;', href='/nike') Next

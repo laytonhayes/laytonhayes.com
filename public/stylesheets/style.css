@@ -297,9 +297,10 @@ nav {
 }
 nav a {
   display: block;
-  height: 60px;
-  width: 60px;
+  height: 6rem;
+  width: 6rem;
   background: url("/images/logo.svg");
+  background-size: cover;
   padding: 0;
   transition: none;
 }

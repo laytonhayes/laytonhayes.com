@@ -21,10 +21,10 @@ router.get('/', function(req, res){
   });
 });
 
-router.get('/weather-tubes', function(req, res){
+router.get('/weather-tube', function(req, res){
   ajaxTest(req);
-  res.render('weather-tubes', {
-    title: baseTitle+'Weather Tubes',
+  res.render('weather-tube', {
+    title: baseTitle+'Weather Tube',
     isAJAX : isAJAX
   });
 });
