@@ -6,6 +6,7 @@ $black =      #000000
 $blue =       #32CCD6
 $pink =       #F170AB
 $border =     6px
+$footerH =    30rem
 
 /* GRID */
 $pageMargin = 7rem
@@ -20,6 +21,8 @@ $xl-min =     1400px
 $z-border =   101
 $z-nav =      100
 $z-portH2 =   99
+$z-home =     95
+$z-footer =   1
 
 /*  GLOBAL RESETS  */
 body,p,table,tr,td,ul,ol,li,dl,dd,dt,div,span,a,h1,h2,h3,h4,h5,h6,fieldset
@@ -63,6 +66,7 @@ body
     width: $border
     top: 0
     bottom: 0
+    z-index: $z-border
     &.left
       left: 0
     &.right
@@ -177,7 +181,7 @@ h2
   font: 3.8rem/6rem 'Brandon', sans-serif
   font-weight: normal
   margin: 0 0 2rem -1rem
-  padding: 0 2rem
+  padding: 0 1.5rem
   color: #fff
   display: inline-block
   z-index: $z-nav
@@ -189,7 +193,7 @@ h3
   font: 3.2rem/3.2rem 'Brandon', sans-serif
   margin-bottom: 2rem
 hr
-  margin-top: 6rem
+  margin: 8rem 0 -1rem 0
   border: none
   background: $gray
   height: 1px
@@ -383,7 +387,11 @@ div.mobile
 
 /*  MAIN PAGE  */
 div#page.home
+  position: relative
+  z-index: $z-home
+  margin-bottom: $footerH
   padding: 0
+  background: white
   &.about
     canvas
       position: absolute
@@ -494,7 +502,7 @@ section.portfolio
       left: 0
       right: 0
       bottom: 0
-      transition: all .5s ease-in-out
+      transition: all .4s ease-in-out
     &:hover
       .border
         border-width: 2.4rem
@@ -502,19 +510,27 @@ section.portfolio
 
 footer
   background: $black
-  padding: 8rem 7rem
-  display: flex;
-  justify-content: space-around;
+  padding: 0 7rem
+  display: flex
+  height: $footerH
+  justify-content: space-around
+  align-items: center
+  position: fixed
+  bottom: 0
+  left: 0
+  right: 0
+  z-index: $z-footer
   a
     height: 10rem
     width: 10rem
     background-image: url('/images/footerLogos.svg')
+    background-size: cover
     &.linkedin
-      background-position: -100px 0
+      background-position: -10rem 0
     &.instagram
-      background-position: -200px 0
+      background-position: -20rem 0
     &.spotify
-      background-position: -300px 0
+      background-position: -30rem 0
     &:hover {
       animation: bounce linear .4s
       animation-fill-mode: forwards
