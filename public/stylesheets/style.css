@@ -61,9 +61,19 @@ html {
   height: 100%;
 /* change global sizes */
 }
+@media (max-width: 767px) {
+  html {
+    font-size: 8px;
+  }
+}
 @media (max-width: 1024px) {
   html {
     font-size: 9px;
+  }
+}
+@media (max-width: 767px) {
+  html {
+    font-size: 7px;
   }
 }
 body {
@@ -87,6 +97,11 @@ body .borderLR.left {
 body .borderLR.right {
   right: 0;
 }
+@media (max-width: 767px) {
+  body .borderLR {
+    width: 4px;
+  }
+}
 body .borderTB {
   position: fixed;
   height: 6px;
@@ -100,9 +115,19 @@ body .borderTB.top {
 body .borderTB.bottom {
   bottom: 0;
 }
+@media (max-width: 767px) {
+  body .borderTB {
+    height: 4px;
+  }
+}
 p {
   max-width: 88rem;
   margin-bottom: 2rem;
+}
+@media (max-width: 767px) {
+  p {
+    line-height: 2.6rem;
+  }
 }
 p a {
   border-bottom: 2px dotted #5c5c5c;
@@ -124,6 +149,11 @@ a.big {
   transition: color 0.5s;
 /* bottom border */
 /* right border */
+}
+@media (max-width: 767px) {
+  a.big {
+    margin-top: 1rem;
+  }
 }
 a.big:before {
   content: '';
@@ -154,6 +184,11 @@ a.big .arrow {
   vertical-align: sub;
 /* top border */
 /* left border */
+}
+@media (max-width: 767px) {
+  a.big .arrow {
+    background-size: contain;
+  }
 }
 a.big .arrow:before {
   content: '';
@@ -211,6 +246,11 @@ h1.fixed {
   top: 0;
   left: 60px;
 }
+@media (max-width: 767px) {
+  h1 {
+    font-size: 4.4rem;
+  }
+}
 h2 {
   font: 3.8rem/6rem 'Brandon', sans-serif;
   font-weight: normal;
@@ -224,6 +264,20 @@ h2 {
 h2#heading {
   position: fixed;
   top: 0;
+}
+@media (max-width: 767px) {
+  h2#heading {
+    right: 0;
+    left: 6rem;
+    padding: 0 5rem 0 0;
+    text-align: center;
+  }
+}
+@media (max-width: 767px) {
+  h2 {
+    font-size: 3rem;
+    line-height: 5rem;
+  }
 }
 h3 {
   font: 3.2rem/3.2rem 'Brandon', sans-serif;
@@ -243,6 +297,11 @@ header {
 section {
   padding: 5rem 7rem;
 }
+@media (max-width: 767px) {
+  section {
+    padding: 2rem;
+  }
+}
 section.grid {
   padding-left: 0;
   padding-right: 0;
@@ -252,14 +311,14 @@ section.grid .half {
   padding: 0 7rem;
   display: inline-block;
   vertical-align: top;
-/* TODO */
 }
 section.grid .half.center {
   text-align: center;
 }
 @media (max-width: 767px) {
   section.grid .half {
-    width: 100%;
+    width: auto;
+    padding: 2rem;
   }
 }
 section.grid img.half,
@@ -268,8 +327,19 @@ section.grid video.half {
   height: 100%;
   padding: 0;
 }
+@media (max-width: 767px) {
+  section.grid img.half,
+  section.grid video.half {
+    width: 100%;
+  }
+}
 section.grid h3 {
   margin-top: 7rem;
+}
+@media (max-width: 767px) {
+  section.grid h3 {
+    margin-top: 2rem;
+  }
 }
 img.full {
   width: 100%;
@@ -295,6 +365,11 @@ ul.workList li {
 ul.workList li:before {
   content: '+';
 }
+@media (max-width: 767px) {
+  ul.workList li {
+    display: list-item;
+  }
+}
 nav {
   position: fixed;
   top: 0;
@@ -310,6 +385,12 @@ nav a {
   padding: 0;
   transition: none;
 }
+@media (max-width: 767px) {
+  nav a {
+    height: 5rem;
+    width: 5rem;
+  }
+}
 a.sideNav {
   position: fixed;
   width: 7rem;
@@ -321,6 +402,11 @@ a.sideNav {
   font: 2.2rem/8rem 'Brandon', sans-serif;
   font-weight: bold;
   box-shadow: 0 0px 4px rgba(0,0,0,0.16), 0 1px 6px rgba(0,0,0,0.23);
+}
+@media (max-width: 767px) {
+  a.sideNav {
+    background-size: 3rem;
+  }
 }
 a.sideNav.prev {
   left: -6.5rem;
@@ -354,15 +440,36 @@ div.web {
   position: relative;
   padding: 6px;
 }
+@media (max-width: 767px) {
+  div.web {
+    padding: 2px;
+    border-radius: 3px;
+  }
+}
 div.web div.head {
   padding: 2px 6px 8px 6px;
+  line-height: 0;
+}
+@media (max-width: 767px) {
+  div.web div.head {
+    padding: 0 0 2px 2px;
+  }
 }
 div.web div.head div.nav {
-  background: url("/images/webNav.svg");
+  background: url("/images/webNav.svg") no-repeat;
   width: 64px;
   height: 16px;
   display: inline-block;
   margin-right: 14px;
+  background-size: contain;
+  vertical-align: text-top;
+}
+@media (max-width: 767px) {
+  div.web div.head div.nav {
+    height: 6px;
+    width: 20px;
+    margin-right: 6px;
+  }
 }
 div.web div.head div.url {
   font-family: 'Lucida Grande', sans-serif;
@@ -376,10 +483,25 @@ div.web div.head div.url {
   display: inline-block;
   width: calc(100% - 98px);
 }
+@media (max-width: 767px) {
+  div.web div.head div.url {
+    padding: 0 5px;
+    height: 10px;
+    line-height: 10px;
+    font-size: 8px;
+    width: calc(100% - 36px);
+    vertical-align: super;
+  }
+}
 div.web img {
   max-width: 100%;
   display: block;
   border-radius: 0 0 5px 5px;
+}
+@media (max-width: 767px) {
+  div.web img {
+    border-radius: 0 0 3px 3px;
+  }
 }
 div.web img.overlay {
   position: absolute;
@@ -425,6 +547,12 @@ div.mobile {
   padding: 22px 10px 0 10px;
   display: inline-block;
 }
+@media (max-width: 767px) {
+  div.mobile {
+    padding: 12px 5px 0 5px;
+    border-radius: 14px;
+  }
+}
 div.mobile:before {
   content: '';
   width: 60px;
@@ -433,6 +561,13 @@ div.mobile:before {
   border-radius: 4px;
   display: block;
   margin: 0 auto 18px auto;
+}
+@media (max-width: 767px) {
+  div.mobile:before {
+    width: 40px;
+    height: 6px;
+    margin: 0 auto 12px auto;
+  }
 }
 div.mobile:after {
   content: '';
@@ -443,10 +578,23 @@ div.mobile:after {
   display: block;
   margin: 4px auto 12px auto;
 }
+@media (max-width: 767px) {
+  div.mobile:after {
+    width: 32px;
+    height: 32px;
+    margin: 4px auto 10px auto;
+  }
+}
 div.mobile img {
-  height: 667px;
-  width: 375px;
+  width: 100%;
+  max-width: 375px;
+  height: auto;
   border-radius: 4px;
+}
+@media (max-width: 767px) {
+  div.mobile img {
+    border-radius: 3px;
+  }
 }
 /*  MAIN PAGE  */
 div#page.home {
@@ -469,12 +617,19 @@ section.home div.copy {
   position: absolute;
   left: 6%;
   top: 260px;
+  padding-right: 6%;
 }
 section.home div.copy h1 {
   color: #32ccd6;
 }
 section.home div.copy p {
   line-height: 2rem;
+  max-width: 54rem;
+}
+@media (max-width: 767px) {
+  section.home div.copy p {
+    line-height: 2.2rem;
+  }
 }
 section.home ul.downArrows {
   position: fixed;
@@ -487,8 +642,8 @@ section.home ul.downArrows {
 section.home ul.downArrows li {
   background-image: url("/images/arrowDown.svg");
   background-size: contain;
-  width: 60px;
-  height: 24px;
+  width: 6rem;
+  height: 2.4rem;
   margin: -2px auto;
   opacity: 0;
 }
@@ -501,12 +656,23 @@ section.home ul.downArrows li:nth-child(2) {
 section.home ul.downArrows li:nth-child(3) {
   animation: arrows3 3s 1.1s infinite ease-in;
 }
+@media (max-width: 767px) {
+  section.home ul.downArrows li {
+    width: 4rem;
+    height: 2rem;
+  }
+}
 section.home ul.downArrows.hide {
   opacity: 0;
 }
 /* DOWNWARD ARROW ANIMATIONS */
 section.portfolio {
   padding-top: 0;
+}
+@media (max-width: 767px) {
+  section.portfolio {
+    padding: 0;
+  }
 }
 section.portfolio a.portBlock {
   height: 42rem;
@@ -527,7 +693,8 @@ section.portfolio a.portBlock.half {
 }
 @media (max-width: 1024px) {
   section.portfolio a.portBlock.half {
-    width: 100%;
+    width: auto;
+    display: block;
   }
 }
 section.portfolio a.portBlock.oneThird {
@@ -536,7 +703,8 @@ section.portfolio a.portBlock.oneThird {
 }
 @media (max-width: 1024px) {
   section.portfolio a.portBlock.oneThird {
-    width: 100%;
+    width: auto;
+    display: block;
   }
 }
 section.portfolio a.portBlock.twoThird {
@@ -545,7 +713,8 @@ section.portfolio a.portBlock.twoThird {
 }
 @media (max-width: 1024px) {
   section.portfolio a.portBlock.twoThird {
-    width: 100%;
+    width: auto;
+    display: block;
   }
 }
 section.portfolio a.portBlock video {
@@ -564,6 +733,12 @@ section.portfolio a.portBlock h2 {
   z-index: 99;
   margin: 0;
 }
+@media (max-width: 1024px) {
+  section.portfolio a.portBlock h2 {
+    left: 1.4rem;
+    top: 1.4rem;
+  }
+}
 section.portfolio a.portBlock .border {
   border-width: 1.2rem;
   border-style: solid;
@@ -573,6 +748,11 @@ section.portfolio a.portBlock .border {
   right: 0;
   bottom: 0;
   transition: all 0.4s ease-in-out;
+}
+@media (max-width: 1024px) {
+  section.portfolio a.portBlock .border {
+    border-width: 0.8rem;
+  }
 }
 section.portfolio a.portBlock:hover .border {
   border-width: 2.4rem;
@@ -591,20 +771,46 @@ footer {
   right: 0;
   z-index: 1;
 }
+@media (max-width: 767px) {
+  footer {
+    padding: 0 2rem;
+  }
+}
 footer a {
   height: 10rem;
   width: 10rem;
   background-image: url("/images/footerLogos.svg");
   background-size: cover;
 }
+@media (max-width: 767px) {
+  footer a {
+    height: 7rem;
+    width: 7rem;
+  }
+}
 footer a.linkedin {
   background-position: -10rem 0;
+}
+@media (max-width: 767px) {
+  footer a.linkedin {
+    background-position: -7rem 0;
+  }
 }
 footer a.instagram {
   background-position: -20rem 0;
 }
+@media (max-width: 767px) {
+  footer a.instagram {
+    background-position: -14rem 0;
+  }
+}
 footer a.spotify {
   background-position: -30rem 0;
+}
+@media (max-width: 767px) {
+  footer a.spotify {
+    background-position: -21rem 0;
+  }
 }
 footer a:hover {
   animation: bounce linear 0.4s;
