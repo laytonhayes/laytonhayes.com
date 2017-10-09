@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var baseTitle = 'Layton Hayes : ';
+var baseTitle = ' : Layton Hayes';
 var isAJAX = false;
 
 // test if an AJAX request and set global variable
@@ -16,7 +16,7 @@ function ajaxTest(req){
 router.get('/', function(req, res){
   ajaxTest(req);
   res.render('index', {
-    title: baseTitle+'Home',
+    title: 'Layton Hayes : Experiences + Product Design',
     isAJAX : isAJAX
   });
 });
@@ -24,7 +24,7 @@ router.get('/', function(req, res){
 router.get('/weather-tube', function(req, res){
   ajaxTest(req);
   res.render('weather-tube', {
-    title: baseTitle+'Weather Tube',
+    title: 'Weather Tube'+baseTitle,
     isAJAX : isAJAX
   });
 });
@@ -32,7 +32,7 @@ router.get('/weather-tube', function(req, res){
 router.get('/nike', function(req, res){
   ajaxTest(req);
   res.render('nike', {
-    title: baseTitle+'Nike WD+C',
+    title: 'Nike WD+C'+baseTitle,
     isAJAX : isAJAX
   });
 });
@@ -40,7 +40,7 @@ router.get('/nike', function(req, res){
 router.get('/tape-stacks', function(req, res){
   ajaxTest(req);
   res.render('tape-stacks', {
-    title: baseTitle+'Tape Stacks',
+    title: 'Tape Stacks'+baseTitle,
     isAJAX : isAJAX
   });
 });
@@ -48,7 +48,7 @@ router.get('/tape-stacks', function(req, res){
 router.get('/first-american', function(req, res){
   ajaxTest(req);
   res.render('first-american', {
-    title: baseTitle+'First American - Palomar',
+    title: 'First American - Palomar'+baseTitle,
     isAJAX : isAJAX
   });
 });
@@ -56,7 +56,7 @@ router.get('/first-american', function(req, res){
 router.get('/terradata', function(req, res){
   ajaxTest(req);
   res.render('terradata', {
-    title: baseTitle+'Terradata IntelliCloud',
+    title: 'Terradata IntelliCloud'+baseTitle,
     isAJAX : isAJAX
   });
 });
@@ -64,7 +64,7 @@ router.get('/terradata', function(req, res){
 router.get('/maritz', function(req, res){
   ajaxTest(req);
   res.render('maritz', {
-    title: baseTitle+'Maritz CultureNext',
+    title: 'Maritz CultureNext'+baseTitle,
     isAJAX : isAJAX
   });
 });
@@ -72,7 +72,7 @@ router.get('/maritz', function(req, res){
 router.get('/cengage', function(req, res){
   ajaxTest(req);
   res.render('cengage', {
-    title: baseTitle+'Cengage MindTap',
+    title: 'Cengage MindTap'+baseTitle,
     isAJAX : isAJAX
   });
 });
@@ -80,7 +80,39 @@ router.get('/cengage', function(req, res){
 router.get('/washing-machine-microsite', function(req, res){
   ajaxTest(req);
   res.render('washing-machine-microsite', {
-    title: baseTitle+'Washing Machine Microsite',
+    title: 'Washing Machine Microsite'+baseTitle,
+    isAJAX : isAJAX
+  });
+});
+
+router.get('/urban-influence', function(req, res){
+  ajaxTest(req);
+  res.render('urban-influence', {
+    title: 'Urban Influence'+baseTitle,
+    isAJAX : isAJAX
+  });
+});
+
+router.get('/washing-machine', function(req, res){
+  ajaxTest(req);
+  res.render('washing-machine', {
+    title: 'Washing Machine App'+baseTitle,
+    isAJAX : isAJAX
+  });
+});
+
+router.get('/avalara', function(req, res){
+  ajaxTest(req);
+  res.render('avalara', {
+    title: 'Avalara Tax Calculator'+baseTitle,
+    isAJAX : isAJAX
+  });
+});
+
+router.get('/seattle-met', function(req, res){
+  ajaxTest(req);
+  res.render('seattle-met', {
+    title: 'Seattle Met'+baseTitle,
     isAJAX : isAJAX
   });
 });

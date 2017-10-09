@@ -1,0 +1,50 @@
+extends layout
+
+block content
+  #page(data-theme='#71af07')
+    header
+      section
+        h1.themeColor Washing Machine App
+        h2#heading.themeBackground
+        ul.workList.themeColor
+          li Art_Direction
+          li Motion_Design
+          li UX_Design
+        p
+          | At Urban Influence we were approached by 
+          a(href='http://www.intego.com', target='_blank') Intego
+          | , the leader in Mac security software, with an idea for a new Mac App. They were looking to expand beyond Mac security in to Mac optimization and maintenance.
+        p
+          | With just a list of requested features and functions we set about designing Washing Machine from the ground up. We knew it needed to appeal to the "Mom and Pop" audience, but, be useful and quick for power users as well. To do this we had to balance the washing machine metaphor without making it overly skeuomorphic.
+        hr
+    section
+      h2.themeBackground Building the foundation
+      p
+        | After organizing and placing a weight to all potential features we began to have an idea of what would be the most useful set of functions to include without overcomplicating the App. The functions were then organized in to three function groups, or, "cycles" with a global control bar on top that mimicked a washing machine control.
+      p
+        | During the wireframing process we had to strike a balance of allowing novice users to easily clean and organize their computer, while giving more advanced users the customization control they desired. This took several rounds of user testing and design refinement to strike the perfect balance of usability for a varied target audience.
+      .web.app
+        .wrapper
+          .reveal
+            img(src='/images/portfolio/washingMachine/reclaimWireframe.jpg')
+          img(src='/images/portfolio/washingMachine/reclaim.jpg')
+    section
+      h2.themeBackground Bringing it to life
+      p
+        | From the beginning we knew motion would be a large part of Washing Machine. With a large amount of options shown for cleaning your Mac, motion helps illustrate more abstract concepts to the more novice users. Also, because of the washing machine metaphor, it allowed us to be more playful with our motion design than in traditional apps.
+      .web.app
+        img(src='/images/portfolio/washingMachine/cleanAnimation.png')
+        video
+          source(src='/images/portfolio/washingMachine/cleanAnimation.mp4', type='video/mp4')
+          source(src='/images/portfolio/washingMachine/cleanAnimation.ogv', type='video/ogg')
+    section
+      h2.themeBackground Tying it together
+      p
+        | Organizing and cleaning a Mac can be a daunting task for someone who doesn't understand how file structure works. We designed blueprint-style help overlays to educate users who may be less familiar with some computer concepts. This provides a quick visual cue that can be brought up from any "cycle".
+      .web.app
+        .wrapper
+          .reveal
+            img(src='/images/portfolio/washingMachine/duplicate.jpg')
+          img(src='/images/portfolio/washingMachine/duplicateOverlay.jpg')
+  a.nav.sideNav.prev(style='background-color:#f87f0a;', href='/urban-influence') Prev.
+  a.nav.sideNav.next(style='background-color:#0099c8;', href='/avalara') Next

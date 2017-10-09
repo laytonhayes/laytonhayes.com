@@ -1,0 +1,45 @@
+extends layout
+
+block content
+  #page(data-theme='#ef4d27')
+    header
+      section
+        h1.themeColor Seattle Met
+        h2#heading.themeBackground
+        ul.workList.themeColor
+          li FrontEnd_Architecture
+        p
+          | Seattle Met has been Seattle's go-to guide for food, news, culture, and lifestyle for almost a decade. Urban Influence was approached to update their print magazine website. During this process we realized their online publishing system needed a complete overhaul.
+        p
+          | Before we started working on 
+          a(href='http://www.seattlemet.com', target='_blank') seattlemet.com
+          | , it took five staffers two full weeks to upload a single issue of the magazine. Our custom Ruby on Rails CMS cut the upload time to a single day.
+        a.big(href='http://www.seattlemet.com', target='_blank') Visit the Site
+          .arrow
+        hr
+    section
+      h2.themeBackground From picas to pixels
+      p
+        | Translating a print magazine to the web is a complicated task. We started by creating a visually compelling hierarchy using graphics and bold images to break up the text and organize the sections. We also cut down the color palette typically used on the print magazine to create a more consistent look and feel.
+      p
+        | Because the content length of each section could be greatly varied, we choose to break the sections in to tile blocks. This allows the user to easily get a summary of the content and provides navigation to more detail or related content.
+      .web.clear
+        .head
+          .nav
+          .url
+            | www.seattlemet.com
+        img(src='/images/portfolio/seattleMet/gallery.jpg')
+    section
+      h2.themeBackground In with the new, in with the old
+      p
+        | Seattle Met's huge back catalog meant we had to design the front-end with legacy content in mind. After scrubbing millions of lines of back catalog content we struck the perfect balance of retrofitting and future-proofing the vast amount data.
+      p
+        | In addition, our SEO work helped them reach page one of Google for several keywords within just three months.
+      .web.clear
+        .head
+          .nav
+          .url
+            | www.seattlemet.com
+        img(src='/images/portfolio/seattleMet/foodSearch.jpg')
+  a.nav.sideNav.prev(style='background-color:#0099c8;', href='/avalara') Prev.
+  a.nav.sideNav.next(style='background-color:#2143C3;', href='/weather-tube') Next

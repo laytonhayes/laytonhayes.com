@@ -1,0 +1,43 @@
+extends layout
+
+block content
+  #page(data-theme='#f87f0a')
+    header
+      section
+        h1.themeColor Urban Influence
+        h2#heading.themeBackground
+        ul.workList.themeColor
+          li Art_Direction
+          li FrontEnd_Architecture
+          li UX_Design
+        p Urban Influence, a branding and interactive firm located in Seattle, was in need of a portfolio update to showcase our latest digital endeavors. The new site needed to be standardized enough to easily update via a CMS, while flexible enough to handle different Case Study layouts.
+        p Seeking to make everything as responsive and extendible as possible, we quit thinking about Photoshop mockups and instead opted to design the main framework in code. This freed us from making multiple mockups per page for different viewport sizes, thereby greatly decreasing design time.
+        a.big(href='http://www.urbaninfluence.com' target='_blank') Visit the Site
+          .arrow
+        hr
+    section
+      h2.themeBackground Looking good at any size
+      p
+        | When we started designing a site to showcase our personality, work, and culture, Responsive Design was a term rarely used or thrown around. Creating our own large scale Responsive site would be the perfect testbed for future projects.
+      p
+        | We spent a great deal of time setting up a flexible grid that would be used site-wide, choreographing how things reflowed across multiple viewport sizes to provide a seamless experience.
+      .web
+        .head
+          .nav
+          .url
+            | www.urbaninfluence.com
+        img(src='/images/portfolio/urbanInfluence/responsive.jpg')
+    section
+      h2.themeBackground Built for content scalability
+      p
+        | One of the problems that plagued the previous site was difficulty in updating and adding content. Updates needed to be coded in HTML via a rudimentary CMS, leaving only developers to make changes to the site.
+      p
+        | With developers' time in short supply, all employees needed to be able to add content. This was achieved by building a flexible grid on top of a custom Drupal framework.
+      .web.clear
+        .head
+          .nav
+          .url
+            | www.urbaninfluence.com
+        img(src='/images/portfolio/urbanInfluence/wireframe.jpg')
+  a.nav.sideNav.prev(style='background-color:#82d2e5;', href='/washing-machine-microsite') Prev.
+  a.nav.sideNav.next(style='background-color:#71af07;', href='/washing-machine') Next

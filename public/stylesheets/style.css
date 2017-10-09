@@ -536,10 +536,10 @@ div.web.small {
   max-width: 950px;
 }
 div.web.app {
-  border: none;
-}
-div.web.app div.reveal {
-  border: none;
+  padding: 0;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.5);
+  border-radius: 6px;
+  overflow: hidden;
 }
 div.mobile {
   background: #b8b8b8;

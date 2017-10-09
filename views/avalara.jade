@@ -1,0 +1,47 @@
+extends layout
+
+block content
+  #page(data-theme='#0099c8')
+    header
+      section
+        h1.themeColor Avalara Tax Calculator
+        h2#heading.themeBackground
+        ul.workList.themeColor
+          li Art_Direction
+          li FrontEnd_Coding
+          li UX_Design
+        p
+          | Calculating sales tax can be an overly complicated process. With multiple jurisdictions that can change from one city block to another, getting an accurate tax rate is more complicated than just entering a ZIP Code.
+        p
+          | One of the largest tax-automation companies, 
+          a(href='http://www.avalara.com', target='_blank') Avalara
+          | , put Urban Influence to the task of creating a SaaS application for individuals and small businesses to help managed their tax compliance. In addition to helping businesses manage their taxes, a requirement was to capture lead data and easily transition companies to Avalara's premium product offerings if they so desired.
+        a.big(href='http://salestax.avalara.com', target='_blank') Visit the Site
+          .arrow
+        hr
+    section
+      h2.themeBackground Single page solution
+      p
+        | Building a SaaS application usually means lots of interactions on one page without reloading. In the past we had used a combination of different frameworks to achieve this, all with varying degrees of success. For this project we chose to build it with 
+        a(href='http://backbonejs.org', target='_blank') Backbone.js
+        |  on top of Rails.
+      p
+        | Having been our first project to use Backbone.js, the ramp up time was a little longer than most, but in the end, the overall development time was significantly less than the average. Using Backbone.js also gave us the flexibility to easily scale the site in the future if necessary.
+      .web.clear
+        .head
+          .nav
+          .url
+            | salestax.avalara.com
+        img(src='/images/portfolio/avalara/rate.png')
+    section
+      h2.themeBackground Keeping it simple
+      p
+        | Because this site is about data, we choose to focus on the content rather than adding a superfluous visual style. Flat colors, reliance on typography, and basic icons lets the user focus on the tasks at hand, managing tax compliance.
+      .web
+        .head
+          .nav
+          .url
+            | salestax.avalara.com
+        img(src='/images/portfolio/avalara/invoice.png')
+  a.nav.sideNav.prev(style='background-color:#71af07;', href='/washing-machine') Prev.
+  a.nav.sideNav.next(style='background-color:#f34a33;', href='/seattle-met') Next
