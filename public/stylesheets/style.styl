@@ -3,6 +3,7 @@ $gray =         #B8B8B8
 $lightGray =    #E0E0E0
 $darkGray =     #5C5C5C
 $black =        #000000
+$white =        #FFFFFF
 $blue =         #32CCD6
 $pink =         #F170AB
 
@@ -12,7 +13,8 @@ $pageMarginXs = 2rem
 $footerIcon =   10rem
 $footerIconXs = 7rem
 $border =       6px
-$footerH =      30rem
+$footerH =      40rem
+$footerHXs =    45rem
 
 /* BREAKPOINTS */
 $xs-max =       767px
@@ -192,7 +194,7 @@ h1
   letter-spacing: -.05em
   font-weight: normal
   &.margin
-    margin-bottom: 1.2rem
+    margin-bottom: 2rem
   &.fixed
     position: fixed
     top: 0
@@ -475,6 +477,8 @@ div#page.home
   margin-bottom: $footerH
   padding: 0
   background: white
+  @media (max-width: $xs-max)
+    margin-bottom: $footerHXs
   &.about
     canvas
       position: absolute
@@ -610,46 +614,48 @@ section.portfolio
 
 footer
   background: $black
-  padding: 0 7rem
-  display: flex
-  height: $footerH
-  justify-content: space-around
-  align-items: center
+  color: $white
+  text-align: center
+  padding: 5rem 7rem
   position: fixed
   bottom: 0
   left: 0
   right: 0
   z-index: $z-footer
   @media (max-width: $xs-max)
-    padding: 0 $pageMarginXs
-  a
-    height: $footerIcon
-    width: $footerIcon
-    background-image: url('/images/footerLogos.svg')
-    background-size: cover
-    @media (max-width: $xs-max)
-      height: $footerIconXs
-      width: $footerIconXs    
-    &.linkedin
-      background-position: - $footerIcon 0
+    padding: 5rem 1rem
+  section
+    padding 0
+    max-width: 80rem;
+    margin: auto;
+    &.icons
+      display: flex
+      justify-content: space-between
+      align-items: center
+      margin-top: 5rem
       @media (max-width: $xs-max)
-        background-position: - $footerIconXs 0
-    &.instagram
-      background-position: - $footerIcon * 2 0
-      @media (max-width: $xs-max)
-        background-position: - $footerIconXs * 2 0
-    &.spotify
-      background-position: - $footerIcon * 3 0
-      @media (max-width: $xs-max)
-        background-position: - $footerIconXs * 3 0
-    &:hover {
-      animation: bounce linear .4s
-      animation-fill-mode: forwards
-    }
-  &.about
-    padding: 0
-    width: 80%
-    position: fixed
-    bottom: 4rem
-    left: 10%
-    min-width: 768px
+        padding: 0 $pageMarginXs
+      a
+        height: $footerIcon
+        width: $footerIcon
+        background-image: url('/images/footerLogos.svg')
+        background-size: cover
+        @media (max-width: $xs-max)
+          height: $footerIconXs
+          width: $footerIconXs    
+        &.linkedin
+          background-position: - $footerIcon 0
+          @media (max-width: $xs-max)
+            background-position: - $footerIconXs 0
+        &.instagram
+          background-position: - $footerIcon * 2 0
+          @media (max-width: $xs-max)
+            background-position: - $footerIconXs * 2 0
+        &.spotify
+          background-position: - $footerIcon * 3 0
+          @media (max-width: $xs-max)
+            background-position: - $footerIconXs * 3 0
+        &:hover {
+          animation: bounce linear .4s
+          animation-fill-mode: forwards
+        }

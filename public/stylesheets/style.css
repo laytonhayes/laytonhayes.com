@@ -239,7 +239,7 @@ h1 {
   font-weight: normal;
 }
 h1.margin {
-  margin-bottom: 1.2rem;
+  margin-bottom: 2rem;
 }
 h1.fixed {
   position: fixed;
@@ -603,9 +603,14 @@ div.mobile img {
 div#page.home {
   position: relative;
   z-index: 95;
-  margin-bottom: 30rem;
+  margin-bottom: 40rem;
   padding: 0;
   background: #fff;
+}
+@media (max-width: 767px) {
+  div#page.home {
+    margin-bottom: 45rem;
+  }
 }
 div#page.home.about canvas {
   position: absolute;
@@ -763,11 +768,9 @@ section.portfolio a.portBlock:hover .border {
 }
 footer {
   background: #000;
-  padding: 0 7rem;
-  display: flex;
-  height: 30rem;
-  justify-content: space-around;
-  align-items: center;
+  color: #fff;
+  text-align: center;
+  padding: 5rem 7rem;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -776,56 +779,64 @@ footer {
 }
 @media (max-width: 767px) {
   footer {
+    padding: 5rem 1rem;
+  }
+}
+footer section {
+  padding: 0;
+  max-width: 80rem;
+  margin: auto;
+}
+footer section.icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5rem;
+}
+@media (max-width: 767px) {
+  footer section.icons {
     padding: 0 2rem;
   }
 }
-footer a {
+footer section.icons a {
   height: 10rem;
   width: 10rem;
   background-image: url("/images/footerLogos.svg");
   background-size: cover;
 }
 @media (max-width: 767px) {
-  footer a {
+  footer section.icons a {
     height: 7rem;
     width: 7rem;
   }
 }
-footer a.linkedin {
+footer section.icons a.linkedin {
   background-position: -10rem 0;
 }
 @media (max-width: 767px) {
-  footer a.linkedin {
+  footer section.icons a.linkedin {
     background-position: -7rem 0;
   }
 }
-footer a.instagram {
+footer section.icons a.instagram {
   background-position: -20rem 0;
 }
 @media (max-width: 767px) {
-  footer a.instagram {
+  footer section.icons a.instagram {
     background-position: -14rem 0;
   }
 }
-footer a.spotify {
+footer section.icons a.spotify {
   background-position: -30rem 0;
 }
 @media (max-width: 767px) {
-  footer a.spotify {
+  footer section.icons a.spotify {
     background-position: -21rem 0;
   }
 }
-footer a:hover {
+footer section.icons a:hover {
   animation: bounce linear 0.4s;
   animation-fill-mode: forwards;
-}
-footer.about {
-  padding: 0;
-  width: 80%;
-  position: fixed;
-  bottom: 4rem;
-  left: 10%;
-  min-width: 768px;
 }
 @-moz-keyframes bounce {
   0% {
