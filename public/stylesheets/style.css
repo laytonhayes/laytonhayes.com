@@ -268,7 +268,7 @@ h2#heading {
 @media (max-width: 767px) {
   h2#heading {
     right: 0;
-    left: 6rem;
+    left: 5rem;
     padding: 0 5rem 0 0;
     text-align: center;
   }
@@ -277,6 +277,9 @@ h2#heading {
   h2 {
     font-size: 3rem;
     line-height: 5rem;
+    display: block;
+    text-align: center;
+    margin-left: 0;
   }
 }
 h3 {
