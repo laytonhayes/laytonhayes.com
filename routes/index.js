@@ -53,10 +53,10 @@ router.get('/first-american', function(req, res){
   });
 });
 
-router.get('/terradata', function(req, res){
+router.get('/teradata', function(req, res){
   ajaxTest(req);
-  res.render('terradata', {
-    title: 'Terradata IntelliCloud'+baseTitle,
+  res.render('teradata', {
+    title: 'Teradata IntelliCloud'+baseTitle,
     isAJAX : isAJAX
   });
 });
