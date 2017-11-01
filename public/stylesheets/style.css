@@ -609,7 +609,7 @@ div#page.home {
 }
 @media (max-width: 767px) {
   div#page.home {
-    margin-bottom: 45rem;
+    margin-bottom: 43rem;
   }
 }
 div#page.home.about canvas {
@@ -766,8 +766,15 @@ section.portfolio a.portBlock:hover .border {
   border-width: 2.4rem;
   background: rgba(0,0,0,0.3);
 }
+section.profile {
+  background: url("/images/profile.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 35rem;
+  padding: 0;
+}
 footer {
-  background: #000;
+  background: #f170ab;
   color: #fff;
   text-align: center;
   padding: 5rem 7rem;
