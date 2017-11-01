@@ -120,6 +120,9 @@ body .borderTB.bottom {
     height: 4px;
   }
 }
+body.home {
+  background: #f170ab;
+}
 p {
   max-width: 88rem;
   margin-bottom: 2rem;
@@ -603,13 +606,13 @@ div.mobile img {
 div#page.home {
   position: relative;
   z-index: 95;
-  margin-bottom: 40rem;
+  margin-bottom: 37rem;
   padding: 0;
   background: #fff;
 }
 @media (max-width: 767px) {
   div#page.home {
-    margin-bottom: 43rem;
+    margin-bottom: 40rem;
   }
 }
 div#page.home.about canvas {
@@ -774,10 +777,9 @@ section.profile {
   padding: 0;
 }
 footer {
-  background: #f170ab;
   color: #fff;
   text-align: center;
-  padding: 5rem 7rem;
+  padding: 3rem 7rem;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -786,7 +788,7 @@ footer {
 }
 @media (max-width: 767px) {
   footer {
-    padding: 5rem 1rem;
+    padding: 3rem 1rem;
   }
 }
 footer section {
@@ -798,7 +800,7 @@ footer section.icons {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 5rem;
+  margin-top: 4rem;
 }
 @media (max-width: 767px) {
   footer section.icons {

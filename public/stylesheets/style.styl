@@ -13,8 +13,8 @@ $pageMarginXs = 2rem
 $footerIcon =   10rem
 $footerIconXs = 7rem
 $border =       6px
-$footerH =      40rem
-$footerHXs =    43rem
+$footerH =      37rem
+$footerHXs =    40rem
 
 /* BREAKPOINTS */
 $xs-max =       767px
@@ -97,6 +97,8 @@ body
       bottom: 0
     @media (max-width: $xs-max)
       height: 4px
+  &.home
+    background: $pink
 p
   max-width: 88rem
   margin-bottom: 2rem
@@ -621,17 +623,16 @@ section.profile
   
 
 footer
-  background: $pink
   color: $white
   text-align: center
-  padding: 5rem 7rem
+  padding: 3rem 7rem
   position: fixed
   bottom: 0
   left: 0
   right: 0
   z-index: $z-footer
   @media (max-width: $xs-max)
-    padding: 5rem 1rem
+    padding: 3rem 1rem
   section
     padding 0
     max-width: 80rem;
@@ -640,7 +641,7 @@ footer
       display: flex
       justify-content: space-between
       align-items: center
-      margin-top: 5rem
+      margin-top: 4rem
       @media (max-width: $xs-max)
         padding: 0 $pageMarginXs
       a

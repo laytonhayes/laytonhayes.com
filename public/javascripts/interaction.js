@@ -21,6 +21,7 @@ function navigation() {
   });
 }
 function ajaxLoad(url) {
+  $('body').removeClass('home');
   $('#content').fadeOut(200, function() {
     $.ajax({
       type:    'GET',
@@ -220,6 +221,7 @@ function homePage() {
     }
     $('#time').html(time);
     danceParticles('white', '32CCD6');
+    $('body').addClass('home');
     hideArrows();
   }
 }
