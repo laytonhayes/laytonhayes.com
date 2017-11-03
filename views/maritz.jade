@@ -3,13 +3,42 @@ extends layout
 block content
   #page(data-theme='#12D9E0')
     header
-      section
+      section.noBottomPad
         h1.themeColor Maritz CultureNext
         h2#heading.themeBackground
         ul.workList.themeColor
           li Responsive_Website
-          li Visual_Design
-          li FrontEnd_Coding
-
+          li Information_Architecture
+          li Living_Style_Guide
+        p Maritz is a century old sales and marketing services company, specializing in employee solutions. Maritz programs are designed to help their clients improve workforce engagement, employee satisfaction, and enhance overall performance via the specific toolset of recognition and rewards.
+        p Maritz needed to reinvent their workforce recognition platform via the lens of user-centric design and modern SAAS architecture. 
+      img.full(src='/images/portfolio/maritz/screens.jpg')
+      section
+        h2.themeBackground Ecosystem Mapping
+        p A collaborative “blue sky” discovery exercise was the first step of the project to enable tighter stakeholder alignment and accelerated product ideation. 
+        p Working collaboratively with key stakeholders, we visually mapped key concepts, content, and processes important to the various business groups within Maritz. Perhaps more importantly, we begin identifying the confluences between these topics, yielding a connected ecosystem defined in a common language. This became the first of many important tools for defining product priorities and roadmap features.
+      img.full(src='/images/portfolio/maritz/whiteboard.jpg')
+    section.grid
+      .half
+        h2.themeBackground Application Flows + IA
+        p Moving from the 10,000 foot level to 10 doesn’t happen by magic. Application flows and information architecture bring abstract concepts to life in the same way a blueprint does for a house.
+        p Concepts discussed during discovery must translate into tangible experiences. We rapidly translated these ideas into visual artifacts for collaborative review amongst the project team. User flows provide both a tangible view of how specific features might function and begins building alignment around such functionality amongst all parties involved.
+      img.half(src='/images/portfolio/maritz/flows.png')
+    section.noTopPad
+      h2.themeBackground Interactive Prototyping
+      p Rapidly building interactive prototypes as soon as possible provided a living, breathing experience that could be understood by all.
+      p We were able to facilitate impassioned discussions around how our product will truly come to fruition by rolling key concepts from discovery into a rapidly designed InVision prototype. This proof of concept was especially powerful for non-technical audiences or executive stakeholders who may not always have tie for granular process discussions. It also acted as an invaluable preliminary sales tool for Maritz to win new business after a painfully lengthy stagnation.
+    section.noTopPad  
+      .web
+        .head
+          .nav
+          .url
+        img(src='/images/portfolio/maritz/desktop.jpg')
+    section
+      h2.themeBackground Living Style Guide
+      p Because visual design was being refined during development, it was necessary to work in parallel without the need to constantly refactor built pages. Also, rather than create mockups for all device breakpoints we built a Component Library that would automatically translate the designs across breakpoints.
+      p Developers were given redlines that referenced elements in the Component Library and could cross reference a Living Style Guide to make sure the latest styles were being utilized.
+      img.full(src='/images/portfolio/maritz/redlines.jpg')
+      
   a.nav.sideNav.prev(style='background-color:#EF6C00;', href='/teradata') Prev.
-  a.nav.sideNav.next(style='background-color:#12D9E0;', href='/cengage') Next
+  a.nav.sideNav.next(style='background-color:#34698D;', href='/cengage') Next
