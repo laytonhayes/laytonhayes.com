@@ -364,6 +364,9 @@ img.full {
 ul.workList {
   margin-bottom: 4rem;
 }
+ul.workList.topPad {
+  margin-top: 0.5rem;
+}
 ul.workList li {
   display: inline;
   margin-right: 2rem;
@@ -591,14 +594,16 @@ div.mobile:after {
     margin: 4px auto 10px auto;
   }
 }
-div.mobile img {
+div.mobile img,
+div.mobile video {
   width: 100%;
   max-width: 375px;
   height: auto;
   border-radius: 4px;
 }
 @media (max-width: 767px) {
-  div.mobile img {
+  div.mobile img,
+  div.mobile video {
     border-radius: 3px;
   }
 }
