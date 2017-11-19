@@ -608,6 +608,9 @@ div.mobile video {
   }
 }
 /*  MAIN PAGE  */
+#particles {
+  display: flex;
+}
 div#page.home {
   position: relative;
   z-index: 95;
@@ -684,6 +687,7 @@ section.home ul.downArrows.hide {
 /* DOWNWARD ARROW ANIMATIONS */
 section.portfolio {
   padding-top: 0;
+  margin-top: -10px;
 }
 @media (max-width: 767px) {
   section.portfolio {

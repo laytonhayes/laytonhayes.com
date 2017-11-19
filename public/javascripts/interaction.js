@@ -15,7 +15,6 @@ function navigation() {
     event.preventDefault();
     var link = $(this).attr('href');
     ajaxLoad(link);
-    console.log('about to load the link');
     window.history.pushState('', '', link);
 /*    _gaq.push(['_trackPageview', link]); */
   });
@@ -49,142 +48,172 @@ function ajaxLoad(url) {
 
 
 /*  HOME PAGE PARTICLES  */
-function danceParticles(backgroundC, dotC) {
-  var wOffset = 0;
-  var hOffset = 6;
-  var W = $(window).width() -  wOffset, H = $(window).height() - hOffset;
-  window.requestAnimFrame = (function(){
-    return  window.requestAnimationFrame   ||
-      window.webkitRequestAnimationFrame ||
-      window.mozRequestAnimationFrame    ||
-      window.oRequestAnimationFrame      ||
-      window.msRequestAnimationFrame     ||
-      function( callback ){
-        window.setTimeout(callback, 1000 / 60);
-      };
-  })();
-  var delay = (function(){
-    var timer = 0;
-    return function(callback, ms){
-      clearTimeout (timer);
-      timer = setTimeout(callback, ms);
-    };
-  })();
-  function sizeCanvas() {
-    W = $(window).width() -  wOffset, H = $(window).height() - hOffset;
-    canvas.width = W;
-    canvas.height = H;
-    ctx.fillRect(0,0,W,H);
-    $('#homeCopy').css('top', (H / 2) - 90);
-  }
-  $(window).resize(function() {
-    delay(function(){
-      sizeCanvas();
-    }, 500);
-  });
-  
+function danceParticles(backgroundC, dotC) {  
+	var group;
+	var particlesData = [];
+	var camera, scene, renderer;
+	var positions, colors;
+	var particles;
+	var pointCloud;
+	var particlePositions;
+	var linesMesh;
+	var maxParticleCount = 100;
+	var particleCount = 100;
+	var r = 800;
+	var rHalf = r / 2;
+	var minDistance = 120
+  var tex = new THREE.TextureLoader().load("/images/orb.png");  
   var canvas = $('#particles')[0];
-  var ctx = canvas.getContext('2d');
-  sizeCanvas();
   
-  var particleCount = 30,
-    particles = [],
-    minDist = 80;
   
-  function paintCanvas() {
-    ctx.fillStyle = backgroundC;
-    ctx.fillRect(0,0,W,H);
-  }
-  
-  function Particle() {
-    this.x = Math.random() * W;
-    this.y = Math.random() * H;
-    this.vx = -1 + Math.random() * 2;
-    this.vy = -1 + Math.random() * 2;
-    this.radius = 3;
-    this.draw = function() {
-      ctx.fillStyle = '#'+dotC;
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-      ctx.fill();
-    };
-  }
-  
+	function initOrbs() {
+		camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 4000 );
+		camera.position.z = 800;
+		scene = new THREE.Scene();
+		scene.background = new THREE.Color(backgroundC);
+		group = new THREE.Group();
+		scene.add( group );
+		var segments = maxParticleCount * maxParticleCount;
+		positions = new Float32Array( segments * 3 );
+		colors = new Float32Array( segments * 3 );
+		
+		// allow the mouse to control scene
+//    var controls = new THREE.OrbitControls( camera, canvas );
 
-  for(var i = 0; i < particleCount; i++) {
-    particles.push(new Particle());
-  }
-  
-  function draw() {
-    paintCanvas();
-    for (var i = 0; i < particles.length; i++) {
-      var p = particles[i];
-      p.draw();
+		var pMaterial = new THREE.PointsMaterial( {
+			color: dotC,
+			size: 16,
+			transparent: true,
+			map: tex
+		} );
+		particles = new THREE.BufferGeometry();
+		particlePositions = new Float32Array( maxParticleCount * 3 );
+		for ( var i = 0; i < maxParticleCount; i++ ) {
+			var x = Math.random() * r - r / 2;
+			var y = Math.random() * r - r / 2;
+			var z = Math.random() * r - r / 2;
+			particlePositions[ i * 3     ] = x;
+			particlePositions[ i * 3 + 1 ] = y;
+			particlePositions[ i * 3 + 2 ] = z;
+			// add it to the geometry
+			particlesData.push( {
+				velocity: new THREE.Vector3( -1 + Math.random() * 2, -1 + Math.random() * 2,  -1 + Math.random() * 2 ),
+				numConnections: 0
+			} );
+		}
+		particles.setDrawRange( 0, particleCount );
+		particles.addAttribute( 'position', new THREE.BufferAttribute( particlePositions, 3 ).setDynamic( true ) );
+		// create the particle system
+		pointCloud = new THREE.Points( particles, pMaterial );
+		group.add( pointCloud );
+		var geometry = new THREE.BufferGeometry();
+		geometry.addAttribute( 'position', new THREE.BufferAttribute( positions, 3 ).setDynamic( true ) );
+		geometry.addAttribute( 'color', new THREE.BufferAttribute( colors, 3 ).setDynamic( true ) );
+		geometry.computeBoundingSphere();
+		geometry.setDrawRange( 0, 1 );
+		var material = new THREE.LineBasicMaterial( {
+//  		vertexColors: THREE.VertexColors,
+  		transparent: false,
+  		color: dotC
+		} );
+		linesMesh = new THREE.LineSegments( geometry, material );
+		group.add( linesMesh );
+
+		renderer = new THREE.WebGLRenderer( { antialias: true } );
+		renderer.setPixelRatio( window.devicePixelRatio );
+		renderer.gammaInput = true;
+		renderer.gammaOutput = true;
+    canvas.appendChild( renderer.domElement );
+    var delay = (function(){
+      var timer = 0;
+      return function(callback, ms){
+        clearTimeout (timer);
+        timer = setTimeout(callback, ms);
+      };
+    })();
+    
+    // resize the particle canvas
+    function sizeCanvas() {
+  		camera.aspect = window.innerWidth / window.innerHeight;
+  		camera.updateProjectionMatrix();
+  		renderer.setSize( window.innerWidth, window.innerHeight);
+      $('#homeCopy').css('top', (window.innerHeight / 2) - 90);
     }
-    update();
-  }
+    
+    // delay on resize so it's not redrawing all of the time
+    $(window).resize(function() {
+      delay(function(){
+        sizeCanvas();
+      }, 500);
+    });
+    sizeCanvas();
+  };
   
-  function update() {
-    for (var i = 0; i < particles.length; i++) {
-      var p = particles[i];
-      p.x += p.vx;
-      p.y += p.vy;
-      if(p.x + p.radius > W) {
-        p.x = p.radius;
-      }
-      else if(p.x - p.radius < 0) {
-        p.x = W - p.radius;
-      }
-      if(p.y + p.radius > H) {
-        p.y = p.radius;
-      }
-      else if(p.y - p.radius < 0) {
-        p.y = H - p.radius;
-      }
-      for(var j = i + 1; j < particles.length; j++) {
-        var p2 = particles[j];
-        distance(p, p2);
-      }
-    }
+	function animateOrbs() {
+		var vertexpos = 0;
+		var colorpos = 0;
+		var numConnected = 0;
+		for ( var i = 0; i < particleCount; i++ )
+			particlesData[ i ].numConnections = 0;
+		for ( var i = 0; i < particleCount; i++ ) {
+			// get the particle
+			var particleData = particlesData[i];
+			particlePositions[ i * 3     ] += particleData.velocity.x;
+			particlePositions[ i * 3 + 1 ] += particleData.velocity.y;
+			particlePositions[ i * 3 + 2 ] += particleData.velocity.z;
+			if ( particlePositions[ i * 3 + 1 ] < -rHalf || particlePositions[ i * 3 + 1 ] > rHalf )
+				particleData.velocity.y = -particleData.velocity.y;
+			if ( particlePositions[ i * 3 ] < -rHalf || particlePositions[ i * 3 ] > rHalf )
+				particleData.velocity.x = -particleData.velocity.x;
+			if ( particlePositions[ i * 3 + 2 ] < -rHalf || particlePositions[ i * 3 + 2 ] > rHalf )
+				particleData.velocity.z = -particleData.velocity.z;
+
+			// Check collision
+			for ( var j = i + 1; j < particleCount; j++ ) {
+				var particleDataB = particlesData[ j ];
+				var dx = particlePositions[ i * 3     ] - particlePositions[ j * 3     ];
+				var dy = particlePositions[ i * 3 + 1 ] - particlePositions[ j * 3 + 1 ];
+				var dz = particlePositions[ i * 3 + 2 ] - particlePositions[ j * 3 + 2 ];
+				var dist = Math.sqrt( dx * dx + dy * dy + dz * dz );
+				if ( dist < minDistance ) {
+					particleData.numConnections++;
+					particleDataB.numConnections++;
+					var alpha = 1.0 - dist / minDistance;
+					positions[ vertexpos++ ] = particlePositions[ i * 3     ];
+					positions[ vertexpos++ ] = particlePositions[ i * 3 + 1 ];
+					positions[ vertexpos++ ] = particlePositions[ i * 3 + 2 ];
+					positions[ vertexpos++ ] = particlePositions[ j * 3     ];
+					positions[ vertexpos++ ] = particlePositions[ j * 3 + 1 ];
+					positions[ vertexpos++ ] = particlePositions[ j * 3 + 2 ];
+					colors[ colorpos++ ] = alpha;
+					colors[ colorpos++ ] = alpha;
+					colors[ colorpos++ ] = alpha;
+					colors[ colorpos++ ] = alpha;
+					colors[ colorpos++ ] = alpha;
+					colors[ colorpos++ ] = alpha;
+					numConnected++;
+				}
+			}
+		}
+		linesMesh.geometry.setDrawRange( 0, numConnected * 2 );
+		linesMesh.geometry.attributes.position.needsUpdate = true;
+		linesMesh.geometry.attributes.color.needsUpdate = true;
+		pointCloud.geometry.attributes.position.needsUpdate = true;
+		requestAnimationFrame( animateOrbs );
+		render();
+	}
+
+	function render() {
+  	var time = Date.now() * 0.001;
+  	group.rotation.y = time * -.1;
+  	group.rotation.x = time * -.1;
+  	renderer.render( scene, camera );
   }
-  
-  function hexToRgb(hex) {
-    var bigint = parseInt(hex, 16);
-    var r = (bigint >> 16) & 255;
-    var g = (bigint >> 8) & 255;
-    var b = bigint & 255;
-    return r + ',' + g + ',' + b + ',';
-  }
-  
-  function distance(p1, p2) {
-    var dist;
-    var dx = p1.x - p2.x;
-    var dy = p1.y - p2.y;
-    dist = Math.sqrt(dx*dx + dy*dy);
-    if(dist <= minDist) {
-      ctx.beginPath();
-      ctx.strokeStyle = 'rgba(' + hexToRgb(dotC) + (1.2-dist/minDist) +')';
-      ctx.lineWidth=2;
-      ctx.moveTo(p1.x, p1.y);
-      ctx.lineTo(p2.x, p2.y);
-      ctx.stroke();
-      ctx.closePath();
-      var ax = dx/8000,
-        ay = dy/8000;
-      p1.vx -= ax;
-      p1.vy -= ay;
-      p2.vx += ax;
-      p2.vy += ay;
-      }
-  }
-  
-  function animloop() {
-    if (homeAnimate) {
-      draw();
-      requestAnimFrame(animloop);
-    }
-  }
-  animloop();
+
+  // call the functions
+  initOrbs();
+  animateOrbs();
+
 }
 
 function hideArrows() {
@@ -201,7 +230,7 @@ function hideArrows() {
 }
 
 function homePage() {
-  if ($('canvas#particles').length > 0) {
+  if ($('#particles').length > 0) {
     homeAnimate = true;
     var now = new Date().getHours();
     var time;
@@ -220,7 +249,7 @@ function homePage() {
         break;
     }
     $('#time').html(time);
-    danceParticles('white', '32CCD6');
+    danceParticles(0xFFFFFF, 0x32CCD6);
     $('body').addClass('home');
     hideArrows();
   }
