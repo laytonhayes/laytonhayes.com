@@ -78,7 +78,7 @@ function danceParticles(backgroundC, dotC) {
 		colors = new Float32Array( segments * 3 );
 		
 		// allow the mouse to control scene
-//    var controls = new THREE.OrbitControls( camera, canvas );
+    // var controls = new THREE.OrbitControls( camera, canvas );
 
 		var pMaterial = new THREE.PointsMaterial( {
 			color: dotC,
@@ -150,57 +150,59 @@ function danceParticles(backgroundC, dotC) {
   };
   
 	function animateOrbs() {
-		var vertexpos = 0;
-		var colorpos = 0;
-		var numConnected = 0;
-		for ( var i = 0; i < particleCount; i++ )
-			particlesData[ i ].numConnections = 0;
-		for ( var i = 0; i < particleCount; i++ ) {
-			// get the particle
-			var particleData = particlesData[i];
-			particlePositions[ i * 3     ] += particleData.velocity.x;
-			particlePositions[ i * 3 + 1 ] += particleData.velocity.y;
-			particlePositions[ i * 3 + 2 ] += particleData.velocity.z;
-			if ( particlePositions[ i * 3 + 1 ] < -rHalf || particlePositions[ i * 3 + 1 ] > rHalf )
-				particleData.velocity.y = -particleData.velocity.y;
-			if ( particlePositions[ i * 3 ] < -rHalf || particlePositions[ i * 3 ] > rHalf )
-				particleData.velocity.x = -particleData.velocity.x;
-			if ( particlePositions[ i * 3 + 2 ] < -rHalf || particlePositions[ i * 3 + 2 ] > rHalf )
-				particleData.velocity.z = -particleData.velocity.z;
-
-			// Check collision
-			for ( var j = i + 1; j < particleCount; j++ ) {
-				var particleDataB = particlesData[ j ];
-				var dx = particlePositions[ i * 3     ] - particlePositions[ j * 3     ];
-				var dy = particlePositions[ i * 3 + 1 ] - particlePositions[ j * 3 + 1 ];
-				var dz = particlePositions[ i * 3 + 2 ] - particlePositions[ j * 3 + 2 ];
-				var dist = Math.sqrt( dx * dx + dy * dy + dz * dz );
-				if ( dist < minDistance ) {
-					particleData.numConnections++;
-					particleDataB.numConnections++;
-					var alpha = 1.0 - dist / minDistance;
-					positions[ vertexpos++ ] = particlePositions[ i * 3     ];
-					positions[ vertexpos++ ] = particlePositions[ i * 3 + 1 ];
-					positions[ vertexpos++ ] = particlePositions[ i * 3 + 2 ];
-					positions[ vertexpos++ ] = particlePositions[ j * 3     ];
-					positions[ vertexpos++ ] = particlePositions[ j * 3 + 1 ];
-					positions[ vertexpos++ ] = particlePositions[ j * 3 + 2 ];
-					colors[ colorpos++ ] = alpha;
-					colors[ colorpos++ ] = alpha;
-					colors[ colorpos++ ] = alpha;
-					colors[ colorpos++ ] = alpha;
-					colors[ colorpos++ ] = alpha;
-					colors[ colorpos++ ] = alpha;
-					numConnected++;
-				}
-			}
-		}
-		linesMesh.geometry.setDrawRange( 0, numConnected * 2 );
-		linesMesh.geometry.attributes.position.needsUpdate = true;
-		linesMesh.geometry.attributes.color.needsUpdate = true;
-		pointCloud.geometry.attributes.position.needsUpdate = true;
-		requestAnimationFrame( animateOrbs );
-		render();
+  	if (homeAnimate) {
+  		var vertexpos = 0;
+  		var colorpos = 0;
+  		var numConnected = 0;
+  		for ( var i = 0; i < particleCount; i++ )
+  			particlesData[ i ].numConnections = 0;
+  		for ( var i = 0; i < particleCount; i++ ) {
+  			// get the particle
+  			var particleData = particlesData[i];
+  			particlePositions[ i * 3     ] += particleData.velocity.x;
+  			particlePositions[ i * 3 + 1 ] += particleData.velocity.y;
+  			particlePositions[ i * 3 + 2 ] += particleData.velocity.z;
+  			if ( particlePositions[ i * 3 + 1 ] < -rHalf || particlePositions[ i * 3 + 1 ] > rHalf )
+  				particleData.velocity.y = -particleData.velocity.y;
+  			if ( particlePositions[ i * 3 ] < -rHalf || particlePositions[ i * 3 ] > rHalf )
+  				particleData.velocity.x = -particleData.velocity.x;
+  			if ( particlePositions[ i * 3 + 2 ] < -rHalf || particlePositions[ i * 3 + 2 ] > rHalf )
+  				particleData.velocity.z = -particleData.velocity.z;
+  
+  			// Check collision
+  			for ( var j = i + 1; j < particleCount; j++ ) {
+  				var particleDataB = particlesData[ j ];
+  				var dx = particlePositions[ i * 3     ] - particlePositions[ j * 3     ];
+  				var dy = particlePositions[ i * 3 + 1 ] - particlePositions[ j * 3 + 1 ];
+  				var dz = particlePositions[ i * 3 + 2 ] - particlePositions[ j * 3 + 2 ];
+  				var dist = Math.sqrt( dx * dx + dy * dy + dz * dz );
+  				if ( dist < minDistance ) {
+  					particleData.numConnections++;
+  					particleDataB.numConnections++;
+  					var alpha = 1.0 - dist / minDistance;
+  					positions[ vertexpos++ ] = particlePositions[ i * 3     ];
+  					positions[ vertexpos++ ] = particlePositions[ i * 3 + 1 ];
+  					positions[ vertexpos++ ] = particlePositions[ i * 3 + 2 ];
+  					positions[ vertexpos++ ] = particlePositions[ j * 3     ];
+  					positions[ vertexpos++ ] = particlePositions[ j * 3 + 1 ];
+  					positions[ vertexpos++ ] = particlePositions[ j * 3 + 2 ];
+  					colors[ colorpos++ ] = alpha;
+  					colors[ colorpos++ ] = alpha;
+  					colors[ colorpos++ ] = alpha;
+  					colors[ colorpos++ ] = alpha;
+  					colors[ colorpos++ ] = alpha;
+  					colors[ colorpos++ ] = alpha;
+  					numConnected++;
+  				}
+  			}
+  		}
+  		linesMesh.geometry.setDrawRange( 0, numConnected * 2 );
+  		linesMesh.geometry.attributes.position.needsUpdate = true;
+  		linesMesh.geometry.attributes.color.needsUpdate = true;
+  		pointCloud.geometry.attributes.position.needsUpdate = true;
+  		requestAnimationFrame( animateOrbs );
+  		render();
+    }
 	}
 
 	function render() {
