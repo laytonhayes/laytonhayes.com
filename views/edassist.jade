@@ -1,0 +1,43 @@
+extends layout
+
+block content
+  #page(data-theme='#FBBC05')
+    header
+      section
+        h1.themeColor Bright Horizons EdAssist
+        h2#heading.themeBackground
+        ul.workList.themeColor
+          li Information_Architecture
+          li Visual_Design
+          li Front_End_Coding
+        p EdAssist allows companies that provide further education opportunities for employees to easily manage tuition, textbook, and supply reimbursement. We were approached by Bright Horizons' EdAssist product team looking to revamp their entire multi-tenant site.
+      img.full(src='/images/portfolio/edassist/responsive.png')
+      
+      section
+        h2.themeBackground Iterative Rollout
+        p The first step was designing a complete front-end overhaul that would interactive with their legacy business logic and databases. After requirements gathering and the discovery phase, ideas were validated by stakeholders with user flows and site maps. User flows also allowed developers to start designing a new services platforms to interact with the legacy data.
+        p Once the foundation was established, site flow and interaction paradigms were tested and validated using rapid prototyping. Visual design was also created and refined concurrently with testing.
+        .web
+          .head
+            .nav
+            .url
+          img(src='/images/portfolio/edassist/desktop1.png')
+
+      section.grid.noPad
+        .half
+          h2.themeBackground Simultaneous Dev + Design
+          p Because of the compressed schedule, a custom Component Library and Living Style Guide was created that allowed developers to quickly construct new features and pages in Angular. Visual and interaction design could be refined in code and automatically propagated using Bower components.
+          a.big(href='http://livingstyleguide.laytonhayes.com/' target='_blank') Check out the Living Style Guide
+            .arrow
+        .half.center
+          .mobile
+            img(src='/images/portfolio/edassist/mobile1.gif')
+      section
+        .web
+          .head
+            .nav
+            .url
+          img(src='/images/portfolio/edassist/desktop2.png')
+
+  a.nav.sideNav.prev(style='background-color:#12D9E0;', href='/maritz') Prev.
+  a.nav.sideNav.next(style='background-color:#099AB9;', href='/tape-stacks') Next

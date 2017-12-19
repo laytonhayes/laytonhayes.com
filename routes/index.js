@@ -37,6 +37,14 @@ router.get('/nike', function(req, res){
   });
 });
 
+router.get('/edassist', function(req, res){
+  ajaxTest(req);
+  res.render('edassist', {
+    title: 'Bright Horizons EdAssist'+baseTitle,
+    isAJAX : isAJAX
+  });
+});
+
 router.get('/tape-stacks', function(req, res){
   ajaxTest(req);
   res.render('tape-stacks', {

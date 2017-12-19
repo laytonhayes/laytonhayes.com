@@ -158,6 +158,10 @@ a.big {
     margin-top: 1rem;
   }
 }
+a.big.bottomPad {
+  margin-top: 0;
+  margin-bottom: 6rem;
+}
 a.big:before {
   content: '';
   height: 2px;
@@ -295,6 +299,9 @@ hr {
   background: #b8b8b8;
   height: 1px;
 }
+.center {
+  text-align: center;
+}
 /* GLOBAL ANIMATIONS */
 /* GRID LAYOUT */
 header {
@@ -317,9 +324,6 @@ section.grid .half {
   padding: 0 7rem;
   display: inline-block;
   vertical-align: top;
-}
-section.grid .half.center {
-  text-align: center;
 }
 @media (max-width: 767px) {
   section.grid .half {

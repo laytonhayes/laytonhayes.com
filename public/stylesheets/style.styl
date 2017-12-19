@@ -122,6 +122,10 @@ a.big
   transition: color .5s
   @media (max-width: $xs-max)
     margin-top: 1rem
+  &.bottomPad {
+    margin-top: 0
+    margin-bottom: 6rem
+  }
   /* bottom border */
   &:before
     content: ''
@@ -234,6 +238,8 @@ hr
   border: none
   background: $gray
   height: 1px
+.center
+  text-align: center
   
 /* GLOBAL ANIMATIONS */
 @keyframes bounce {
@@ -267,8 +273,6 @@ section.grid
     padding: 0 $pageMargin
     display: inline-block
     vertical-align: top
-    &.center
-      text-align: center
     @media (max-width: $xs-max)
       width: auto
       padding: $pageMarginXs
