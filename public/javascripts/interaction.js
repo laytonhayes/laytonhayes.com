@@ -16,7 +16,7 @@ function navigation() {
     var link = $(this).attr('href');
     ajaxLoad(link);
     window.history.pushState('', '', link);
-/*    _gaq.push(['_trackPageview', link]); */
+    _gaq.push(['_trackPageview', link]);
   });
 }
 function ajaxLoad(url) {

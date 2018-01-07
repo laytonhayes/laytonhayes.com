@@ -630,7 +630,6 @@ section.profile
   background-position: center
   height: 35rem
   padding: 0
-  
 
 footer
   color: $white
@@ -678,3 +677,19 @@ footer
           animation: bounce linear .4s
           animation-fill-mode: forwards
         }
+
+
+/* TAPE STACKS */
+section.tapestacksCity {
+  height: 40rem;
+  padding: 0;
+  margin-bottom: 7rem;
+  background-image: url('/images/portfolio/tapeStacks/cityscape.svg'), url('/images/portfolio/tapeStacks/cityscapeStripes.svg');
+  background-position: bottom left, bottom;
+  background-repeat: no-repeat, repeat-x;
+  @media (max-width: $xs-max) {
+    height: 8rem;
+    background-size: 42rem, 8.22rem;
+    padding-bottom: 24rem;
+  } 
+}

@@ -860,6 +860,22 @@ footer section.icons a:hover {
   animation: bounce linear 0.4s;
   animation-fill-mode: forwards;
 }
+/* TAPE STACKS */
+section.tapestacksCity {
+  height: 40rem;
+  padding: 0;
+  margin-bottom: 7rem;
+  background-image: url("/images/portfolio/tapeStacks/cityscape.svg"), url("/images/portfolio/tapeStacks/cityscapeStripes.svg");
+  background-position: bottom left, bottom;
+  background-repeat: no-repeat, repeat-x;
+}
+@media (max-width: 767px) {
+  section.tapestacksCity {
+    height: 8rem;
+    background-size: 42rem, 8.22rem;
+    padding-bottom: 24rem;
+  }
+}
 @-moz-keyframes bounce {
   0% {
     transform: scale(1);

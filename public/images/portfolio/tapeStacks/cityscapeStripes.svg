@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100px" height="400px" viewBox="0 0 100 400" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>cityscapeStripes</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="cityscapeStripes" fill-rule="nonzero">
+            <polyline id="Shape" fill="#FFF200" points="0 0 100 0 100 400 0 400 0 0"></polyline>
+            <g id="Group" transform="translate(0.000000, 154.230003)" fill="#099AB9">
+                <rect id="Rectangle-path" opacity="0.9" x="0" y="82.8720868" width="100" height="8.41730556"></rect>
+                <rect id="Rectangle-path" opacity="0.2" x="0" y="0.242204" width="100" height="1.97302778"></rect>
+                <rect id="Rectangle-path" opacity="0.3" x="0" y="7.29225283" width="100" height="2.96663889"></rect>
+                <polygon id="Shape" opacity="0.4" points="100 19.5321942 0 19.5321942 0 15.7321942 99.9832999 15.7321942"></polygon>
+                <rect id="Rectangle-path" opacity="0.6" x="0" y="37.5921796" width="100" height="5.93327778"></rect>
+                <rect id="Rectangle-path" opacity="0.5" x="0" y="25.992204" width="100" height="4.95386111"></rect>
+                <rect id="Rectangle-path" opacity="0.8" x="0" y="66.2922528" width="100" height="7.92000008"></rect>
+                <polygon id="Shape" opacity="0.7" points="9.19403442e-14 51.1422284 100 51.1422284 100 58.0740466 0 58.0740466"></polygon>
+                <polygon id="Shape" points="0.0177252585 189.719389 100 189.719389 100 203.570918 1.13686838e-13 203.570918"></polygon>
+                <rect id="Rectangle-path" x="0" y="165.235199" width="100" height="12.8743611"></rect>
+                <rect id="Rectangle-path" x="0" y="141.992204" width="100" height="11.8679104"></rect>
+                <rect id="Rectangle-path" x="0" y="120.668236" width="100" height="10.8871389"></rect>
+                <rect id="Rectangle-path" x="0" y="100.492204" width="100" height="9.89352778"></rect>
+            </g>
+        </g>
+    </g>
+</svg>
