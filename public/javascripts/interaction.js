@@ -32,7 +32,7 @@ function ajaxLoad(url) {
         if (typeof title != 'undefined') {
           title = title+' : Layton Hayes';
         } else {
-          title = 'Layton Hayes : Experiences + Product Design';
+          title = 'Layton Hayes : Experience + Product Design';
         }
         document.title = title;
         homeAnimate = false;
@@ -263,11 +263,14 @@ function scroller() {
   video = [];
   base = 0;
   o = 400;
+  // load all h2 into an array to make sticky
   $('h2.themeBackground').each(function() {
     var details = { item: $(this), pos: $(this).offset().top, h: $(this).height(), moved: false };
     heading.push(details);
   });
   
+  // load all images that reveal on scroll into an array
+  // TODO fix JS error
   $('div.reveal').each(function() {
     var reveal = $(this);
     var details = { item: $(this), pos: $(this).offset().top, h: $(this).height(), moved: false };
@@ -277,7 +280,9 @@ function scroller() {
     });
   });
   
+  // load all videos in an array, to play on scroll
   $('video').each(function() {
+    console.log('video element loaded');
     var details = { item: $(this), pos: $(this).offset().top, played: false, moved: false };
     video.push(details);
     $(this).click(function() {
@@ -285,12 +290,16 @@ function scroller() {
     })
   })
   
-  $('img').load(function() {
+  // wait until all elements are loaded to get the window height, then automatically show "next" arrow on scroll
+  $( window ).on( 'load', function() {
     if ($('a.sideNav.next').length > 0) {
-      base = ($('body').height() - $(window).height()) - 40;
+      console.log('bang');
+      base = ($('body').height() - $(window).height()) - 200;
+      console.log(base);
     }
   })
-    
+  
+  // regenerate positions of elements on resize  
   $(window).resize(function() {
     $.each(heading, function () {
       $(this)[0].pos = $(this)[0].item.offset().top;
@@ -301,9 +310,11 @@ function scroller() {
     })
   })
   
+  // fire functions on scroll
   $(window).scroll(function() {
     scroll = $(this).scrollTop();    
-    // HEADINGS
+    
+    // Inserts h2 content into sticky position h2 on scroll
     $.each(heading, function () {
       if ($(this)[0].moved == false){
         $(this)[0].pos = $(this)[0].item.offset().top;
@@ -324,7 +335,7 @@ function scroller() {
         $('#heading').html('');
       }
     }  
-    // REVEAL
+    // Does a side wipe of content on scroll for any div.reveal
     $.each(revealArray, function () {
       if ($(this)[0].moved == false){
         $(this)[0].pos = $(this)[0].item.offset().top;
@@ -343,7 +354,7 @@ function scroller() {
         }
       }
     })
-    // VIDEO
+    // Play video when scrolled to it
     $.each(video, function () {
       if (scroll > ($(this)[0].pos - o) && $(this)[0].played == false) {
         $(this)[0].item.get(0).play();
