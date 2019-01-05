@@ -335,7 +335,7 @@ function scroller() {
         $('#heading').html('');
       }
     }  
-    // Does a side wipe of content on scroll for any div.reveal
+    // Does a side wipe reveal of content on scroll for any div.reveal
     $.each(revealArray, function () {
       if ($(this)[0].moved == false){
         $(this)[0].pos = $(this)[0].item.offset().top;
