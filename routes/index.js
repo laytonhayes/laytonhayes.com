@@ -16,7 +16,7 @@ function ajaxTest(req){
 router.get('/', function(req, res){
   ajaxTest(req);
   res.render('index', {
-    title: 'Layton Hayes : Experiences + Product Design',
+    title: 'Layton Hayes : Experience + Product Design',
     isAJAX : isAJAX
   });
 });
