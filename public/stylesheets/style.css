@@ -241,7 +241,7 @@ a.big:hover .arrow:after {
   transition: all 0.1s linear 0.2s;
 }
 h1 {
-  font: 5.4rem/5rem 'Brandon', sans-serif;
+  font: 5.8rem/5rem 'Brandon', sans-serif;
   letter-spacing: -0.05em;
   font-weight: normal;
 }
@@ -612,19 +612,20 @@ div.mobile video {
   }
 }
 /*  MAIN PAGE  */
-#particles {
+#header {
   display: flex;
+  background-image: linear-gradient(-5deg, #8c76ed, #fca4c5);
 }
 div#page.home {
   position: relative;
   z-index: 95;
-  margin-bottom: 37rem;
+  margin-bottom: 40rem;
   padding: 0;
   background: #fff;
 }
 @media (max-width: 767px) {
   div#page.home {
-    margin-bottom: 40rem;
+    margin-bottom: 34rem;
   }
 }
 div#page.home.about canvas {
@@ -643,11 +644,12 @@ section.home div.copy {
   padding-right: 6%;
 }
 section.home div.copy h1 {
-  color: #32ccd6;
+  color: #fff;
 }
 section.home div.copy p {
   line-height: 2rem;
-  max-width: 54rem;
+  max-width: 56rem;
+  color: #fff;
 }
 @media (max-width: 767px) {
   section.home div.copy p {
@@ -691,7 +693,7 @@ section.home ul.downArrows.hide {
 /* DOWNWARD ARROW ANIMATIONS */
 section.portfolio {
   padding-top: 0;
-  margin-top: -10px;
+  margin-top: 20px;
 }
 @media (max-width: 767px) {
   section.portfolio {
@@ -792,7 +794,7 @@ section.profile {
 footer {
   color: #fff;
   text-align: center;
-  padding: 3rem 7rem;
+  padding: 6rem 7rem;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -806,8 +808,13 @@ footer {
 }
 footer section {
   padding: 0;
-  max-width: 80rem;
+  max-width: 78rem;
   margin: auto;
+}
+footer section p {
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+  line-height: 2.4rem;
 }
 footer section.icons {
   display: flex;
