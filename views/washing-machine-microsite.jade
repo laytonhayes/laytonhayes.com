@@ -33,9 +33,8 @@ block content
           .url
             | www.macwashingmachine.com
         img(src='/images/portfolio/washingMachineMicrosite/home.jpg')
-        video.washHeading
-          source(src='/images/portfolio/washingMachineMicrosite/heading.mp4', type='video/mp4')
-          source(src='/images/portfolio/washingMachineMicrosite/heading.ogv', type='video/ogg')
+        video.lazy.washHeading(autoplay loop muted playsinline)
+          source(data-src='/images/portfolio/washingMachineMicrosite/heading.mp4', type='video/mp4')
     section
       h2.themeBackground Beauty in any language
       p

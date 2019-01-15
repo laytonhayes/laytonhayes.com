@@ -40,6 +40,7 @@ $(document).ready(function() {
           themeChange();
           navigation();
           homePage();
+          yall();
           // test if all images have been loaded, then run scroller
           var imgCount = 0;
           var imgNumber = $('#content').find('img').length;
@@ -136,7 +137,6 @@ $(document).ready(function() {
   function scroller() {
     heading = []; // array of sticky h2s
     revealArray = [];
-    video = [];
     base = 0; // where on scroll to reveal "next" button
     o = 400;
     console.log('scroller fired');
@@ -145,16 +145,6 @@ $(document).ready(function() {
     $('h2.themeBackground').each(function() {
       var details = { item: $(this), pos: $(this).offset().top, h: $(this).height(), moved: false };
       heading.push(details);
-    })
-  
-    // load all videos in an array, to play on scroll
-    $('video').each(function() {
-      console.log('video element loaded');
-      var details = { item: $(this), pos: $(this).offset().top, played: false, moved: false };
-      video.push(details);
-      $(this).click(function() {
-        $(this).get(0).play();
-      })
     })
   
     // load all images that reveal from side on scroll into an array
@@ -206,14 +196,6 @@ $(document).ready(function() {
           $('#heading').html('');
         }
       }  
-      
-      // Play video when scrolled to it
-      $.each(video, function () {
-        if (scroll > ($(this)[0].pos - o) && $(this)[0].played == false) {
-          $(this)[0].item.get(0).play();
-          $(this)[0].played = true;
-        }
-      });
             
       // Does a side wipe reveal of content on scroll for any div.reveal
       $.each(revealArray, function () {
@@ -255,10 +237,11 @@ $(document).ready(function() {
   };
   
   // Fire on load
+  yall({threshold: 0});
   themeChange();
   navigation();
   homePage();
-  $(window).on( 'load', function() {
+  $(window).on('load', function() {
     console.log('test for initial image load');
     scroller();
   })

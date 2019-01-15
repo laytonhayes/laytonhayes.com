@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  #page(data-theme='#71af07')
+  #page.vintage(data-theme='#71af07')
     header
       section
         h1.themeColor Washing Machine App
@@ -34,9 +34,8 @@ block content
         | From the beginning we knew motion would be a large part of Washing Machine. With a large amount of options shown for cleaning your Mac, motion helps illustrate more abstract concepts to the more novice users. Also, because of the washing machine metaphor, it allowed us to be more playful with our motion design than in traditional apps.
       .web.app
         img(src='/images/portfolio/washingMachine/cleanAnimation.png')
-        video
-          source(src='/images/portfolio/washingMachine/cleanAnimation.mp4', type='video/mp4')
-          source(src='/images/portfolio/washingMachine/cleanAnimation.ogv', type='video/ogg')
+        video.lazy(autoplay loop muted playsinline)
+          source(data-src='/images/portfolio/washingMachine/cleanAnimation.mp4', type='video/mp4')
     section
       h2.themeBackground Tying it together
       p

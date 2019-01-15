@@ -53,8 +53,10 @@ if !isAJAX
       link(rel='stylesheet', href='/stylesheets/style.css')     
       meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
 
+      <!-- External JS -->
       script(src='//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
       script(src='//ajax.googleapis.com/ajax/libs/threejs/r84/three.min.js')
+      script(src='/javascript/yall-2.2.0.min.js')
 
     body
       nav
@@ -66,8 +68,8 @@ if !isAJAX
       .borderLR.left.themeBackground
       .borderLR.right.themeBackground
       .borderTB.bottom.themeBackground
-      
-    script(src='/javascripts/interaction.js')
+    
+    script(src='/javascript/interaction.js')
     script(type='text/javascript').
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-27036990-1']);

@@ -325,6 +325,7 @@ nav
     @media (max-width: $xs-max)
       height: 5rem
       width: 5rem
+
 a.sideNav
   position: fixed
   width: 7rem
@@ -483,7 +484,7 @@ div.mobile
 #header
   display: flex
   background-image:linear-gradient(-5deg, #8c76ed, #fca4c5)
-  height: 100vh;
+  height: 120vh;
 div#page.home
   position: relative
   z-index: $z-home
@@ -495,6 +496,10 @@ div#page.home
   &.about
     canvas
       position: absolute
+  // scroll the page tiles up as the come into viewport
+  .lazy-bg-loaded
+    transition: transform 1s ease-out
+    transform: translate3d(0, -8rem, 0)
 section.home
   margin: 0
   padding: 0
@@ -562,7 +567,7 @@ section.home
 
 section.portfolio
   padding-top: 0
-  margin-top: 20px
+  padding-bottom: 0
   @media (max-width: $xs-max)
     padding: 0
   a.portBlock
