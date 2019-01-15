@@ -615,6 +615,7 @@ div.mobile video {
 #header {
   display: flex;
   background-image: linear-gradient(-5deg, #8c76ed, #fca4c5);
+  height: 100vh;
 }
 div#page.home {
   position: relative;
@@ -640,8 +641,7 @@ section.home {
 section.home div.copy {
   position: absolute;
   left: 6%;
-  top: 260px;
-  padding-right: 6%;
+  top: 32vh;
 }
 section.home div.copy h1 {
   color: #fff;
@@ -882,6 +882,10 @@ section.tapestacksCity {
     background-size: 42rem, 8.22rem;
     padding-bottom: 24rem;
   }
+}
+/* VINTAGE PAGES */
+div#page.vintage div.web {
+  max-width: 1200px;
 }
 @-moz-keyframes bounce {
   0% {
