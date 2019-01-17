@@ -50,9 +50,21 @@ ul li
 /*  FONTS  */
 @font-face
   font-family: 'Brandon'
-  src: url('/fonts/brandon.eot')
-  src: url('/fonts/brandon.eot?#iefix') format('embedded-opentype'), url('/fonts/brandon.woff') format('woff'), url('/fonts/brandon.ttf') format('truetype'), url('/fonts/brandon.svg#brandon') format('svg')
+  src: url('/fonts/BrandonText-Regular.eot')
+  src: url('/fonts/BrandonText-Regular.eot?#iefix') format('embedded-opentype'), url('/fonts/BrandonText-Regular.woff') format('woff'), url('/fonts/BrandonText-Regular.ttf') format('truetype')
   font-weight: normal
+  font-style: normal
+@font-face
+  font-family: 'Brandon Medium'
+  src: url('/fonts/BrandonText-Medium.eot')
+  src: url('/fonts/BrandonText-Medium.eot?#iefix') format('embedded-opentype'), url('/fonts/BrandonText-Medium.woff') format('woff'), url('/fonts/BrandonText-Medium.ttf') format('truetype')
+  font-weight: normal
+  font-style: normal
+@font-face
+  font-family: 'Brandon Light'
+  src: url('/fonts/BrandonText-Light.eot')
+  src: url('/fonts/BrandonText-Light.eot?#iefix') format('embedded-opentype'), url('/fonts/BrandonText-Light.woff') format('woff'), url('/fonts/BrandonText-Light.ttf') format('truetype')
+  font-weight: lighter
   font-style: normal
 
 /* GLOBAL */
@@ -67,7 +79,7 @@ html
   @media (max-width: $xs-max)
     font-size: 7px
 body
-  font: 1.9rem/2.4rem 'Bitter', serif
+  font: 2rem/2.8rem 'Brandon Medium', sans-serif
   color: $darkGray
   min-height: 500px
   position: relative
@@ -112,9 +124,7 @@ p
       color: $pink
       border-color: $pink 
 a.big
-  font-weight: bold
-  font-style: italic
-  font-size: 2.2rem
+  font-sizes: 2.2rem
   color: $darkGray
   display: inline-block
   margin-top: 4rem
@@ -196,9 +206,8 @@ a.big
         transition: all .1s linear .2s
       
 h1
-  font: 5.8rem/5rem 'Brandon', sans-serif
+  font: 5.8rem/5rem 'Brandon Light', sans-serif
   letter-spacing: -.05em
-  font-weight: normal
   &.margin
     margin-bottom: 2rem
   &.fixed
@@ -334,7 +343,7 @@ a.sideNav
   transition: all .15s
   opacity: .7
   color: white
-  font: 2.2rem/8rem 'Brandon', sans-serif
+  font: 2.4rem/8rem 'Brandon Light', sans-serif
   font-weight: bold
   box-shadow: 0 0px 4px rgba(0,0,0,0.16), 0 1px 6px rgba(0,0,0,0.23)
   @media (max-width: $xs-max)
@@ -345,6 +354,7 @@ a.sideNav
     background-position: right center
     padding-right: 3.5rem
     text-align: right
+    border-radius: 0 6px 6px 0
     &:hover
       transform: translate3d(6.5rem, 0, 0)
       opacity: 1
@@ -353,6 +363,7 @@ a.sideNav
     padding-left: 3.5rem
     background-image: url('/images/arrowNext.svg')
     background-position: left center
+    border-radius: 6px 0 0 6px
     &:hover, &.base
       transform: translate3d(-6.5rem, 0, 0)
       opacity: 1
@@ -566,8 +577,7 @@ section.home
 }
 
 section.portfolio
-  padding-top: 0
-  padding-bottom: 0
+  padding: 0 21px
   @media (max-width: $xs-max)
     padding: 0
   a.portBlock
@@ -575,7 +585,7 @@ section.portfolio
     display: block
     position: relative
     overflow: hidden
-    margin: 9px
+    margin: 15px
     padding: 0
     background-size: cover
     background-position: 50% 50%
@@ -583,19 +593,19 @@ section.portfolio
       background-size: contain
     &.half
       display: inline-block
-      width: calc(50% - 18px)
+      width: calc(50% - 30px)
       @media (max-width: $md-max)
         width: auto
         display: block
     &.oneThird
       display: inline-block
-      width: calc(33.33% - 18px)
+      width: calc(33.33% - 30px)
       @media (max-width: $md-max)
         width: auto
         display: block
     &.twoThird
       display: inline-block
-      width: calc(66.66% - 18px)
+      width: calc(66.66% - 30px)
       @media (max-width: $md-max)
         width: auto
         display: block   
@@ -616,19 +626,19 @@ section.portfolio
         left: 1.4rem
         top: 1.4rem
     .border
-      border-width: 1.2rem
+      border-width: 1rem
       border-style: solid
       position: absolute
       top: 0
       left: 0
       right: 0
       bottom: 0
-      transition: all .4s ease-in-out
+      transition: all .2s ease-in-out
       @media (max-width: $md-max)
         border-width: .8rem
     &:hover
       .border
-        border-width: 2.4rem
+        border-width: 1.6rem
         background: rgba(0,0,0,.3)      
 
 section.profile
@@ -654,8 +664,7 @@ footer
     max-width: 78rem;
     margin: auto;
     p 
-      font-size: 2rem;
-      letter-spacing: -0.02em;
+      font-size: 2.1rem;
       line-height: 2.4rem;
     &.icons
       display: flex
