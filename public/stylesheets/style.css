@@ -627,7 +627,6 @@ div.mobile video {
 /*  MAIN PAGE  */
 #header {
   display: flex;
-  background-image: linear-gradient(-5deg, #8c76ed, #fca4c5);
   height: 120vh;
 }
 div#page.home {
