@@ -839,7 +839,6 @@ section.footer section.icons {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 78rem;
 }
 @media (max-width: 767px) {
   section.footer section.icons {
