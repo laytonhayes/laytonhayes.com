@@ -2,16 +2,16 @@ extends layout
 
 block content
   #page.home(data-theme='#F170AB')
-    section#home.home
-      #homeCopy.copy
+    section.homeHeader
+      .homeCopy
         h1.margin
           span#time Good Day.
-        p This is the Portfolio of Layton Hayes, an interactive designer, developer, and fabricator based in Los Angeles.
+        p This is the portfolio of Layton Hayes, an interactive designer, developer, and fabricator based in Los Angeles.
+      #rubix
       ul#downArrows.downArrows
         li
         li
         li
-    #header
     section.portfolio
       a.portBlock.nav.half.lazy-bg(href='/nike' style='background-image: url(/images/portfolio/nike/cover.png)')
         .border(style='border-color: #1B1B1B')
@@ -39,13 +39,14 @@ block content
       a.portBlock.nav.oneThird.contain.lazy-bg(href='/first-american' style='background-image: url(/images/portfolio/firstAmerican/cover.png); background-color:#2B5382')
         .border(style='border-color: #F6BF18')
         h2(style='background: #F6BF18') First American
+  
+    section.footer
+      section
+        h1.margin Howdy. I'm Layton.
+        p Designing beautiful interactions with ones + zeros and creating experiences with atoms + electrons. A singer of sentimental ballads, raconteur, record collector, and musician, I thrive on melding technology + art.
+      section.icons
+        a.linkedin(href='http://www.linkedin.com/in/laytonhayes', target='_blank')
+        a.github(href='http://github.com/laytonhayes', target='_blank')
+        a.spotify(href='https://open.spotify.com/user/laytonhayes', target='_blank')
 
-    section.profile
-  footer  
-    section
-      h1.margin Howdy. I'm Layton.
-      p Designing beautiful interactions with ones + zeros and creating experiences with atoms + electrons. A singer of sentimental ballads, raconteur, record collector, and musician, I thrive on melding technology + art.
-    section.icons
-      a.github(href='http://github.com/laytonhayes', target='_blank')
-      a.linkedin(href='http://www.linkedin.com/in/laytonhayes', target='_blank')
-      a.spotify(href='https://open.spotify.com/user/laytonhayes', target='_blank')
+  section.profile

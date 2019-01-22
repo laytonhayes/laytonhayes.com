@@ -1,7 +1,14 @@
 $(document).ready(function() {
   
   var homeAnimate = false;
-  var first = true;
+  var first = true;  
+  var delay = (function(){
+    var timer = 0;
+    return function(callback, ms){
+      clearTimeout (timer);
+      timer = setTimeout(callback, ms);
+    };
+  })();
   
   function themeChange() {
     var c = $('#page').data('theme');
@@ -57,44 +64,55 @@ $(document).ready(function() {
   
   /*  HOME PAGE ANIMATION  */
   function rubix(){
-  	var blue = new THREE.Color(0x0000ff);
-  	var pink = new THREE.Color(0xfca4c5);
-  	var canvas = $('#header')[0];
-  
+  	var canvas = $('#rubix')[0];
+  	var cWidth = document.getElementById('rubix').offsetWidth;
+  	var cHeight = document.getElementById('rubix').offsetHeight;
   	var scene = new THREE.Scene();
-  	var camera = new THREE.PerspectiveCamera( 100, window.innerWidth / window.innerHeight, 0.1, 100 );
-  
+  	var camera = new THREE.PerspectiveCamera(100, cWidth / cHeight, 0.1, 100);
   	var renderer = new THREE.WebGLRenderer({ alpha: true });
-  	renderer.setPixelRatio( window.devicePixelRatio );
-  	renderer.setSize( window.innerWidth, window.innerHeight );
-  	canvas.appendChild( renderer.domElement );
+  	renderer.setPixelRatio(window.devicePixelRatio);
+  	renderer.setSize(cWidth, cHeight);
+  	canvas.appendChild(renderer.domElement);
   
-  	//THREEx.WindowResize(renderer, camera);
+  	// add the shapes 
   	var shape = [];
-  	geometry = new THREE.IcosahedronGeometry(4,0);
-  	material = new THREE.MeshNormalMaterial({ wireframe: true });
+  	geometry = new THREE.IcosahedronGeometry(4.2,0);
+  	material = new THREE.MeshNormalMaterial({ wireframe: false });
   	shape[0] = new THREE.Mesh( geometry, material );
-  
-  	shape[0].position.set(5,0,0);
-  
-  	scene.add(shape[0]);
-  
-  	var light = new THREE.PointLight(0xfca4c5);
-  	light.position.set(0,250,0);
-  	scene.add(light);
-  
-  	camera.position.set(0,0,10); // x y z
-  
+    shape[1] = new THREE.Mesh( geometry, material );
+    shape[2] = new THREE.Mesh( geometry, material );
+  	shape[0].position.set(0,0,0);
+  	shape[1].position.set(0,0,0);
+  	shape[2].position.set(0,0,0);
+  	scene.add(shape[0], shape[1], shape[2]);
+  	camera.position.set(0,0,10);
+  	
+  	// render and move the shapes
   	function render() {
   		requestAnimationFrame( render );
-  
   		shape[0].rotation.x += 0.0035;
-  
+  		shape[0].rotation.y -= 0.001;
+  		shape[1].rotation.y += 0.003;
+  		shape[1].rotation.z -= 0.003;
+  		shape[2].rotation.z -= 0.005;
+  		shape[2].rotation.x += 0.005;
   		renderer.render(scene, camera);
   	}
   	render();
+  	
+  	// update the size on window resize
+    $(window).resize(function() {
+      delay(function(){
+      	cWidth = document.getElementById('rubix').offsetWidth;
+      	cHeight = document.getElementById('rubix').offsetHeight;
+	  		camera.aspect = cWidth / cHeight;
+	  		camera.updateProjectionMatrix();
+    		renderer.setSize(cWidth, cHeight);
+      }, 500);
+    });
   }
     
+  /* DOWN ARROWS ON HOME PAGE */  
   function hideArrows() {
     $('#downArrows').click(function() {
       $('body,html').animate({scrollTop: 220 }, 500);
@@ -108,8 +126,9 @@ $(document).ready(function() {
     });
   }
   
+  /* HOME PAGE FUNCTIONS */
   function homePage() {
-    if ($('#header').length > 0) {
+    if ($('#page.home').length > 0) {
       homeAnimate = true;
       var now = new Date().getHours();
       var time;
@@ -127,6 +146,7 @@ $(document).ready(function() {
           time = 'Good Evening.';
           break;
       }
+      // changes intro verbiage to march time of day
       $('#time').html(time);
       rubix();
       $('body').addClass('home');
@@ -134,12 +154,12 @@ $(document).ready(function() {
     }
   }
   
+  /* MANAGE FUNCTIONS BASED ON SCROLL */
   function scroller() {
     heading = []; // array of sticky h2s
     revealArray = [];
     base = 0; // where on scroll to reveal "next" button
     o = 400;
-    console.log('scroller fired');
     
     // load all h2 into an array to make sticky
     $('h2.themeBackground').each(function() {
@@ -160,16 +180,23 @@ $(document).ready(function() {
       base = ($('body').height() - $(window).height()) - 200;
     }
     
-    // regenerate positions of elements on resize  
-    $(window).resize(function() {
-      $.each(heading, function () {
-        $(this)[0].pos = $(this)[0].item.offset().top;
-        $(this)[0].h = $(this)[0].item.height();
-      })
-      $.each(revealArray, function () {
-        $(this)[0].item.find('img').css('max-width', $(this)[0].item.parent().find('> img').width());
-      })
-    })
+    /* UPDATE ELEMENTS ON WINDOW RESIZE */
+    if ($('#page.home').length == 0) {
+      function resize() {
+        $.each(heading, function () {
+          $(this)[0].pos = $(this)[0].item.offset().top;
+          $(this)[0].h = $(this)[0].item.height();
+        })
+        $.each(revealArray, function () {
+          $(this)[0].item.find('img').css('max-width', $(this)[0].item.parent().find('> img').width());
+        })
+      }
+      $(window).resize(function() {
+        delay(function(){
+          resize();
+        }, 500);
+      });
+    }
     
     // fire functions on scroll
     $(window).scroll(function() {
@@ -199,7 +226,6 @@ $(document).ready(function() {
             
       // Does a side wipe reveal of content on scroll for any div.reveal
       $.each(revealArray, function () {
-        console.log('reveal bound');
         if ($(this)[0].moved == false){
           $(this)[0].pos = $(this)[0].item.offset().top;
           $(this)[0].moved = true;
@@ -242,7 +268,6 @@ $(document).ready(function() {
   navigation();
   homePage();
   $(window).on('load', function() {
-    console.log('test for initial image load');
     scroller();
   })
 
