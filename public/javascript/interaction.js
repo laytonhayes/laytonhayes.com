@@ -34,7 +34,8 @@ $(document).ready(function() {
         url:     url,
         timeout: 5000,
         success: function(d){
-          $('#content').html(d).fadeIn(200);
+          $('#content').html(d).fadeIn(1000);
+          $('#page').addClass('loaded');
           title = $('header h1').html();
           if (typeof title != 'undefined') {
             title = title+' : Layton Hayes';
@@ -115,7 +116,7 @@ $(document).ready(function() {
   /* DOWN ARROWS ON HOME PAGE */  
   function hideArrows() {
     $('#downArrows').click(function() {
-      $('body,html').animate({scrollTop: 220 }, 500);
+      $('body,html').animate({scrollTop: 300 }, 1000);
     })
     $(window).scroll(function() {
      if ($(this).scrollTop() > 20) {
@@ -263,10 +264,15 @@ $(document).ready(function() {
   };
   
   // Fire on load
-  yall({threshold: 0});
   themeChange();
   navigation();
-  homePage();
+  if ($('#page.home').length > 0) {
+    homePage();
+    yall({threshold: -100});
+  } else {
+    yall();
+    $('#page').addClass('loaded');
+  }
   $(window).on('load', function() {
     scroller();
   })

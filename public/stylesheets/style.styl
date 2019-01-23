@@ -118,12 +118,12 @@ p
   a
     border-bottom: 2px dotted $darkGray
     color: $darkGray
-    transition: color .4s, border-color .4s;
+    transition: color .4s, border-color .4s
     &:hover
       color: $pink
       border-color: $pink 
 a.big
-  font-sizes: 2.2rem
+  font-size: 2.2rem
   color: $darkGray
   display: inline-block
   margin-top: 4rem
@@ -131,6 +131,7 @@ a.big
   transition: color .5s
   @media (max-width: $xs-max)
     margin-top: 1rem
+    font-size: 2rem
   &.bottomPad {
     margin-top: 0
     margin-bottom: 6rem
@@ -164,6 +165,8 @@ a.big
     vertical-align: sub
     @media (max-width: $xs-max)
       background-size: contain
+      width: 2rem
+      height: 2rem
     /* top border */
     &:before
       content: ''
@@ -235,9 +238,9 @@ h2
   @media (max-width: $xs-max)
     font-size: 3rem
     line-height: 5rem
-    display: block;
-    text-align: center;
-    margin-left: 0;
+    display: block
+    text-align: center
+    margin-left: 0
 h3
   font: 3.2rem/3.2rem 'Brandon', sans-serif
   margin-bottom: 2rem
@@ -267,12 +270,19 @@ hr
 }
 
 /* GRID LAYOUT */
+#page
+  transform: translate3d(0, 10rem, 0)
+  transition: transform 1s
+  &.loaded {
+    transform: translate3d(0, 0, 0)
+  }
 header
   margin-top: 6rem
 section
   padding: 5rem $pageMargin
   @media (max-width: $xs-max)
       padding: $pageMarginXs
+      overflow: hidden
 section.grid
   padding-left: 0
   padding-right: 0
@@ -347,6 +357,7 @@ a.sideNav
   box-shadow: 0 0px 4px rgba(0,0,0,0.16), 0 1px 6px rgba(0,0,0,0.23)
   @media (max-width: $xs-max)
     background-size: 3rem
+    top: 70%
   &.prev
     left: -6.5rem
     background-image: url('/images/arrowPrev.svg')
@@ -497,6 +508,7 @@ div.mobile
   margin-bottom: $footerH
   padding: 0
   background: white
+  transform: translate3d(0, 0, 0)
 section.homeHeader
   background-image:linear-gradient(-5deg, #8c76ed, #fca4c5)
   display: flex
@@ -576,16 +588,15 @@ section.homeHeader
 }
 
 section.portfolio
-  padding: 0 21px
+  padding: 5rem 21px 0 21px
   @media (max-width: $xs-max)
     padding: 0
+    overflow: visible
   // scroll the page tiles up as the come into viewport
-  .lazy-bg-loaded
-    transition: transform 1s ease-out
-    transform: translate3d(0, -7.2rem, 0)
   a.portBlock
-    border-radius: 4px;
-    box-shadow: 0 2px 16px rgba(0,0,0,.3);
+    border-radius: 4px
+    opacity: 0
+    box-shadow: 0 2px 16px rgba(0,0,0,.3)
     height: 42rem
     display: block
     position: relative
@@ -594,6 +605,10 @@ section.portfolio
     padding: 0
     background-size: cover
     background-position: 50% 50%
+    &.lazy-bg-loaded
+      transition: all 1.5s
+      transform: translate3d(0, -12rem, 0)
+      opacity: 1
     &.contain
       background-size: contain
     &.half
@@ -616,10 +631,11 @@ section.portfolio
         display: block   
     video
       position: absolute
-      top: 50%; left: 50%
+      top: 50%
+      left: 50%
       transform: translate(-50%, -50%)
-      min-width: 100%;
-      min-height: 100%;
+      min-width: 100%
+      min-height: 100%
     h2
       position: absolute
       left: 2.4rem
@@ -653,7 +669,7 @@ section.footer
   background: $pink
   text-align: center
   padding: 6rem 7rem
-  margin-top: -5rem
+  margin-top: -10.5rem
   @media (max-width: $xs-max)
     padding: 3rem 1rem
   p 
@@ -661,7 +677,7 @@ section.footer
     line-height: 2.4rem
   section
     max-width: 78rem
-    margin: auto;
+    margin: auto
     padding 0
     &.icons
       margin-top: 4rem
@@ -709,16 +725,19 @@ section.profile
 
 /* TAPE STACKS */
 section.tapestacksCity {
-  height: 40rem;
-  padding: 0;
-  margin-bottom: 7rem;
-  background-image: url('/images/portfolio/tapeStacks/cityscape.svg'), url('/images/portfolio/tapeStacks/cityscapeStripes.svg');
-  background-position: bottom left, bottom;
-  background-repeat: no-repeat, repeat-x;
+  height: 40rem
+  padding: 0
+  margin: -10rem 0 0 0
+  background-image: url('/images/portfolio/tapeStacks/cityscape.svg'), url('/images/portfolio/tapeStacks/cityscapeStripes.svg')
+  background-position: bottom left, bottom
+  background-repeat: no-repeat, repeat-x
+  @media (max-width: $md-max) {
+    margin: 0
+  }
   @media (max-width: $xs-max) {
-    height: 8rem;
-    background-size: 42rem, 8.22rem;
-    padding-bottom: 24rem;
+    height: 8rem
+    background-size: 42rem, 8.22rem
+    padding-bottom: 24rem
   } 
 }
 
