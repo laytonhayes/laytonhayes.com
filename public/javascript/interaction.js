@@ -163,10 +163,12 @@ $(document).ready(function() {
     o = 400;
     
     // load all h2 into an array to make sticky
-    $('h2.themeBackground').each(function() {
-      var details = { item: $(this), pos: $(this).offset().top, h: $(this).height(), moved: false };
-      heading.push(details);
-    })
+    delay(function(){
+      $('h2.themeBackground').each(function() {
+        var details = { item: $(this), pos: $(this).offset().top, h: $(this).height(), moved: false };
+        heading.push(details);
+      })
+    }, 1000);
   
     // load all images that reveal from side on scroll into an array
     $('div.reveal').each(function() {
