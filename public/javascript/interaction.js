@@ -221,7 +221,7 @@ $(document).ready(function() {
           }
         }
       });
-      if (heading.length > 0) {
+      if (heading.length > 1) {
         if (scroll < heading[1].pos) {
           $('#heading').html('');
         }
