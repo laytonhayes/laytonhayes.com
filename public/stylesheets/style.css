@@ -285,6 +285,7 @@ h2 {
 h2#heading {
   position: fixed;
   top: 0;
+  left: 7rem;
 }
 @media (max-width: 767px) {
   h2#heading {
@@ -643,7 +644,7 @@ div.mobile video {
   margin-bottom: 40rem;
   padding: 0;
   background: #fff;
-  transform: translate3d(0, 0, 0);
+  transform: none;
 }
 section.homeHeader {
   background-image: linear-gradient(-5deg, #8c76ed, #fca4c5);
@@ -842,11 +843,10 @@ section.footer {
   }
 }
 section.footer p {
-  font-size: 2.1rem;
   line-height: 2.4rem;
 }
 section.footer section {
-  max-width: 78rem;
+  max-width: 64rem;
   margin: auto;
   padding: 0;
 }
