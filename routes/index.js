@@ -21,6 +21,10 @@ router.get('/', function(req, res){
   });
 });
 
+router.get('/friendbuy', function(req, res){
+  res.redirect('https://www.dropbox.com/sh/sj3ocjcugtmrvx7/AAD7BHaxfXaeb-5D_xfeLA6Ia?dl=0');
+});
+
 router.get('/weather-tube', function(req, res){
   ajaxTest(req);
   res.render('weather-tube', {
