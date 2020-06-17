@@ -1,2 +1,4 @@
 .DS_STORE
 /node_modules
+passenger.3000.log
+passenger.3000.pid.lock
