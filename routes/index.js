@@ -25,6 +25,14 @@ router.get('/friendbuy', function(req, res){
   res.redirect('https://www.dropbox.com/sh/sj3ocjcugtmrvx7/AAD7BHaxfXaeb-5D_xfeLA6Ia?dl=0');
 });
 
+router.get('/ticketmaster-resale', function(req, res){
+  ajaxTest(req);
+  res.render('weather-tube', {
+    title: 'Weather Tube'+baseTitle,
+    isAJAX : isAJAX
+  });
+});
+
 router.get('/weather-tube', function(req, res){
   ajaxTest(req);
   res.render('weather-tube', {
