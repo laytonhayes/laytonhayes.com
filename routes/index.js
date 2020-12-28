@@ -27,16 +27,16 @@ router.get('/friendbuy', function(req, res){
 
 router.get('/ticketmaster-resale', function(req, res){
   ajaxTest(req);
-  res.render('weather-tube', {
-    title: 'Weather Tube'+baseTitle,
+  res.render('ticketmaster-resale', {
+    title: 'Ticketmaster Resale'+baseTitle,
     isAJAX : isAJAX
   });
 });
 
-router.get('/weather-tube', function(req, res){
+router.get('/ticketmaster', function(req, res){
   ajaxTest(req);
-  res.render('weather-tube', {
-    title: 'Weather Tube'+baseTitle,
+  res.render('ticketmaster', {
+    title: 'Ticketmaster'+baseTitle,
     isAJAX : isAJAX
   });
 });
@@ -45,30 +45,6 @@ router.get('/nike', function(req, res){
   ajaxTest(req);
   res.render('nike', {
     title: 'Nike WD+C'+baseTitle,
-    isAJAX : isAJAX
-  });
-});
-
-router.get('/edassist', function(req, res){
-  ajaxTest(req);
-  res.render('edassist', {
-    title: 'Bright Horizons EdAssist'+baseTitle,
-    isAJAX : isAJAX
-  });
-});
-
-router.get('/tape-stacks', function(req, res){
-  ajaxTest(req);
-  res.render('tape-stacks', {
-    title: 'Tape Stacks'+baseTitle,
-    isAJAX : isAJAX
-  });
-});
-
-router.get('/first-american', function(req, res){
-  ajaxTest(req);
-  res.render('first-american', {
-    title: 'First American - Palomar'+baseTitle,
     isAJAX : isAJAX
   });
 });
@@ -89,10 +65,42 @@ router.get('/maritz', function(req, res){
   });
 });
 
+router.get('/edassist', function(req, res){
+  ajaxTest(req);
+  res.render('edassist', {
+    title: 'Bright Horizons EdAssist'+baseTitle,
+    isAJAX : isAJAX
+  });
+});
+
+router.get('/tape-stacks', function(req, res){
+  ajaxTest(req);
+  res.render('tape-stacks', {
+    title: 'Tape Stacks'+baseTitle,
+    isAJAX : isAJAX
+  });
+});
+
 router.get('/cengage', function(req, res){
   ajaxTest(req);
   res.render('cengage', {
     title: 'Cengage MindTap'+baseTitle,
+    isAJAX : isAJAX
+  });
+});
+
+router.get('/weather-tube', function(req, res){
+  ajaxTest(req);
+  res.render('weather-tube', {
+    title: 'Weather Tube'+baseTitle,
+    isAJAX : isAJAX
+  });
+});
+
+router.get('/first-american', function(req, res){
+  ajaxTest(req);
+  res.render('first-american', {
+    title: 'First American - Palomar'+baseTitle,
     isAJAX : isAJAX
   });
 });
