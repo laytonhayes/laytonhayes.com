@@ -437,12 +437,12 @@ div.web
       left: 0
   video
     max-width: 100%
-    position: absolute
     top: 0
     left: 0
     &.washHeading
+      position: absolute
       width: 71.4%
-      margin: 42px 0 0 15.4%
+      margin: 44px 0 0 15.4%
   div.wrapper
     position: relative
   div.reveal
@@ -460,6 +460,9 @@ div.web
     box-shadow: 0 2px 14px rgba(0,0,0, .5)
     border-radius: 6px
     overflow: hidden
+    video {
+      position: absolute
+    }
 
 div.mobile
   background: $gray

@@ -549,13 +549,13 @@ div.web img.overlay {
 }
 div.web video {
   max-width: 100%;
-  position: absolute;
   top: 0;
   left: 0;
 }
 div.web video.washHeading {
+  position: absolute;
   width: 71.4%;
-  margin: 42px 0 0 15.4%;
+  margin: 44px 0 0 15.4%;
 }
 div.web div.wrapper {
   position: relative;
@@ -579,6 +579,9 @@ div.web.app {
   box-shadow: 0 2px 14px rgba(0,0,0,0.5);
   border-radius: 6px;
   overflow: hidden;
+}
+div.web.app video {
+  position: absolute;
 }
 div.mobile {
   background: #b8b8b8;
