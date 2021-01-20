@@ -485,6 +485,9 @@ div.web {
     border-radius: 3px;
   }
 }
+div.web.video {
+  padding-bottom: 0;
+}
 div.web div.head {
   padding: 2px 6px 8px 6px;
   line-height: 0;
