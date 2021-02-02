@@ -71,12 +71,11 @@ html
   font-size: 10px
   height: 100%
   /* change global sizes */
-  @media (max-width: $xs-max)
-    font-size: 8px
   @media (max-width: $md-max)
-    font-size: 9px  
+    font-size: 9px
   @media (max-width: $xs-max)
     font-size: 7px
+
 body
   font: 2rem/2.8rem 'Brandon Medium', sans-serif
   color: $darkGray
@@ -306,6 +305,8 @@ section.grid
     margin-top: $pageMargin
     @media (max-width: $xs-max)
       margin-top: 2rem
+    &.noMargin
+      margin-top: 0
 img.full
   width: 100%
   display: block
@@ -507,6 +508,52 @@ div.mobile
     @media (max-width: $xs-max)
       border-radius: 3px
 
+$mobileBorder =   1.8rem
+$mobileBorderMd = 1.6rem
+$mobileBorderSm = 1.2rem
+      
+div.mobileModern
+  background: $gray
+  border-radius: 56px
+  padding: $mobileBorder
+  padding-bottom: 1.4rem
+  display: inline-block
+  position: relative
+  @media (max-width: $md-max)
+    border-radius: 40px
+    padding: $mobileBorderMd
+    padding-bottom: 1.2rem
+  @media (max-width: $xs-max)
+    padding: $mobileBorderSm
+    padding-bottom: .2rem
+  &:after
+    content: ''
+    background: url('/images/mobileNotch.svg') no-repeat
+    background-position: center top
+    background-size: contain
+    width: 54%
+    height: 32px
+    display: block
+    position: absolute
+    top: 1.7rem
+    left: 23%
+    @media (max-width: $md-max)
+      top: $mobileBorderMd
+    @media (max-width: $xs-max)
+      top: 8px
+      left: 21%
+      width: 58%
+  img,
+  video
+    width: 100%
+    max-width: 375px
+    height: auto
+    border-radius: 38px
+    @media (max-width: $md-max)
+      border-radius: 26px
+    @media (max-width: $xs-max)
+      border-radius: 32px
+
 /*  HOME PAGE  */
 #page.home
   position: relative
@@ -593,6 +640,7 @@ section.homeHeader
   100% {transform: translate3d(0, 6px, 0); opacity: 0;}
 }
 
+/* INDEX PAGE */
 section.portfolio
   padding: 5rem 21px 0 21px
   @media (max-width: $xs-max)
@@ -640,8 +688,10 @@ section.portfolio
       top: 50%
       left: 50%
       transform: translate(-50%, -50%)
-      min-width: 100%
-      min-height: 100%
+      height: 100%
+      @media (max-width: $md-max)
+        height: auto
+        width: 100%
     h2
       position: absolute
       left: 2.4rem

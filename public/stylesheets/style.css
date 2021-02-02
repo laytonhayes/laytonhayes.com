@@ -75,11 +75,6 @@ html {
   height: 100%;
 /* change global sizes */
 }
-@media (max-width: 767px) {
-  html {
-    font-size: 8px;
-  }
-}
 @media (max-width: 1024px) {
   html {
     font-size: 9px;
@@ -374,6 +369,9 @@ section.grid h3 {
     margin-top: 2rem;
   }
 }
+section.grid h3.noMargin {
+  margin-top: 0;
+}
 img.full {
   width: 100%;
   display: block;
@@ -643,6 +641,70 @@ div.mobile video {
     border-radius: 3px;
   }
 }
+div.mobileModern {
+  background: #b8b8b8;
+  border-radius: 56px;
+  padding: 1.8rem;
+  padding-bottom: 1.4rem;
+  display: inline-block;
+  position: relative;
+}
+@media (max-width: 1024px) {
+  div.mobileModern {
+    border-radius: 40px;
+    padding: 1.6rem;
+    padding-bottom: 1.2rem;
+  }
+}
+@media (max-width: 767px) {
+  div.mobileModern {
+    padding: 1.2rem;
+    padding-bottom: 0.2rem;
+  }
+}
+div.mobileModern:after {
+  content: '';
+  background: url("/images/mobileNotch.svg") no-repeat;
+  background-position: center top;
+  background-size: contain;
+  width: 54%;
+  height: 32px;
+  display: block;
+  position: absolute;
+  top: 1.7rem;
+  left: 23%;
+}
+@media (max-width: 1024px) {
+  div.mobileModern:after {
+    top: 1.6rem;
+  }
+}
+@media (max-width: 767px) {
+  div.mobileModern:after {
+    top: 8px;
+    left: 21%;
+    width: 58%;
+  }
+}
+div.mobileModern img,
+div.mobileModern video {
+  width: 100%;
+  max-width: 375px;
+  height: auto;
+  border-radius: 38px;
+}
+@media (max-width: 1024px) {
+  div.mobileModern img,
+  div.mobileModern video {
+    border-radius: 26px;
+  }
+}
+@media (max-width: 767px) {
+  div.mobileModern img,
+  div.mobileModern video {
+    border-radius: 32px;
+  }
+}
 /*  HOME PAGE  */
 #page.home {
   position: relative;
@@ -734,6 +796,7 @@ section.homeHeader ul.downArrows.hide {
   opacity: 0;
 }
 /* DOWNWARD ARROW ANIMATIONS */
+/* INDEX PAGE */
 section.portfolio {
   padding: 5rem 21px 0 21px;
 }
@@ -799,8 +862,13 @@ section.portfolio a.portBlock video {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  min-width: 100%;
-  min-height: 100%;
+  height: 100%;
+}
+@media (max-width: 1024px) {
+  section.portfolio a.portBlock video {
+    height: auto;
+    width: 100%;
+  }
 }
 section.portfolio a.portBlock h2 {
   position: absolute;
