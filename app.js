@@ -25,10 +25,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 // call the router
 app.use('/', index);
 
-// password protected pages
-
-
-
 // TODO catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
@@ -46,5 +42,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-// app.listen(3000);
+app.listen(3000);
 module.exports = app;
