@@ -9,15 +9,17 @@ block content
           li Creative_Direction
           li Product_Design
           li Usability_Testing
-        p At Ticketmaster I lead a team of talented designers to guide the direction of new products and refresh existing pages for the season ticket management product. Over 900 professional and university sports teams, along with theatres and symphonies use Account Manager for ticket sales and management across the globe.
+        p At Ticketmaster I lead a team of talented designers to guide the direction of new products and refresh existing features for Account Manager, the season ticket management product. Over 900 professional and university sports teams, along with theatres and symphonies use Account Manager for ticket sales and management across the globe.
+        p Highlighted projects include merging millions of user accounts, integrating 3D stadium views into the buy flow, and a rethinking of the checkout process.
+        hr
       section.grid
         .half
           h2.themeBackground Merging Accounts
           p Linking millions of accounts is a delicate process, especially without an option to undo.
-          p Over 900 season ticket sites had their own authentication not tied to Ticketmaster. For future products to effectively work, they needed to be brought into the Ticketmaster ecosystem. This meant a progressive rollout to over two million active accounts during the off season for each sports team and theatre.
-          p The main challenge for this project was not the front end, but how to manage several dozen edge cases that could potentially keep a fan from attending their favorite game or performance. Before one pixel was laid down we conducted an audit of all parter sites’ security and login credential protocols. We also surveyed hundreds of active season ticket holders to better understand their perspective. In doing so, we realized that auto-linking accounts could be potentially dangerous and alarming to the fans. After that, we went about crafting a solution that allowed fans to easily link their Account Manager account with their Ticketmaster credentials.
-          p Flows were made of the entire ecosystem and all use cass permutations to give us a sense of what screens needed to be designed. From there, we designed screens that would allow the least amount of steps and user input necessary. Finally, we worked with our partners to craft messaging to educate fans beforehand, along with a roll out strategy.
-          p In the end, millions of accounts were linked allowing season ticket holders to more seamlessly manage and access their tickets.
+          p Over 900 season ticket sites had their own user authentication not tied to Ticketmaster. In order for future products to work effectively, we needed to bring these accounts into the Ticketmaster ecosystem. This meant a progressive rollout to over two million active accounts during the off season for each sports team, stadium, and theatre.
+          p The main challenge for this project was not the front end, but how to manage several dozen edge cases that could potentially keep a fan from attending their favorite game or performance. Before one pixel was laid down we conducted an audit of all partner sites’ security and login credential protocols. We also surveyed hundreds of active season ticket holders to better understand their perspective. In doing so, we realized that auto-linking accounts could be potentially dangerous and alarming to the fans. After that, we set out to craft a solution that allowed fans to easily link their Account Manager account with their Ticketmaster credentials.
+          p Flows were made of the entire ecosystem and all use cases to give us a sense of what screens needed to be designed. We then designed screens that would allow the least amount of steps and user input necessary. Finally, we worked with our partners to craft messaging to educate fans beforehand, along with a roll out strategy.
+          p In the end, millions of accounts were effortlessly linked, allowing season ticket holders to more seamlessly manage and access their tickets.
         .half.center
           .mobileModern
             video.lazy(height='auto' width='auto' poster='/images/portfolio/ticketmaster/modernAccountsMobilePoster.png' autoplay loop muted playsinline)
@@ -28,12 +30,12 @@ block content
       section
         h2.themeBackground Virtual Venue
         p Virtual Venue is a Ticketmaster acquisition that allows fans to see photo realistic renders of stadiums, event centers, and theatres, along with a 360-degree view from any seat in the house. My first project at Ticketmaster was to integrate this technology into the Account Manager buy flow.
-        p While the majority of Account Manager traffic is mobile, one section that is viewed on desktop over 85% is purchasing or upgrading season tickets. Fans that spend thousands of dollars on their favorite team want to see what the view from seat looks like, along with amenities and perks.
-        p Because the majority of real estate is taken up by the stadium renders, our traditional design components had to be rethought. Ticketmaster brand colors needed to take a back seat to not clash with team colors. A more neutral, video game inspired set of components was created.
-        p One thing we learned during our research is fans buying tickets often wanted to see what tickets were going for in comparable sections. This is often sections directly across the stadium. To allow for quickly comparing sections, we added the ability to see ticket prices in the 360-degree view and link to that section for details. In addition, fans can also add up to three sections for comparison in a more traditional table view.
+        p While the majority of Account Manager traffic is mobile, one section that is viewed over 85% on desktop is purchasing or upgrading season tickets. Fans that spend thousands of dollars on their favorite team want to see the view from their selected seats, along with amenities and perks.
+        p Because the majority of screen real estate is taken up by the stadium renders, our traditional design components had to be completely reconsidered. Ticketmaster brand colors needed to take a back seat to not clash with team colors. A more neutral, video game inspired set of components was created.
+        p During the research phase we learned that fans purchasing tickets often wanted to see what ticket prices are in comparable sections. To allow for a quick, integrated comparison, we incorporated the ability to see ticket prices in the 360-degree view, linking to that section for details. In addition, fans can also add up to three sections for comparison in a more traditional table view.
         p After the Virtual Venue integration, average season ticket transaction prices went up 4%.
       section.noTopPad
-        .web
+        .web.video
           .head
             .nav
             .url
@@ -42,9 +44,17 @@ block content
           
       section
         h2.themeBackground Reimagining Checkout
-        p We used integrating a new partnership with Paypal as an opportunity to redesign the checkout experience. The previous incarnation used a multi-step accordion interaction that required a user to fill out each section before proceeding to the next. This process was slow, required too many clicks, and didn’t allow for an overview of all checkout options.
-        p For the redesign we wanted to streamline this process and allow fans that had previously purchased tickets to be able to purchase with one click. A one-page design provided a better understanding of where to go and what the required steps were. Options that were hidden behind dropdowns were moved to radio buttons to expose all available choices.
+        p In 2019 Ticketmaster and Paypal launched a new partnership to let fans purchase tickets using Paypal and Paypal Credit. We used integrating this partnership as an opportunity to redesign the checkout experience. The previous incarnation used a multi-step accordion interaction that required a user to complete each section before proceeding to the next. This process was slow, required too many clicks, and didn’t allow for an overview of all checkout options.
+        p For the redesign we wanted to streamline this process and allow fans that had previously purchased tickets to be able to purchase with a single click. A one-page design provided a better understanding of all required steps at a glance. Options that were previously hidden behind dropdowns were moved to radio buttons to expose all available choices.
         p In trial tests the average checkout time went from 4:03 to 3:10 minutes, saving a potential 1,312 days per year across all checkouts.
+      section.noTopPad
+        .web.video
+          .head
+            .nav
+            .url
+          video.lazy(height='auto' width='auto' poster='/images/portfolio/ticketmaster/checkoutDesktopPoster.jpg' autoplay loop muted playsinline)
+            source(data-src='/images/portfolio/ticketmaster/checkoutDesktop.mp4' type='video/mp4')
+
       section.grid.noTopPad
         .half.center
           h3.noMargin Previous Design
@@ -54,12 +64,5 @@ block content
           h3.noMargin New Design
           .mobileModern
             img(src='/images/portfolio/ticketmaster/checkoutMobile.png')
-      section.noTopPad
-        .web.video
-          .head
-            .nav
-            .url
-          video.lazy(height='auto' width='auto' poster='/images/portfolio/ticketmaster/checkoutDesktopPoster.jpg' autoplay loop muted playsinline)
-            source(data-src='/images/portfolio/ticketmaster/checkoutDesktop.mp4' type='video/mp4')
 
   a.nav.sideNav.next(style='background-color:#C56BFF;', href='/ticketmaster-resale') Next

@@ -9,14 +9,14 @@ block content
           li Product_Design
           li Data_Visualization
           li Interactive_Prototyping
-        p #[strong The Problem:] Season ticket holders needed a better way to resell their tickets to the general marketplace. Over 90% of sports and theatre season ticket holders re-sell tickets during the season, but most were changing their sell price several times after listing.
-        p #[strong The Solution:] A complete rethinking of the resale experience to provide sellers with better ticket price information to base their sell price on.
+        p #[strong The Problem:] Season ticket holders needed a better way to resell their tickets to the general marketplace. Over 90% of sports and theatre season ticket holders resell tickets during the season, but most were changing their price several times after listing.
+        p #[strong The Solution:] A complete rethinking of the resale experience to provide sellers with better ticket price data to inform their sell price.
         p #[strong The Results:] Sell through rate of tickets increased by 13%, resulting in $40M gross transaction value. In addition, season ticket holders edited their listings half as much after pricing their tickets more accurately from the beginning.
         hr
       section
         h2.themeBackground A Fresh Start
-        p The previous Resale iteration was a three screen modal. Fans had to complete several extraneous steps to move forward to the next screen, even if they’d sold tickets before. The old incarnation was also designed as a mobile first experience. In looking at our analytics we realized that, although most other products were predominantly viewed on mobile devices, Resale traffic was accessed on desktop nearly 80%. 
-        p Another realization gleaned from analytics was many users instinctively clicked on the pricing chart, although it was not interactive. These discoveries informed our initial design thinking.
+        p The previous Resale iteration was a cumbersome three screen modal. Fans had to complete numerous extraneous steps in order to move forward to the next screen, even if they’d sold tickets before. It was also designed as a mobile first experience. In looking at our analytics we realized that, although most other products were predominantly viewed on mobile devices, Resale traffic was accessed on desktop nearly 80%.
+        p Another realization gleaned from analytics was many users instinctively clicked on the pricing graph, although it was not interactive. These insights informed our initial design direction.
       section.noTopPad
         .web.video
           .head
@@ -40,10 +40,10 @@ block content
       section.grid
         .half
           h2.themeBackground Bringing It All Together
-          p Surfacing current and historical pricing for tickets in a section was paramount. An interactive graph/chart allows sellers to easily adjust their price by moving a slider. Feedback information on price suggestions then corresponds to the listing price, letting sellers know the likelihood of a ticket being sold.
-          p During research we found most season ticket holders are familiar with their section within the stadium layout. They often have several different ticket resale sites open to gauge what the going prices are for comparable sections. For the redesign, we wanted to bring this feature into the experience by adding a section selector map that lets sellers add comparable sections to the pricing graph.
-          p Because of the large variance in the amount of pricing data, we worked with the Data and Machine Learning teams to tune the pricing graph so it provides valuable feedback, even with vastly different sets of data.
-          p Future enhancements based on artificial intelligence and machine learning will be able to automatically adjust the price for the seller (within their parameters) and provide better pricing data. Things like team ranking, weather, and if players were in the news help adjust the data model.
+          p Surfacing current and historical pricing for tickets in a section was paramount. We developed an interactive graph that allows sellers to easily adjust their price by moving a slider. Feedback information on price suggestions then corresponds to the listing price, letting sellers know the likelihood of a ticket being sold.
+          p During research we found that most season ticket holders often have several different ticket resale sites open to gauge what the going prices are for comparable stadium sections. For the redesign, we wanted to bring this feature into the experience by adding a section selector map that lets sellers add comparable sections to their pricing graph.
+          p Because of the large variance in the amount of pricing data, we worked with our internal Data and Machine Learning teams to tune the pricing graph so it provides valuable feedback, even with vastly different sets of data.
+          p Future enhancements based on artificial intelligence and machine learning will be able to automatically adjust the price for the seller (within their parameters) and provide better pricing data. Factors like team ranking, weather, and media attention will help adjust the data model.
         .half.center
           .mobileModern
             img(src='/images/portfolio/tmResale/mobile.png')
