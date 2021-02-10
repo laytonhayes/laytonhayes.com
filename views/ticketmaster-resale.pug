@@ -9,12 +9,14 @@ block content
           li Product_Design
           li Data_Visualization
           li Interactive_Prototyping
-        p The Problem: Season Ticket Holders need a better way to resale their tickets to the general market.
-        p The Solution: A complete redesign taking a holistic approach to.... And add features.
+        p #[strong The Problem:] Season ticket holders needed a better way to resell their tickets to the general marketplace. Over 90% of sports and theatre season ticket holders re-sell tickets during the season, but most were changing their sell price several times after listing.
+        p #[strong The Solution:] A complete rethinking of the resale experience to provide sellers with better ticket price information to base their sell price on.
+        p #[strong The Results:] Sell through rate of tickets increased by 13%, resulting in $40M gross transaction value. In addition, season ticket holders edited their listings half as much after pricing their tickets more accurately from the beginning.
         hr
       section
         h2.themeBackground A Fresh Start
-        p The previous Resale iteration was was designed as a mobile first experience. In looking at our analytics we realized that, although most other pages were predominantly viewed on mobile devices, Resale traffic was accessed on desktop nearly 80%. Something else gleaned from analytics was many users instinctively clicked on the pricing chart, although it was not interactive. Using this and other analytics data we set out to reimagine the experience of pricing, listing, and managing Resale Tickets.
+        p The previous Resale iteration was a three screen modal. Fans had to complete several extraneous steps to move forward to the next screen, even if they’d sold tickets before. The old incarnation was also designed as a mobile first experience. In looking at our analytics we realized that, although most other products were predominantly viewed on mobile devices, Resale traffic was accessed on desktop nearly 80%. 
+        p Another realization gleaned from analytics was many users instinctively clicked on the pricing chart, although it was not interactive. These discoveries informed our initial design thinking.
       section.noTopPad
         .web.video
           .head
@@ -25,7 +27,8 @@ block content
 
       section
         h2.themeBackground Putting It to the Test
-        p Early in the design process we knew we wanted to validate some key interaction assumptions before diving too deep into design. Because traditional clickable prototypes like Invision wouldn't suffice in mocking up interactions, I chose to use Framer for the interactive prototype. This allowed us to quickly code up interactions without building a whole interactive site. Because our design system is React based, we could quickly import the actual assets into Framer for realistic design and interactivity. In testing with real season ticket holders, the reactions were fantastic and helped us validate our assumptions and gain a better understanding of what future features fans would like to see.
+        p Early in the design process we knew we wanted to validate some key interaction assumptions before diving too deep into design. Because traditional clickable prototypes like #[a(href='https://www.invisionapp.com/' target='blank') Invision] wouldn't suffice in mocking up complex interactions, I chose #[a(href='https://www.framer.com/blog/posts/case-study-ticketmaster/' target='blank') Framer] to build the interactive prototype. Framer allowed us to quickly mockup interactions without coding a full site. Since #[a(href='https://design.ticketmaster.com/components/overview/' target='blank') Ticketmaster’s design system] is React based, we quickly imported the actual components into Framer for realistic design and interactivity.
+        p After several testing sessions with season ticket holders we were able validate our assumptions and gain a better understanding of what future features fans would like to see.
       section.noTopPad
         .web.video
           .head
@@ -37,8 +40,10 @@ block content
       section.grid
         .half
           h2.themeBackground Bringing It All Together
-          p Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec id elit non mi porta gravida at eget metus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur.
-          p Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+          p Surfacing current and historical pricing for tickets in a section was paramount. An interactive graph/chart allows sellers to easily adjust their price by moving a slider. Feedback information on price suggestions then corresponds to the listing price, letting sellers know the likelihood of a ticket being sold.
+          p During research we found most season ticket holders are familiar with their section within the stadium layout. They often have several different ticket resale sites open to gauge what the going prices are for comparable sections. For the redesign, we wanted to bring this feature into the experience by adding a section selector map that lets sellers add comparable sections to the pricing graph.
+          p Because of the large variance in the amount of pricing data, we worked with the Data and Machine Learning teams to tune the pricing graph so it provides valuable feedback, even with vastly different sets of data.
+          p Future enhancements based on artificial intelligence and machine learning will be able to automatically adjust the price for the seller (within their parameters) and provide better pricing data. Things like team ranking, weather, and if players were in the news help adjust the data model.
         .half.center
           .mobileModern
             img(src='/images/portfolio/tmResale/mobile.png')
@@ -50,4 +55,5 @@ block content
           video.lazy(height='auto' width='auto' poster='/images/portfolio/tmResale/fullDemoPoster.png' autoplay loop muted playsinline)
             source(data-src='/images/portfolio/tmResale/fullDemo.mp4' type='video/mp4')
 
-  a.nav.sideNav.next(style='background-color:#026CDF;', href='/ticketmaster') Next
+  a.nav.sideNav.prev(style='background-color:#026CDF;', href='/ticketmaster') Prev.
+  a.nav.sideNav.next(style='background-color:#1B1B1B;', href='/nike') Next

@@ -6,14 +6,18 @@ block content
       section
         h1.themeColor Ticketmaster
         ul.workList.themeColor
+          li Creative_Direction
           li Product_Design
-        p Have the opportunity to lead a team of talented designers and guide the direction of new products and refresh existing products and pages. I can to Ticketmaster as a contractor to help with a specific project but wound up loving the people and culture and decided to join full time.
+          li Usability_Testing
+        p At Ticketmaster I lead a team of talented designers to guide the direction of new products and refresh existing pages for the season ticket management product. Over 900 professional and university sports teams, along with theatres and symphonies use Account Manager for ticket sales and management across the globe.
       section.grid
         .half
-          h2.themeBackground Making the Connection
+          h2.themeBackground Merging Accounts
           p Linking millions of accounts is a delicate process, especially without an option to undo.
-          p Merging millions of accounts is more complicated than it sounds... Over 900 season ticket sites had their own authentication not tied to Ticketmaster. For future products to function they needed to be brought into the Ticketmaster ecosystem. This meant a progressive rollout to over a million active accounts during the off season for each sports team and theatre. 
-          p The main challenge for this project was not the front end, but how to manage several dozen edge cases that could potentially keep a fan from attending their favorite game or performance.
+          p Over 900 season ticket sites had their own authentication not tied to Ticketmaster. For future products to effectively work, they needed to be brought into the Ticketmaster ecosystem. This meant a progressive rollout to over two million active accounts during the off season for each sports team and theatre.
+          p The main challenge for this project was not the front end, but how to manage several dozen edge cases that could potentially keep a fan from attending their favorite game or performance. Before one pixel was laid down we conducted an audit of all parter sites’ security and login credential protocols. We also surveyed hundreds of active season ticket holders to better understand their perspective. In doing so, we realized that auto-linking accounts could be potentially dangerous and alarming to the fans. After that, we went about crafting a solution that allowed fans to easily link their Account Manager account with their Ticketmaster credentials.
+          p Flows were made of the entire ecosystem and all use cass permutations to give us a sense of what screens needed to be designed. From there, we designed screens that would allow the least amount of steps and user input necessary. Finally, we worked with our partners to craft messaging to educate fans beforehand, along with a roll out strategy.
+          p In the end, millions of accounts were linked allowing season ticket holders to more seamlessly manage and access their tickets.
         .half.center
           .mobileModern
             video.lazy(height='auto' width='auto' poster='/images/portfolio/ticketmaster/modernAccountsMobilePoster.png' autoplay loop muted playsinline)
@@ -23,7 +27,11 @@ block content
       
       section
         h2.themeBackground Virtual Venue
-        p Early in the design process we knew we wanted to validate some key interaction assumptions before diving too deep into design. Because traditional clickable prototypes like Invision wouldn't suffice in mocking up interactions, I chose to use Framer for the interactive prototype. This allowed us to quickly code up interactions without building a whole interactive site. Because our design system is React based, we could quickly import the actual assets into Framer for realistic design and interactivity. In testing with real season ticket holders, the reactions were fantastic and helped us validate our assumptions and gain a better understanding of what future features fans would like to see.
+        p Virtual Venue is a Ticketmaster acquisition that allows fans to see photo realistic renders of stadiums, event centers, and theatres, along with a 360-degree view from any seat in the house. My first project at Ticketmaster was to integrate this technology into the Account Manager buy flow.
+        p While the majority of Account Manager traffic is mobile, one section that is viewed on desktop over 85% is purchasing or upgrading season tickets. Fans that spend thousands of dollars on their favorite team want to see what the view from seat looks like, along with amenities and perks.
+        p Because the majority of real estate is taken up by the stadium renders, our traditional design components had to be rethought. Ticketmaster brand colors needed to take a back seat to not clash with team colors. A more neutral, video game inspired set of components was created.
+        p One thing we learned during our research is fans buying tickets often wanted to see what tickets were going for in comparable sections. This is often sections directly across the stadium. To allow for quickly comparing sections, we added the ability to see ticket prices in the 360-degree view and link to that section for details. In addition, fans can also add up to three sections for comparison in a more traditional table view.
+        p After the Virtual Venue integration, average season ticket transaction prices went up 4%.
       section.noTopPad
         .web
           .head
@@ -33,15 +41,15 @@ block content
             source(data-src='/images/portfolio/ticketmaster/vvDesktop.mp4' type='video/mp4')
           
       section
-        h2.themeBackground Checkout Redesign
-        p Curabitur blandit tempus porttitor. Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla. Nullam id dolor id nibh ultricies vehicula ut id elit. Curabitur blandit tempus porttitor. Curabitur blandit tempus porttitor. Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla. Nullam id dolor id nibh ultricies vehicula ut id elit. Curabitur blandit tempus porttitor.
+        h2.themeBackground Reimagining Checkout
+        p We used integrating a new partnership with Paypal as an opportunity to redesign the checkout experience. The previous incarnation used a multi-step accordion interaction that required a user to fill out each section before proceeding to the next. This process was slow, required too many clicks, and didn’t allow for an overview of all checkout options.
+        p For the redesign we wanted to streamline this process and allow fans that had previously purchased tickets to be able to purchase with one click. A one-page design provided a better understanding of where to go and what the required steps were. Options that were hidden behind dropdowns were moved to radio buttons to expose all available choices.
+        p In trial tests the average checkout time went from 4:03 to 3:10 minutes, saving a potential 1,312 days per year across all checkouts.
       section.grid.noTopPad
         .half.center
           h3.noMargin Previous Design
           .mobileModern
             img(src='/images/portfolio/ticketmaster/checkoutMobileOld.png')
-          p Some words??? Paypal partnership added. Moved all content up front, removing the previous accordian style stepped process, alowing fans to see everything on one screen.
-          p Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec ullamcorper nulla non metus auctor fringilla. Nullam id dolor id nibh ultricies vehicula ut id elit.
         .half.center
           h3.noMargin New Design
           .mobileModern
@@ -54,5 +62,4 @@ block content
           video.lazy(height='auto' width='auto' poster='/images/portfolio/ticketmaster/checkoutDesktopPoster.jpg' autoplay loop muted playsinline)
             source(data-src='/images/portfolio/ticketmaster/checkoutDesktop.mp4' type='video/mp4')
 
-  a.nav.sideNav.prev(style='background-color:#C56BFF;', href='/ticketmaster-resale') Prev.
-  a.nav.sideNav.next(style='background-color:#1B1B1B;', href='/nike') Next
+  a.nav.sideNav.next(style='background-color:#C56BFF;', href='/ticketmaster-resale') Next
