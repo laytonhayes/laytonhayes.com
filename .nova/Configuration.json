@@ -1,0 +1,6 @@
+{
+  "workspace.name" : "laytonhayes.com",
+  "workspace.preview_root" : ".",
+  "workspace.preview_type" : "custom",
+  "workspace.preview_url" : "localhost:3000"
+}
