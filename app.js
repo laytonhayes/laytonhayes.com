@@ -45,6 +45,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-app.listen(3000);
-console.log ('portolfio running at localhost:3000');
+app.listen(8002);
+console.log ('portolfio running at localhost:8002');
 module.exports = app;
