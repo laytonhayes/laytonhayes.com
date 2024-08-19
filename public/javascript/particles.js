@@ -13,8 +13,8 @@ function danceParticles(backgroundC, dotC) {
 	var r = 800;
 	var rHalf = r / 2;
 	var minDistance = 120
-  var tex = new THREE.TextureLoader().load("/images/orb.png");  
-  var canvas = $('#particles')[0];
+    var tex = new THREE.TextureLoader().load("/images/orb.png");  
+    var canvas = $('#particles')[0];
   
   
 	function initOrbs() {
@@ -29,7 +29,7 @@ function danceParticles(backgroundC, dotC) {
 		colors = new Float32Array( segments * 3 );
 		
 		// allow the mouse to control scene
-    // var controls = new THREE.OrbitControls( camera, canvas );
+        // var controls = new THREE.OrbitControls( camera, canvas );
 
 		var pMaterial = new THREE.PointsMaterial( {
 			color: dotC,
