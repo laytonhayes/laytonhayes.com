@@ -1,0 +1,15 @@
+extends layout
+block append head
+  title= 'The added string'
+
+block content
+  #page(data-theme='#2557A7')
+    section
+      h1.themeColor Test page
+      form(action = "/checkCode", method = "POST")
+       br
+       div
+          label(for = "code") Code:
+          input(name = "code" placeholder = "Enter access code")
+       br
+       button(type = "submit") Submit

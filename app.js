@@ -1,12 +1,12 @@
 var express = require('express');
+var app = express();
 var path = require('path');
 var favicon = require('serve-favicon');
 var bodyParser = require('body-parser');
 var stylus = require('stylus');
 
+// point to the router
 var index = require('./routes/index');
-
-var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -14,7 +14,7 @@ app.set('view engine', 'pug');
 
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(stylus.middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -24,6 +24,13 @@ app.use((req, res, next) => {
   res.set('Cache-Control', 'no-store')
   next()
 })
+
+// test for access code
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+app.use(cookieParser());
+app.use(session({secret: "bang"}));
+
 
 // call the router
 app.use('/', index);
@@ -46,5 +53,5 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 app.listen(8002);
-console.log ('portolfio running at localhost:8002');
-module.exports = app;
+console.log ('portfolio running at localhost:8002');
+// module.exports = app;
