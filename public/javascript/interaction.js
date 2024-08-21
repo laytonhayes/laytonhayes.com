@@ -21,9 +21,12 @@ $(document).ready(function() {
     $('a.nav').unbind('click').click(function(event){
       event.preventDefault();
       var link = $(this).attr('href');
-      ajaxLoad(link);
-      window.history.pushState('', '', link);
-      _gaq.push(['_trackPageview', link]);
+      if (link == '/indeed') {
+        console.log('test the session, pop the modal if not active');
+      } else {
+        ajaxLoad(link);
+        window.history.pushState('', '', link);
+      }
     });
   }
   function ajaxLoad(url) {

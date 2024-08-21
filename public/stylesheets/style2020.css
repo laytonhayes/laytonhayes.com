@@ -250,6 +250,10 @@ a.big:hover .arrow:after {
   background: #f170ab;
   transition: all 0.1s linear 0.2s;
 }
+.error {
+  color: #fff;
+  background: #f00;
+}
 h1 {
   font: 5.8rem/5rem 'Brandon Light', sans-serif;
   letter-spacing: -0.05em;
