@@ -28,30 +28,31 @@ function ajaxTest(req){
 }
 
 // test for access code
-var cookieParser = require('cookie-parser');
 var session = require('express-session');
-app.use(cookieParser());
-app.use(session({secret: "bang"}));
+app.use(session({
+    secret: 'bang', // used to sign the session ID cookie
+    resave: false, // do not save the session if it's not modified
+    saveUninitialized: false // do not save new sessions that have not been modified
+}));
 // check if access code has been entered
 function checkSignIn(req, res, next){
    if(req.session.code){
-      console.log('active! code is '+req.session.code);
       next();
    } else {
-      console.log('NO! '+req.session.code);
       var err = new Error("Not logged in!");
       next(err);  //Error, trying to access unauthorized page!
    }
 }
 app.post('/checkCode', function(req, res){
+  var codeCheck = {
+    valid: false
+  };
   if(req.body.code == 'indeed2024'){
     req.session.code = true;
-    res.redirect('/indeed');
+    codeCheck.valid = true;
+    res.send(codeCheck);
   } else {
-    console.log('wrong code!');
-    res.render('dynamic', {
-        error: "TutorialsPoint", 
-     });
+    res.send(codeCheck);
   }
 });
 

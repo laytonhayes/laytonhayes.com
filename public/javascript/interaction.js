@@ -21,8 +21,62 @@ $(document).ready(function() {
     $('a.nav').unbind('click').click(function(event){
       event.preventDefault();
       var link = $(this).attr('href');
+      
+      // test is protected page
       if (link == '/indeed') {
-        console.log('test the session, pop the modal if not active');
+        $.ajax({
+          url: '/indeed',
+          success: function() {
+            // code already entered - proceed
+            ajaxLoad(link);
+            window.history.pushState('', '', link);
+          },
+          error: function(error) {
+            // show code input modal
+            $('#content').addClass('blur');
+            $('#modal').addClass('show');
+            $.ajax({
+              type:    'GET',
+              url:     '/enter-code',
+              timeout: 5000,
+              success: function(d){
+                $('#modal .content').html(d);
+                $('#modal').addClass('active');
+                $('#inputCode').focus().on("keyup", function(e) {
+                  if ($(this).val().length > 0) {
+                    $('form').addClass('valid')
+                  } else {
+                    $('form').removeClass('valid')
+                  }
+                })
+                $('#codeForm').submit(function(event) {
+                  var formData = {
+                    code: $("#inputCode").val()
+                  }
+                  $.ajax({      
+                    type: 'POST',
+                    url: '/checkCode',
+                    data: formData,
+                    dataType: 'json',
+                    encode: true,
+                  }).done(function(d) {
+                    if(!d.valid) {
+                      $('#error').addClass('active')
+                    } else {
+                      window.location.href = '/indeed'
+                    }
+                  });
+                  event.preventDefault();
+                });
+              }
+            })
+            $('#modal .scrim').on( 'click', function() {
+              $('#modal').removeClass('show');
+              $('#content').removeClass('blur');
+            } );
+          }
+        });
+        
       } else {
         ajaxLoad(link);
         window.history.pushState('', '', link);
@@ -162,7 +216,7 @@ $(document).ready(function() {
   function scroller() {
     heading = []; // array of sticky h2s
     revealArray = [];
-    base = 0; // where on scroll to reveal "next" button
+    base = 0; // where on scroll to reveal 'next' button
     o = 400;
     
     // load all h2 into an array to make sticky
@@ -181,7 +235,7 @@ $(document).ready(function() {
       reveal.find('img').css('max-width', $(this).width());
     });
   
-    // wait until all elements are loaded to get the window height, then automatically show "next" arrow on scroll
+    // wait until all elements are loaded to get the window height, then automatically show 'next' arrow on scroll
     if ($('a.sideNav.next').length > 0) {
       base = ($('body').height() - $(window).height()) - 200;
     }

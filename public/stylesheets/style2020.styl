@@ -6,6 +6,10 @@ $black =        #000000
 $white =        #FFFFFF
 $blue =         #32CCD6
 $pink =         #F170AB
+$red =          #F60B0B
+
+/* STYLES */
+$radii =         1.6rem
 
 /* GRID */
 $pageMargin =   7rem
@@ -109,6 +113,11 @@ body
       height: 4px
   &.home
     background: $pink
+
+#content
+  transition: filter .4s
+  &.blur
+    filter: blur(5px)
 p
   max-width: 88rem
   margin-bottom: 2rem
@@ -205,10 +214,6 @@ a.big
         height: 3rem
         background: $pink
         transition: all .1s linear .2s
-        
-.error
-  color: white
-  background: red 
       
 h1
   font: 5.8rem/5rem 'Brandon Light', sans-serif
@@ -272,6 +277,79 @@ hr
     transform: scale(1.05);
   }
 }
+
+/* MODAL */
+#modal
+  display: none
+  position: fixed
+  height: 100vh
+  width: 100vw
+  top: 0
+  left: 0
+  .scrim
+    background: white
+    opacity: 0
+    transition: opacity 5s
+    width: 100%
+    height: 100%
+  .content
+    opacity: 0
+    transition: opacity .4s
+    width: 52rem
+    padding: 2.4rem
+    background: white
+    box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.5)
+    border-radius: $radii
+    position: absolute
+    top: 10rem;
+    left: calc(50% - 52rem/2)
+    form
+      display: flex
+      justify-content: space-between
+      align-items: center 
+      height: 4rem
+      margin: 4rem 0 .5rem 0
+      input
+        flex: auto
+        height: 100%
+        border: 2px solid $darkGray;
+        border-right: none
+        border-radius: 2rem 0 0 2rem
+        box-sizing: border-box
+        padding: 0 1.6rem
+        font: 2rem/2.8rem 'Brandon Medium', sans-serif
+        color: $darkGray
+      ::placeholder
+        color: $lightGray
+      button
+        cursor: pointer
+        transition: background .4s
+        background: url('/images/arrowNext.svg') no-repeat center center $gray
+        color: white
+        height: 100%
+        min-width: 10rem
+        border: 2px solid $darkGray;
+        border-left: none
+        border-radius: 0 2rem 2rem 0
+        text-indent: -9999rem
+      &.valid button
+        background-color: $darkGray
+    #error
+      display: none
+      &.active
+        display: inline
+        color: $red
+        font-size: 1.6rem
+        margin-top: .8rem
+  &.show  
+    display: block
+  &.active
+    .scrim
+      opacity .5
+    .content
+      opacity 1
+
+
 
 /* GRID LAYOUT */
 #page
@@ -654,7 +732,7 @@ section.portfolio
     overflow: visible
   // scroll the page tiles up as the come into viewport
   a.portBlock
-    border-radius: 4px
+    border-radius: $radii
     opacity: 0
     box-shadow: 0 2px 16px rgba(0,0,0,.3)
     height: 42rem
@@ -709,6 +787,7 @@ section.portfolio
         left: 1.4rem
         top: 1.4rem
     .border
+      border-radius: $radii
       border-width: .5rem
       border-style: solid
       position: absolute
