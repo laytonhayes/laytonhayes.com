@@ -1,12 +1,56 @@
 extends layout
 
 block content
-  #page(data-theme='#2557A7')
+  #page(data-theme='#003A9B')
     header
       section
         h1.themeColor Indeed
         ul.workList.themeColor
-          li Tings + Tongs
-        p This *should* be a protected page.
+          li Cross_Team_Unification
+          li Strategic_Roadmaps
+          li User_Narratives
+        p Crafting cohesive experiences with siloed design teams spread across the globe can be a challenge. As part of Indeed's newly assembled end-to-end innovation team, this is exactly what I set out to do.
+        p Indeed's existing employer experience was seeing a steep dropoff in satisfaction scores the longer customers used the product. Rather than incremental improvements, we proposed a complete rethinking of how employers source, review, and interview job seekers.
+        hr
+
+    section
+      h2.themeBackground High Level Concepts
+      .flex
+        div
+          p Before diving into the design process, we wanted to fully understand how employers were using the current platform - and, more importantly, what features they felt were lacking. We worked with our Research team to create user sentiment analysis of potential new concepts to determine which areas to prioritize. Some features that had the most prominence were:
+          ul.list
+            li Using Generative AI to contact, summarize, and compare candidates
+            li Easily leverage analytics to maximize job posting performance and see the holistic hiring funnel
+            li Collaborate with hiring teams across multiple channels
+        img(src='/images/portfolio/indeed/candidatePool.png', style='max-width: 736px; object-fit: contain')
+      p The first design challenge was to develop high level concepts that product + design teams would use as a northstar to refine designs for their specific vertical. These early concept designs were presented at Indeed's annual FutureWorks Conference Keynote to announce the new product and help identify strategic partners to alpha-test the redesign. This allowed our team to get constant, real-world feedback on design and functionality from real customers.
+    section.noTopPad
+      .web
+        .head
+          .nav
+          .url
+        img(src='/images/portfolio/indeed/interview.png')
+    section.noTopPad
+      .web
+        .head
+          .nav
+          .url
+        img(src='/images/portfolio/indeed/analytics.png')
+        
+    section
+        h2.themeBackground Creating a Unified Vision
+        p Bringing the concept designs to reality would take coordinating with almost every design team at Indeed, nearly 200 people. Because of the generally siloed structure and minimal intra-team collaboration, the first step was to map teams and responsibilities. I developed a living ecosystem map that identified key partners from each group and visually outlined workflow and responsibilities. This quickly became an invaluable resource used by all team members to communicate who owned what and flag any coverage gaps or potential blockers.
+    img.full(src='/images/portfolio/indeed/map.png') 
+    section.flex
+      p Because of the numerous, specialized teams involved, a cohesive end-to-end framework was needed to avoid disjointed and overly complex product surfaces. To ensure alignment across all teams, we created the Canonical Narrative Framework. The Narrative Framework established a core set of critical characters and their highest priority goals to define cohesive cross-product journeys. Success metrics were then agreed upon, benchmarked, and regularly assessed for each defined journey. This framework was paramount in bringing teams' thinking out of their silos and humanizing the characters' goals. 
+      img(src='/images/portfolio/indeed/narrativeFrameworkSummary.png', style='max-width: 720px; object-fit: contain; margin-left: 4rem')
+
+    section
+      h2.themeBackground A Welcoming Start
+      p Indeed's previous iteration had one entry point for employers: post a job. Because of the new design's collaboration features, many different types of users would be coming in for many different reasons. We developed a new Onboarding Framework that could handle multiple entry points in order to coordinate first-use and activation across product and design teams. Working closely with Sales and Marketing, we defined a list of entry points and user handoffs between teams. These were coordinated between product and design teams using the Canonical Narrative Framework to ensure smooth, welcoming, and efficient guidance in helping users achieve what they came to do, quickly.
+      img(src='/images/portfolio/indeed/launcher.svg')
+    section.noBottomPad.noTopPad
+      h3.noMargin Onboarding flows based on the Narrative Framework [<a href='https://www.figma.com/design/v591yiWmKJVw5wufJgetjS/Horizon-Onboarding?node-id=629-20743&t=nc6yI7h7P4SHQGCI-1' target='_blank'>Figma</a>]
+    img.full(src='/images/portfolio/indeed/storyFlows.png')
 
   a.nav.sideNav.next(style='background-color:#C56BFF;', href='/ticketmaster-resale') Next

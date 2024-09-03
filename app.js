@@ -5,7 +5,7 @@ var favicon = require('serve-favicon');
 var bodyParser = require('body-parser');
 var stylus = require('stylus');
 
-//--!! view engine setup
+/* VIEW ENGINE SETUP */
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(stylus.middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
-//--!! router
+/* ROUTER */
 var baseTitle = ' : Layton Hayes';
 var isAJAX = false;
 // test if an AJAX request and set global variable
@@ -26,7 +26,6 @@ function ajaxTest(req){
   }
   return isAJAX;
 }
-
 // test for access code
 var session = require('express-session');
 app.use(session({
@@ -43,6 +42,7 @@ function checkSignIn(req, res, next){
       next(err);  //Error, trying to access unauthorized page!
    }
 }
+// check code endpoint
 app.post('/checkCode', function(req, res){
   var codeCheck = {
     valid: false
@@ -55,7 +55,7 @@ app.post('/checkCode', function(req, res){
     res.send(codeCheck);
   }
 });
-
+// index routing
 app.get('/', function(req, res){
   ajaxTest(req);
   res.render('index', {
@@ -78,9 +78,6 @@ app.get('/:id', function(req, res){
     isAJAX : isAJAX
   });
 });
-
-
-
 
 
 // TODO catch 404 and forward to error handler
