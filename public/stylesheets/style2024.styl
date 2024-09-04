@@ -23,6 +23,7 @@ $footerH =      40rem
 $xs-max =       767px
 $md-min =       $xs-max + 1
 $md-max =       1024px
+$lg-min =       1240px
 $xl-min =       1400px
 
 /* Z-INDEX */
@@ -258,6 +259,8 @@ h2
 h3
   font: 3.2rem/3.2rem 'Brandon', sans-serif
   margin-bottom: 2rem
+  @media (max-width: $xs-max)
+    font-size: 2.4rem
   a
     border-bottom: 2px dotted $darkGray
     color: $darkGray
@@ -380,6 +383,13 @@ section
 &.flex
   display: flex
   align-items: flex-start
+  max-width: 150rem
+  @media (max-width: $lg-min)
+    flex-direction: column
+  &.flexGap
+    column-gap: 4rem
+  img
+    width: 100%
   
 &.grid
   padding-left: 0
@@ -880,27 +890,29 @@ section.profile
   right: 0
   z-index: $z-footer
 
+/* INDEED */
+.shadowOffset
+  @media (max-width: $lg-min)
+    margin-left: -48px
+  @media (max-width: $xs-max)
+    margin-left: -24px !important
+
 /* TAPE STACKS */
-section.tapestacksCity {
+section.tapestacksCity
   height: 40rem
   padding: 0
   margin: -10rem 0 0 0
   background-image: url('/images/portfolio/tapeStacks/cityscape.svg'), url('/images/portfolio/tapeStacks/cityscapeStripes.svg')
   background-position: bottom left, bottom
   background-repeat: no-repeat, repeat-x
-  @media (max-width: $md-max) {
+  @media (max-width: $md-max)
     margin: 0
-  }
-  @media (max-width: $xs-max) {
+  @media (max-width: $xs-max)
     height: 8rem
     background-size: 42rem, 8.22rem
     padding-bottom: 24rem
-  } 
-}
 
 /* VINTAGE PAGES */
-div#page.vintage {
-  div.web {
+div#page.vintage
+  div.web
     max-width: 1200px
-  }
-}

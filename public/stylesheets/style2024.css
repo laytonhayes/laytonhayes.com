@@ -317,6 +317,11 @@ h3 {
   font: 3.2rem/3.2rem 'Brandon', sans-serif;
   margin-bottom: 2rem;
 }
+@media (max-width: 767px) {
+  h3 {
+    font-size: 2.4rem;
+  }
+}
 h3 a {
   border-bottom: 2px dotted #5c5c5c;
   color: #5c5c5c;
@@ -441,6 +446,18 @@ section {
 .flex {
   display: flex;
   align-items: flex-start;
+  max-width: 150rem;
+}
+@media (max-width: 1240px) {
+  .flex {
+    flex-direction: column;
+  }
+}
+.flex.flexGap {
+  column-gap: 4rem;
+}
+.flex img {
+  width: 100%;
 }
 .grid {
   padding-left: 0;
@@ -1100,6 +1117,17 @@ section.profile {
   left: 0;
   right: 0;
   z-index: 1;
+}
+/* INDEED */
+@media (max-width: 1240px) {
+  .shadowOffset {
+    margin-left: -48px;
+  }
+}
+@media (max-width: 767px) {
+  .shadowOffset {
+    margin-left: -24px !important;
+  }
 }
 /* TAPE STACKS */
 section.tapestacksCity {
