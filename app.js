@@ -97,5 +97,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-app.listen(8002);
-console.log ('portfolio running at localhost:8002');
+app.listen(3000);
+console.log ('portfolio running at localhost:3000');
