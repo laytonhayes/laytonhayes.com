@@ -33,15 +33,15 @@ $(document).ready(function() {
           },
           error: function(error) {
             // show code input modal
+            $('<dialog id=modal></dialog>').insertAfter('#content');
             $('#content').addClass('blur');
-            $('#modal').addClass('show');
+            $('#modal').addClass('show').attr('open');
             $.ajax({
               type:    'GET',
               url:     '/enter-code',
               timeout: 5000,
               success: function(d){
-                $('#modal .content').html(d);
-                $('#modal').addClass('active');
+                $('#modal').html(d).addClass('active');
                 $('#inputCode').focus().on("keyup", function(e) {
                   if ($(this).val().length > 0) {
                     $('form').addClass('valid')
